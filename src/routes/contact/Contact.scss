@@ -1,0 +1,48 @@
+@import '../../components/variables.scss';
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css';
+
+.root {
+
+}
+
+.container {
+  margin: 0 auto;
+
+  padding: 5%;
+  margin: 0 auto;
+  font-size: 1.8em;
+  width: 100%;
+  height: 100%;
+
+  p {
+    margin: 0;
+  }
+}
+
+.Header, .Body, .Footer {
+  margin-bottom: 2em;
+}
+
+.Header {
+  lost-flex-container: row;
+  margin-bottom: 1em;
+  justify-content: space-between;
+}
+
+.Body {
+  position: relative;
+}
+
+@media (min-width: $screen-sm-min) {
+  .container {
+    width: $screen-sm-min;
+    font-size: 2.4em;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .container {
+    width: $screen-md-min;
+    font-size: 3em;
+  }
+}

@@ -1,0 +1,52 @@
+@import '../variables.scss';
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css';
+
+nav {
+  lost-flex-container: row;
+  align-items: center;
+  justify-content: center;
+
+  .divider {
+    font-size: .5em;
+    vertical-align: middle;
+    margin: 0;
+  }
+
+  .item {
+    margin: 0 .5em;
+
+    span {
+      display: none;
+    }
+  }
+}
+
+.bottom {
+  .item {
+    flex-grow: 1;
+    text-align: center;
+
+    a {
+      i {
+          color: #333;
+          transition: color 300ms;
+      }
+      span {
+        display: inline-block;
+        margin-left: .5em;
+        text-decoration: underline;
+      }
+
+      &:hover {
+        i {
+          color: $blue-base;
+          transition: color 300ms;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+
+}

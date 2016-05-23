@@ -1,0 +1,47 @@
+@import '../../components/variables.scss';
+
+.root {
+
+}
+
+.container {
+  margin: 0 auto;
+
+  padding: 5%;
+  margin: 0 auto;
+  font-size: 1.8em;
+  width: 100%;
+  height: 100%;
+
+  p {
+    margin: 0 0 .5em 0;
+  }
+
+  ul {
+    margin: 0 0 2em 0;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+      margin-bottom: .2em;
+    }
+  }
+}
+
+.Header, .Body, .Footer {
+  margin-bottom: 2em;
+}
+
+@media (min-width: $screen-sm-min) {
+  .container {
+    width: $screen-sm-min;
+    font-size: 2.4em;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .container {
+    width: $screen-md-min;
+    font-size: 3em;
+  }
+}

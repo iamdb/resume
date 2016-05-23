@@ -1,0 +1,74 @@
+@import '../variables.scss';
+
+#contactForm {
+  .fields {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    & > div {
+      flex-grow: 1;
+    }
+
+    input, textarea {
+      border: 1px solid color(green lightness(+30%));
+      padding: .5em;
+      outline: none;
+      width: 100%;
+      margin-bottom: 1em;
+
+      &.error {
+        border: 1px solid #ebebeb;
+      }
+    }
+  }
+
+  button {
+    border: 1px solid hsla(0,0%,50%,1);
+    background: $blue-base;
+    color: #ebebeb;
+    outline: none;
+    padding: .5em;
+    line-height: 1em;
+    margin: 0;
+
+    &[disabled] {
+      color: hsla(0,0%,50%,1);
+      border-color: hsla(0,0%,80%,1);
+      background-color: transparent;
+    }
+  }
+}
+
+.thankyou {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+}
+
+.success {
+  form {
+    visibility: hidden;
+  }
+
+  .thankyou {
+    display: block;
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  button {
+    font-size: .75em;
+  }
+}

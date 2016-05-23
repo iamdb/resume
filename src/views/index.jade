@@ -1,0 +1,35 @@
+doctype html
+html(class="no-js", lang="")
+  head
+    script(src='https://use.typekit.net/ggr5teb.js')
+    script.
+      try{Typekit.load({ async: true });}catch(e){}
+    meta(charset="utf-8")
+    meta(http-equiv="x-ua-compatible", content="ie=edge")
+    title= title
+    meta(name="description", description=description)
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    // Standard Favicon
+    link(rel='icon', type='image/png', href='/favicon.png')
+    // For iPhone 4 Retina display:
+    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='/apple-touch-icon-114x114-precomposed.png')
+    // For iPad:
+    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='/apple-touch-icon-72x72-precomposed.png')
+    // For iPhone:
+    link(rel='apple-touch-icon-precomposed', href='/apple-touch-icon-57x57-precomposed.png')
+    meta(property='og:title', content='David Benjamin')
+    meta(property='og:site_name', content='David Benjamin')
+    meta(property='og:url', content='https://iamdb.co')
+    meta(property='og:description', content='')
+    meta(property='fb:app_id', content='')
+    meta(property='og:type', content='website')
+    meta(property='og:image', content='https://iamdb.co/ogimage.png')
+    style#css!= css
+  body
+    #app!= body
+    script(src=entry)
+    script.
+      window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+      ga('create','#{trackingId}','auto');ga('send','pageview')
+    if trackingId
+      script(src="https://www.google-analytics.com/analytics.js", async=true, defer=true)
