@@ -23,6 +23,7 @@ function Home({path}) {
             <li><a href="http://go-vmware.com/vmworld2014/" target="_blank">VMworld Europe</a></li>
             <li><a href="http://arresteddevelopment.wikia.com/wiki/You're_Gonna_Get_Some_Walk-Ons_fan_contest" target="_blank"><em>Arrested Development</em>'s You're Gonna Get Some Walk-Ons</a></li>
           </ul>
+          <p><i className="fa fa-github"></i> <a href="https://github.com/iamdb" target="_blank">GitHub</a></p>
           <p><i className="fa fa-linkedin"></i> <a href="https://www.linkedin.com/in/davidabenjamin" target="_blank">LinkedIn</a></p>
           <p><i className="fa fa-file-text-o"></i> <a href="/docs/David_Benjamin_Resume.pdf" target="_blank">Resume</a></p>
         </div>
