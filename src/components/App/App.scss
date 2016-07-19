@@ -1,5 +1,5 @@
 @import '../../../node_modules/normalize.css/normalize.css';
-@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css';
+@import 'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css';
 
 /*! React Starter Kit | MIT License | https://www.reactstarterkit.com/ */
 
@@ -22,30 +22,18 @@ html {
   font-weight: 400;
   font-size: 62.5%;
   font-family: $font-family-base;
+  font-weight: 300;
   line-height: 1.375;
-  width: 100%;
-  height: 100%;
   background-color: #ebebeb;
 }
 
 body {
-  width: 100%;
-  height: 100%;
-}
-
-a {
-  color: $blue-base;
-  transition: color 300ms;
-
-  &:hover {
-    color: hsla(0, 0%, 50%, 1);
-    transition: color 300ms;
-  }
+  visibility: hidden;
 }
 
 .copyright {
   text-align: center;
-  margin: 5em 0;
+  padding: 10em 0 5em;
 }
 
 /*
@@ -57,12 +45,14 @@ a {
  */
 
 ::-moz-selection {
-  background: #b3d4fc;
+  color: #333;
+  background: #333;
   text-shadow: none;
 }
 
 ::selection {
-  background: #b3d4fc;
+  color: #ebebeb;
+  background: #333;
   text-shadow: none;
 }
 

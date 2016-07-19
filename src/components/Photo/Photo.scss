@@ -1,0 +1,77 @@
+@import '../variables.scss';
+
+.photo {
+  min-height: 5vw;
+  margin-bottom: 5vw;
+  width: 100%;
+  background-color: #333;
+  background-image: url(./candystripe-transparent.gif);
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-name: background;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  &.ready {
+    animation-play-state: paused;
+
+    img {
+      opacity: 1;
+      transition: opacity 300ms;
+    }
+
+    .caption {
+      visibility: visible;
+      display: block;
+    }
+  }
+
+  .caption {
+    padding: 2vw;
+    background-color: #333;
+    color: #ebebeb;
+    font-size: 2vw;
+    line-height: 1em;
+    visibility: hidden;
+    display: none;
+    text-align: center;
+    border-bottom: .4vmax solid $blue-base;
+  }
+}
+
+@keyframes background {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 100% 0;
+  }
+}
+
+@media (min-aspect-ratio: 8/5) {
+  .photo {
+    margin-bottom: 5vh;
+
+    .caption {
+      border-top: 2.5vh solid #ebebeb;
+    }
+
+    img {
+      width: auto;
+      height: 85vh;
+      max-height: 85vh;
+      box-shadow: 2.5vh 0 0 #ebebeb, -2.5vh 0 0 #ebebeb;
+    }
+  }
+}

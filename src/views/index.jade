@@ -24,9 +24,11 @@ html(class="no-js", lang="")
     meta(property='fb:app_id', content='')
     meta(property='og:type', content='website')
     meta(property='og:image', content='https://iamdb.co/ogimage.png')
+    style
+        | .wf-active body { visibility: visible; }
     style#css!= css
   body
-    #app!= body
+    #app(style="width: 100%; height: 100%;")!= body
     script(src=entry)
     script.
       window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;

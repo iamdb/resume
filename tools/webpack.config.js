@@ -94,7 +94,10 @@ const config = {
     return [
       require('postcss-import')({ addDependencyTo: bundler }),
       require('lost')(),
+      require('postcss-custom-media')(),
+      require('css-mqpacker')(),
       require('precss')(),
+      require('postcss-color-function')(),
       require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS }),
     ];
   },

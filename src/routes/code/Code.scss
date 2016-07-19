@@ -1,0 +1,106 @@
+@import '../../components/variables.scss';
+.container {
+    @mixin container;
+}
+
+.Project {
+    position: relative;
+    color: #333;
+    margin-bottom: 4vw;
+    padding: 0 0 4vw;
+    transform: translate3d(0, 0, 0);
+    border-bottom: .5vw dashed #333;
+    cursor: default;
+    font-size: 4vw;
+    h1 {
+        font-size: 1em;
+        line-height: 1em;
+        margin: 0 0 .5em 0;
+    }
+    .info {
+        margin-bottom: 4vw;
+        p {
+            font-size: .75em;
+            margin: 0;
+            line-height: 1.5em;
+            text-align: justify;
+        }
+    }
+    button {
+        @mixin button-round;
+    }
+
+    .Meta {
+        lost-flex-container: row;
+        align-items: center;
+    }
+
+    .Badges {
+        flex-grow: 1;
+        text-align: right;
+        
+        .badge {
+            font-size: 1.75vw;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            font-weight: 500;
+            line-height: 1em;
+            overflow: visible;
+            padding: .25em .5em;
+            color: #ebebeb;
+            background: #333;
+            box-shadow: .3vmax .3vmax 0 $blue-base;
+            margin: 0 0 0 1em;
+
+            span {
+                vertical-align: middle;
+            }
+
+            &:before {
+                font-family: "Ionicons";
+                display: inline;
+                vertical-align: middle;
+                font-size: 1em;
+                font-weight: normal;
+                font-style: normal;
+                text-transform: none;
+                text-rendering: none;
+                line-height: 1;
+                -webkit-font-smoothing: antialiased;
+                margin-right: .5em;
+            }
+
+            &.html5 {
+                &:before {
+                    content: '\f4e3';
+
+                }
+            }
+
+            &.css3 {
+                &:before {
+                    content: '\f4df';
+                }
+            }
+
+            &.js {
+                &:before {
+                    content: '\f4e5';
+                }
+            }
+
+            &.nodejs {
+                &:before {
+                    content: '\f4e7';
+                }
+            }
+
+            &.mobile {
+                &:before {
+                    content: '\f1fa';
+                }
+            }
+        }
+    }
+}

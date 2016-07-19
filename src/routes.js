@@ -8,6 +8,7 @@ import ErrorPage from './components/ErrorPage';
 
 const routes = [
   require('./routes/home'),
+  require('./routes/code'),
   require('./routes/photography'),
   require('./routes/contact'),
 ];

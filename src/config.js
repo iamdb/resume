@@ -21,3 +21,5 @@ export const auth = {
   jwt: { secret: process.env.JWT_SECRET },
 
 };
+
+export const cockpit = { api_key: process.env.COCKPIT_API_KEY, url: process.env.COCKPIT_API_URL };

@@ -1,52 +1,77 @@
 @import '../variables.scss';
-@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css';
 
 nav {
-  lost-flex-container: row;
-  align-items: center;
-  justify-content: center;
-
-  .divider {
-    font-size: .5em;
-    vertical-align: middle;
-    margin: 0;
-  }
+  lost-flex-container: column;
+  flex-grow: 0;
+  justify-content: space-between;
+  align-items: flex-end;
 
   .item {
-    margin: 0 .5em;
-
-    span {
-      display: none;
-    }
-  }
-}
-
-.bottom {
-  .item {
-    flex-grow: 1;
     text-align: center;
+    width: 100%;
 
     a {
+      @mixin link;
+      color: #333;
+      display: block;
+      padding: 0;
+      // border-bottom-width: .2vmax;
+      font-size: 3vw;
+      line-height: 2em;
+      position: relative;
+      overflow: hidden;
+
       i {
-          color: #333;
-          transition: color 300ms;
+        display: block;
+        transform: translateX(0%);
+        transition: transform 300ms;
+        border-left: .1em solid $blue-base;
       }
-      span {
-        display: inline-block;
-        margin-left: .5em;
-        text-decoration: underline;
+
+      &:after {
+        content: attr(data-text);
+        color: #ebebeb;
+        font-size: .6em;
+        line-height: 1em;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        transform: translate(-100%, -50%);
+        transition: transform 150ms;
+        text-align: center;
       }
 
       &:hover {
         i {
-          color: $blue-base;
-          transition: color 300ms;
+          transform: translateX(100%);
+          transition: transform 150ms;
+        }
+
+        &:after {
+          transform: translate(0%, -50%);
+          transition: transform 150ms; 
         }
       }
     }
+
+    &.active {
+      // a {
+      //   pointer-events: none;
+      //   background-color: #333;
+      //   border: none;
+      //   margin-bottom: .2vmax;
+      //   box-shadow: .3vmax .3vmax 0 $blue-base;
+      //   transition: background 150ms;
+
+      //   i {
+      //       visibility: hidden;
+      //   }
+      //   &:after {
+      //       color: #ebebeb;
+      //       top: 50%;
+      //   }
+      // }
+    }
   }
-}
-
-@media (min-width: $screen-sm-min) {
-
 }

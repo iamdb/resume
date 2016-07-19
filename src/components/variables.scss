@@ -1,37 +1,207 @@
 @lost flexbox flex;
-@lost gutter 15px;
+@lost gutter 1.5rem;
 
 /*
  * Colors
  * ========================================================================== */
 
-$white-base:            hsl(255, 255, 255);
-$blue-base:             hsla(208,100%,50%,1);
-$blue-light:            color($blue-base lightness(+40%));
+$white-base: hsl(255, 255, 255);
+$blue-base: hsla(208, 100%, 50%, 1);
+$blue-light: color($blue-base lightness(+40%));
 
 /*
  * Typography
  * ========================================================================== */
 
-$font-family-base:      'mplus-1m', 'Helvetica', sans-serif;
+$font-family-base: 'museo-slab', serif;
 
 /*
  * Layout
  * ========================================================================== */
 
-$max-content-width:     1000px;
+$max-content-width: 1200px;
+
+/*
+ * Mixins
+ * ========================================================================== */
+
+@define-mixin container {
+    margin: 0 auto;
+    padding: 2.5% 2.5% 0;
+    font-size: 1.8em;
+    lost-flex-container: row;
+
+    .Body {
+        margin-right: 22.5%;
+    }
+}
+
+@define-mixin button {
+    padding: 1% 5%;
+    display: block;
+    vertical-align: middle;
+    color: #333;
+    position: relative;
+    background-color: transparent;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    border-bottom: .15em solid $blue-base;
+    transition: color 300ms;
+    transform: translate3d(0,0,0);
+    i {
+    	display: block;
+        transform: translateY(0%);
+        opacity: 1;
+        transition: opacity 300ms, transform 300ms;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #333;
+        z-index: -1;
+        transform: translateY(100%);
+        transition: transform 300ms;
+    }
+    &:after {
+        content: attr(data-text);
+        position: absolute;
+        top: -100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: .5em;
+        font-weight: 500;
+        line-height: 1em;
+        color: #ebebeb;
+        text-transform: lowercase;
+        opacity: 1;
+        transition: opacity 300ms, top 300ms;
+    }
+    &:hover:not([disabled]) {
+        color: #ebebeb;
+        transition: color 150ms;
+
+        i {
+            transform: translateY(150%);
+            opacity: 1;
+            transition: opacity 150ms, transform 150ms;
+        }
+        &:before {
+            transform: translateY(0%);
+            transition: transform 150ms;
+        }
+        &:after {
+            top: 50%;
+            opacity: 1;
+            transition: opacity 150ms, top 150ms;
+        }
+    }
+}
+
+@define-mixin button-round {
+    font-size: 4vw;
+    position: relative;
+    background: none;
+    border: none;
+    outline: none;
+    width: 1.75em;
+    height: 1.75em;
+    padding: 0;
+    display: inline-block;
+    overflow: visible;
+    vertical-align: middle;
+
+    i {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: #ebebeb;
+        padding-top: .1em;
+        line-height: 1.65em;
+        background: #333;
+        border-radius: 100%;
+        transform: scale(1);
+        transition: transform 300ms;
+    }
+    &:after {
+        content: attr(data-text);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: auto;
+        text-align: center;
+        font-size: .5em;
+        font-weight: 500;
+        line-height: 1.1em;
+        overflow: visible;
+        padding: .25em .5em;
+        height: auto;
+        color: #ebebeb;
+        background: #333;
+        transform-origin: 0% 0%;
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        z-index: 2;
+        box-shadow: .3vmax .3vmax 0 $blue-base;
+        transition-timing-function: easeOut;
+        transition: transform 300ms;
+    }
+    &:hover:not([disabled]) {
+        i {
+            transform: scale(0);
+            transition: transform 150ms;
+        }
+        &:after {
+            transform: scale(1) rotate(360deg) translate(-50%, -50%);
+            transition: transform 150ms;
+        }
+    }
+}
+
+@define-mixin link {
+    color: $blue-base;
+    text-decoration: underline;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxMDAgMTAwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6IzMzMzMzMzt9Cjwvc3R5bGU+CjxyZWN0IHk9IjAiIGNsYXNzPSJzdDAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIi8+Cjwvc3ZnPgo=);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: color 300ms, background-size 300ms;
+    &:hover {
+        color: #ebebeb;
+        background-size: 100% 100%;
+        transition-delay: 1.5s, 1.5s;
+        transition: color 150ms, background-size 150ms;
+    }
+}
+
 
 /*
  * Media queries breakpoints
  * ========================================================================== */
 
-$screen-xs-min:         480px;  /* Extra small screen / phone */
-$screen-sm-min:         768px;  /* Small screen / tablet */
-$screen-md-min:         992px;  /* Medium screen / desktop */
-$screen-lg-min:         1200px; /* Large screen / wide desktop */
+$screen-xs-min: 425px;
+
+/* Extra small screen / phone */
+
+$screen-sm-min: 768px;
+
+/* Small screen / tablet */
+
+$screen-md-min: 992px;
+
+/* Medium screen / desktop */
+
+$screen-lg-min: 1200px;
+
+/* Large screen / wide desktop */
+
 
 /*
  * Animations
  * ========================================================================== */
 
-$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;
+$animation-swift-out: .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;

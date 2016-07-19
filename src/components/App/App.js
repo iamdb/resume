@@ -43,7 +43,7 @@ class App extends Component {
 
   render() {
     return !this.props.error ? (
-      <div>
+      <div style={{width: '100%', height: '100%'}}>
         {this.props.children}
         <div className={s.copyright}>&copy; 2016 David Benjamin</div>
       </div>

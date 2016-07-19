@@ -1,92 +1,10 @@
 @import '../../components/variables.scss';
 
-.root {
-
-}
-
 .container {
+  @mixin container;
+}
+
+.Photos {
   margin: 0 auto;
-
-  padding: 5%;
-  margin: 0 auto;
-  font-size: 1.8em;
-  width: 100%;
-  height: 100%;
-
-  p {
-    margin: 0;
-  }
-}
-
-.Body {
-  .ig {
-    lost-column: 1;
-    margin-bottom: 15px;
-    position: relative;
-
-    & > div {
-      position: relative;
-    }
-
-    .likes {
-      position: absolute;
-      bottom: 1em;
-      right: 1em;
-      color: #fff;
-      font-size: .5em;
-
-      i {
-        color: red;
-      }
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-      max-width: 100%;
-    }
-  }
-}
-
-.Header {
-  lost-flex-container: row;
-  margin-bottom: 1em;
-  justify-content: space-between;
-}
-
-.Body, .Footer {
-  margin-bottom: 2em;
-}
-
-@media (min-width: $screen-sm-min) {
-  .container {
-    width: $screen-sm-min;
-    font-size: 2.4em;
-  }
-
-  .Body {
-    lost-flex-container: row;
-    align-items: center;
-
-    .ig {
-      lost-column: 1/2;
-      margin-bottom: 15px;
-      height: auto;
-
-      background-color: $blue-light;
-
-      img {
-        width: 100%;
-        height: auto;
-        max-width: 100%;
-      }
-    }
-  }
-}
-
-@media (min-width: $screen-md-min) {
-  .container {
-    width: $screen-md-min;
-    font-size: 3em;
-  }
+  padding-top: 2.5%;
 }

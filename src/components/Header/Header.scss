@@ -1,0 +1,22 @@
+@import '../variables.scss';
+
+.Header {
+  lost-flex-container: column;
+  position: fixed;
+  right: 2.5%;
+  top: 2.5%;
+  width: 17.5%;
+
+  & > div {
+  	cursor: default;
+  }
+
+  .logo {
+  	text-align: center;
+    margin-bottom: 2em;
+
+  	img {
+  		width: 100%;
+  	}
+  }
+}

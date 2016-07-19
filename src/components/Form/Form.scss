@@ -3,40 +3,41 @@
 #contactForm {
   .fields {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    font-size: 3vw;
 
     & > div {
       flex-grow: 1;
     }
 
     input, textarea {
-      border: 1px solid color(green lightness(+30%));
+      border: none;
+      border-bottom: .25em solid color(green lightness(+30%));
       padding: .5em;
       outline: none;
       width: 100%;
       margin-bottom: 1em;
+      box-shadow: 0;
+      border-radius: 0;
 
       &.error {
-        border: 1px solid #ebebeb;
+        border-bottom: .25em solid #ebebeb;
       }
     }
   }
 
+  textarea {
+
+  }
+
   button {
-    border: 1px solid hsla(0,0%,50%,1);
-    background: $blue-base;
-    color: #ebebeb;
-    outline: none;
-    padding: .5em;
-    line-height: 1em;
-    margin: 0;
+    @mixin button;
+    font-size: 3vw;
 
     &[disabled] {
-      color: hsla(0,0%,50%,1);
-      border-color: hsla(0,0%,80%,1);
-      background-color: transparent;
+      opacity: .5;
     }
   }
 }
@@ -67,8 +68,3 @@
   }
 }
 
-@media (min-width: $screen-lg-min) {
-  button {
-    font-size: .75em;
-  }
-}

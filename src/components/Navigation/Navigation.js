@@ -12,25 +12,27 @@ class Navigation extends Component {
 
   render() {
     let path = this.props.path;
+    let page;
+
+    switch(path) {
+      case '/code':
+        page = {'class': 'ion-code', 'title': 'Code'};
+        break;
+      case '/photography':
+        page = {'class': 'ion-camera', 'title': 'Photography'};
+        break;
+      case '/contact':
+        page = {'class': 'ion-email', 'title': 'Contact'};
+        break;
+    }
+
+    // <div className={s.title}><i className={page.class}></i>{page.title}</div>
 
     return (
-      <nav className={(this.props.bottom) ? s.bottom : ''}>
-          {(path == '/') ?
-            ''
-            :
-            <div className={s.item} key="home"><Link to="/"><i className="fa fa-home"></i><span>home</span></Link></div>
-          }
-          {(path == '/photography' || path == '/') ?
-            ''
-            :
-            [<div className={s.item + ' ' + s.divider} key="divider"><i className={'fa fa-circle-o ' + s.circle} /></div>,
-            <div className={s.item} key="photography"><Link to="/photography"><i className="fa fa-instagram"></i><span>photos</span></Link></div>]
-          }
-          {(path == '/contact') ?
-            ''
-            :
-            [(path != '/') ? <div className={s.item + ' ' + s.divider} key="divider"><i className={'fa fa-circle-o ' + s.circle} /></div> : '',<div className={s.item} key="contact"><Link to="/contact"><i className="fa fa-envelope-o"></i><span>contact</span></Link></div>]
-          }
+      <nav>
+        <div className={s.item + ((path == '/code') ? ' ' + s.active : '')} key="code"><Link to="/code" data-text="Code"><i className="ion-code"></i></Link></div>
+        <div className={s.item + ((path == '/photography') ? ' ' + s.active : '')} key="photography"><Link to="/photography" data-text="Photography"><i className="ion-camera"></i></Link></div>
+        <div className={s.item + ((path == '/contact') ? ' ' + s.active : '')} key="contact"><Link to="/contact" data-text="Contact"><i className="ion-email"></i></Link></div>
       </nav>
     );
   }

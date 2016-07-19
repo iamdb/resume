@@ -16,7 +16,7 @@ const getRemote = (slot) => ({
  */
 async function deploy() {
   // By default deploy to the staging deployment slot
-  const remote = getRemote(process.argv.includes('production') ? 'production' : 'staging');
+  const remote = getRemote(process.argv.includes('production') ? 'iamdb.co' : 'staging');
 
   // Initialize a new Git repository inside the `/build` folder
   // if it doesn't exist yet
