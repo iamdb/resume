@@ -1,13 +1,18 @@
 @import '../../components/variables.scss';
 .container {
     @mixin container;
+    // text-align: justify;
+}
+
+.Projects {
+    padding-top: 5%;
 }
 
 .Project {
     position: relative;
     color: #333;
     margin-bottom: 4vw;
-    padding: 0 0 4vw;
+    padding: 2vw 0 4vw;
     transform: translate3d(0, 0, 0);
     border-bottom: .5vw dashed #333;
     cursor: default;
@@ -23,7 +28,6 @@
             font-size: .75em;
             margin: 0;
             line-height: 1.5em;
-            text-align: justify;
         }
     }
     button {

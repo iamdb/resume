@@ -16,8 +16,8 @@ class Header extends Component {
 
     return (
       <div className={s.Header}>
-        <div className={s.logo}><Link to="/"><img src={logo} /></Link></div>
         <Navigation path={path} />
+        <div className={s.logo}><Link to="/"><img src={logo} /></Link></div>
       </div>
     );
   }

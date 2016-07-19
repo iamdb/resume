@@ -1,77 +1,40 @@
 @import '../variables.scss';
 
 nav {
-  lost-flex-container: column;
-  flex-grow: 0;
+  lost-flex-container: row;
+  flex-grow: 1;
   justify-content: space-between;
   align-items: flex-end;
 
   .item {
     text-align: center;
-    width: 100%;
+    width: 30%;
 
     a {
-      @mixin link;
-      color: #333;
-      display: block;
+      @mixin button;
+      width: 100%;
       padding: 0;
-      // border-bottom-width: .2vmax;
+      border-bottom-width: .2vmax;
       font-size: 3vw;
-      line-height: 2em;
-      position: relative;
-      overflow: hidden;
-
-      i {
-        display: block;
-        transform: translateX(0%);
-        transition: transform 300ms;
-        border-left: .1em solid $blue-base;
-      }
-
-      &:after {
-        content: attr(data-text);
-        color: #ebebeb;
-        font-size: .6em;
-        line-height: 1em;
-        position: absolute;
-        left: 0;
-        top: 50%;
-        width: 100%;
-        transform: translate(-100%, -50%);
-        transition: transform 150ms;
-        text-align: center;
-      }
-
-      &:hover {
-        i {
-          transform: translateX(100%);
-          transition: transform 150ms;
-        }
-
-        &:after {
-          transform: translate(0%, -50%);
-          transition: transform 150ms; 
-        }
-      }
     }
 
     &.active {
-      // a {
-      //   pointer-events: none;
-      //   background-color: #333;
-      //   border: none;
-      //   margin-bottom: .2vmax;
-      //   box-shadow: .3vmax .3vmax 0 $blue-base;
-      //   transition: background 150ms;
+      a {
+        pointer-events: none;
+        background-color: #333;
+        border: none;
+        margin-bottom: .2vmax;
+        box-shadow: .3vmax .3vmax 0 $blue-base;
+        transition: background 150ms;
 
-      //   i {
-      //       visibility: hidden;
-      //   }
-      //   &:after {
-      //       color: #ebebeb;
-      //       top: 50%;
-      //   }
-      // }
+        i {
+            visibility: hidden;
+        }
+        &:after {
+            color: #ebebeb;
+            top: 50%;
+        }
+      }
     }
   }
 }

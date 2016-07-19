@@ -9,6 +9,7 @@ function Photography({photos, path}) {
   return (
     <div className={s.root}>
       <div className={s.container}>
+        <Header path={path} />
         <div className={s.Body}>
           <SubNavigation path={path} />
           <div className={s.Photos}>
@@ -17,7 +18,6 @@ function Photography({photos, path}) {
             })}
           </div>
         </div>
-        <Header path={path} />
       </div>
     </div>
   );

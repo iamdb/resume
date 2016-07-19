@@ -8,6 +8,7 @@ function Code({projects, path}) {
   return (
     <div className={s.root}>
       <div className={s.container}>
+        <Header path={path} />
         <div className={s.Body}>
           <div className={s.Projects}>
             <div className={s.list}>
@@ -34,7 +35,6 @@ function Code({projects, path}) {
             </div>
           </div>
         </div>
-        <Header path={path} />
       </div>
     </div>
   );
