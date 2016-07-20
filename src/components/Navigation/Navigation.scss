@@ -38,3 +38,13 @@ nav {
     }
   }
 }
+
+@media (max-aspect-ratio: 3/4) {
+  nav {
+    .item {
+      a {
+        font-size: 5vw;
+      }
+    }
+  }
+}

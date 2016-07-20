@@ -5,5 +5,12 @@
 }
 
 .Body {
-	padding-top: 5%;
+	padding: 5vh;
+	background: color(#ebebeb shade(10%));
+}
+
+@media (max-aspect-ratio: 3/4) {
+	.Body {
+		padding: 2.5vh;
+	}
 }

@@ -1,37 +1,38 @@
 @import '../../components/variables.scss';
 .container {
     @mixin container;
-    // text-align: justify;
-}
-
-.Projects {
-    padding-top: 5%;
 }
 
 .Project {
     position: relative;
     color: #333;
     margin-bottom: 4vw;
-    padding: 2vw 0 4vw;
+    padding: 2.5vh;
     transform: translate3d(0, 0, 0);
-    border-bottom: .5vw dashed #333;
     cursor: default;
     font-size: 4vw;
+    background: color(#ebebeb shade(10%));
+    .inner {
+        padding: 5vh;
+        background: #fff;
+    }
     h1 {
         font-size: 1em;
         line-height: 1em;
-        margin: 0 0 .5em 0;
+        margin: 0 0 2.5vh 0;
     }
     .info {
-        margin-bottom: 4vw;
+        margin-bottom: 5vh;
         p {
-            font-size: .75em;
+            font-size: .5em;
             margin: 0;
             line-height: 1.5em;
+            text-align: justify;
         }
     }
     button {
         @mixin button-round;
+        display: none;
     }
 
     .Meta {
@@ -41,14 +42,16 @@
 
     .Badges {
         flex-grow: 1;
-        text-align: right;
+        lost-flex-container: row;
+        align-items: center;
+        justify-content: space-around;
         
         .badge {
-            font-size: 1.75vw;
+            font-size: .4em;
             display: inline-block;
             vertical-align: middle;
             text-align: center;
-            font-weight: 500;
+            font-weight: 300;
             line-height: 1em;
             overflow: visible;
             padding: .25em .5em;
@@ -56,6 +59,7 @@
             background: #333;
             box-shadow: .3vmax .3vmax 0 $blue-base;
             margin: 0 0 0 1em;
+            pointer-events: none;
 
             span {
                 vertical-align: middle;
@@ -104,6 +108,25 @@
                 &:before {
                     content: '\f1fa';
                 }
+            }
+        }
+    }
+}
+
+@media (max-aspect-ratio: 3/4) {
+    .Project {
+        font-size: 8vw;
+
+        .inner {
+            padding: 5vw;
+        }
+
+        .Badges {
+
+            .badge {
+                font-size: .5em;
+                box-shadow: none;
+                margin: 0 0 .5em 0;
             }
         }
     }

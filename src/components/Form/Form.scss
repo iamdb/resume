@@ -1,6 +1,9 @@
 @import '../variables.scss';
 
 #contactForm {
+  padding: 5vh;
+  background: #fff;
+
   .fields {
     display: flex;
     flex-direction: column;
@@ -14,16 +17,20 @@
 
     input, textarea {
       border: none;
-      border-bottom: .25em solid color(green lightness(+30%));
+      border-bottom: .15em solid color(green lightness(+30%));
       padding: .5em;
       outline: none;
       width: 100%;
       margin-bottom: 1em;
-      box-shadow: 0;
+      box-shadow: none;
       border-radius: 0;
 
+      &::placeholder {
+        color: #333;
+      }
+
       &.error {
-        border-bottom: .25em solid #ebebeb;
+        border-bottom: .15em solid $blue-base;
       }
     }
   }
@@ -65,6 +72,12 @@
 
   .thankyou {
     display: block;
+  }
+}
+
+@media (max-aspect-ratio: 3/4) {
+  #contactForm {
+    padding: 2.5vh;
   }
 }
 

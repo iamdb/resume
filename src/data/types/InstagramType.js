@@ -10,7 +10,7 @@ const InstagramType = new ObjectType({
     url: {
       type: StringType,
       resolve(obj) {
-        return obj.images.standard_resolution.url;
+        return obj.images.standard_resolution.url.replace('s640x640', 's1080x1080');
       }
     },
     likes: {
