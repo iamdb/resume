@@ -8,42 +8,41 @@ nav {
 
   .item {
     text-align: center;
-    width: 30%;
+    margin: 0 .5px;
+    flex-grow: 1;
 
     a {
-      @mixin button;
-      width: 100%;
-      padding: 0;
-      border-bottom-width: .2vmax;
-      font-size: 3vw;
+      @mixin button-nav;
+      display: block;
+
+      &:after {
+        border-bottom: .25em solid $dark-base;
+      }
     }
 
     &.active {
       a {
-        pointer-events: none;
-        background-color: #333;
-        border: none;
-        margin-bottom: .2vmax;
-        box-shadow: .3vmax .3vmax 0 $blue-base;
-        transition: background 150ms;
-
         i {
-            visibility: hidden;
+          transform: translateY(100%);
+          animation: none;
         }
         &:after {
-            color: #ebebeb;
-            top: 50%;
+          background-color: $dark-base;
+          border-bottom-color: $blue-base;
+          color: $grey-base;
+          transform: translateY(0%);
+          animation: none;
         }
       }
     }
   }
 }
 
-@media (max-aspect-ratio: 3/4) {
+@media (max-aspect-ratio: 4/4) {
   nav {
     .item {
       a {
-        font-size: 5vw;
+        font-size: 4vw;
       }
     }
   }

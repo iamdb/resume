@@ -18,17 +18,22 @@
   }
 }
 
-@media (max-aspect-ratio: 3/4) {
+@media (max-aspect-ratio: 4/4) {
   .Header {
     lost-flex-container: column;
+    margin-bottom: 2vw;
+
+    & > div {
+      lost-column: 1/1 0 0;
+    }
 
     .logo {
       order: -1;
-      margin-bottom: 5vh;
-      width: 100%;
+      margin-bottom: 5vw;
+      text-align: center;
 
       img {
-        width: 100%;
+        width: 50%;
       }
     }
   }

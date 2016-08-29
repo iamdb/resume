@@ -4,7 +4,28 @@
   @mixin container;
 }
 
+.Bio {
+    margin-bottom: 5vh;
+    padding: 5vh;
+    background-color: $white-base;
+    border: .5em solid $dark-base;
+    font-size: 2vw;
+    text-align: justify;
+}
+
 .Photos {
   margin: 0 auto;
   padding-top: 5vh;
+}
+
+@media (max-aspect-ratio: 4/4) {
+    .Bio {
+        padding: 5vw;
+        font-size: 4vw;
+        margin-bottom: 2vw
+    }
+
+    .Photos {
+    	padding-top: 2vw;
+    }
 }

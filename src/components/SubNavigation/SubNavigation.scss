@@ -2,37 +2,81 @@
 
 .SubNav {
   lost-flex-container: row;
-  flex-grow: 1;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
 
   .subNavItem {
-    width: 24%;
+    width: calc(33.33% - 1px);
+    flex-grow: 1;
+    // border: .5px solid $dark-base;
+    margin: .5px;
     text-align: center;
 
     a {
-      @mixin button;
+      @mixin button-subnav;
       width: 100%;
-      padding: 0;
       text-decoration: none;
-      border: .15vw solid #333;
-      font-size: 1.25vw;
+      // border: .15vw solid $dark-base;
+      font-size: 1.4vw;
       font-weight: 500;
       line-height: 2em;
-      color: #333;
       text-transform: lowercase;
+      display: block;
+    }
+  }
 
-      &:before {
+  .active {
+    pointer-events: none;
 
-      }
-
-      &:hover {
-        color: #ebebeb;
-      }
+    a.ready {
+      color: $grey-base;
+      background: $blue-base !important;
+      text-shadow: .05em .05em .05em $dark-base;
+      text-indent: 0;
+      box-shadow: inset 0 0 .5em $dark-base;
 
       &:after {
         content: none;
       }
+      &:before {
+        content: none;
+      }
+    }
+  }
+}
+
+.Home {
+  justify-content: center;
+
+  .subNavItem {
+    width: calc(50% - 1px);
+    flex-grow: 1;
+
+    a {
+      padding: 5vh 0;
+      font-size: 6vw;
+
+      &:before, &:after {
+        padding: 5vh 0 !important;
+      }
+    }
+  }
+}
+
+@media (max-aspect-ratio: 4/4) {
+  .SubNav {
+    .subNavItem {
+      width: calc(50% - 1px);
+
+      a {
+        font-size: 4vw;
+      }
+    }
+  }
+
+  .Home {
+    .subNavItem {
+      width: calc(100% - 1px);
     }
   }
 }

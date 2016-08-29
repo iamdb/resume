@@ -1,9 +1,6 @@
 doctype html
 html(class="no-js", lang="")
   head
-    script(src='https://use.typekit.net/ggr5teb.js')
-    script.
-      try{Typekit.load({ async: true });}catch(e){}
     meta(charset="utf-8")
     meta(http-equiv="x-ua-compatible", content="ie=edge")
     title= title
@@ -24,8 +21,6 @@ html(class="no-js", lang="")
     meta(property='fb:app_id', content='')
     meta(property='og:type', content='website')
     meta(property='og:image', content='https://iamdb.co/ogimage.png')
-    style
-        | .wf-active body { visibility: visible; }
     style#css!= css
   body
     #app!= body

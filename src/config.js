@@ -13,7 +13,6 @@ export const analytics = {
 
 };
 
-export const ig = { access_token: process.env.IG_ACCESS_TOKEN };
 export const mailgun = { api_key: process.env.MAILGUN_API_KEY, url: process.env.MAILGUN_API_URL };
 
 export const auth = {
@@ -22,4 +21,4 @@ export const auth = {
 
 };
 
-export const cockpit = { api_key: process.env.COCKPIT_API_KEY, url: process.env.COCKPIT_API_URL };
+export const cockpit = { api_key: process.env.COCKPIT_API_KEY, url: process.env.COCKPIT_API_URL, api_path: process.env.COCKPIT_API_PATH };

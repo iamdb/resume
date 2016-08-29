@@ -1,8 +1,6 @@
 @import '../variables.scss';
 
 #contactForm {
-  padding: 5vh;
-  background: #fff;
 
   .fields {
     display: flex;
@@ -21,12 +19,12 @@
       padding: .5em;
       outline: none;
       width: 100%;
-      margin-bottom: 1em;
+      margin-bottom: 2.5vh;
       box-shadow: none;
       border-radius: 0;
 
       &::placeholder {
-        color: #333;
+        color: $font-color;
       }
 
       &.error {
@@ -40,11 +38,19 @@
   }
 
   button {
-    @mixin button;
-    font-size: 3vw;
+    @mixin link;
+    text-decoration: none;
+    font-size: 2.5vw;
+    font-weight: 500;
+    padding: .5em 1em .4em;
+    color: $grey-base;
+    background-color: $blue-base;
 
     &[disabled] {
+      pointer-events: none;
       opacity: .5;
+      background-color: $grey-base;
+      color: $white-base;
     }
   }
 }
@@ -75,9 +81,21 @@
   }
 }
 
-@media (max-aspect-ratio: 3/4) {
+@media (max-aspect-ratio: 4/4) {
   #contactForm {
-    padding: 2.5vh;
+    padding: 0;
+
+    .fields {
+      font-size: 5vw;
+
+      input, textarea {
+        margin-bottom: 5vw;
+      }
+    }
+  }
+
+  button {
+    font-size: 5vw;
   }
 }
 

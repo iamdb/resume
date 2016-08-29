@@ -93,6 +93,7 @@ const config = {
   postcss: function plugins(bundler) {
     return [
       require('postcss-import')({ addDependencyTo: bundler }),
+      require('postcss-nested-ancestors')(),
       require('lost')(),
       require('postcss-custom-media')(),
       require('css-mqpacker')(),

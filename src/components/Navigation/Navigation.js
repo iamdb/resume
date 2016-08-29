@@ -10,6 +10,15 @@ class Navigation extends Component {
     path: PropTypes.string
   }
 
+  super(props) {
+    this.state = {ready: false};
+  }
+
+  componentDidMount() {
+    let self = this;
+    setTimeout(() => {self.setState({ready: true})}, 300);
+  }
+
   render() {
     let path = this.props.path;
     let page;
@@ -30,9 +39,9 @@ class Navigation extends Component {
 
     return (
       <nav>
-        <div className={s.item + ((path == '/code') ? ' ' + s.active : '')} key="code"><Link to="/code" data-text="Code"><i className="ion-code"></i></Link></div>
-        <div className={s.item + ((path == '/photography') ? ' ' + s.active : '')} key="photography"><Link to="/photography" data-text="Photography"><i className="ion-camera"></i></Link></div>
-        <div className={s.item + ((path == '/contact') ? ' ' + s.active : '')} key="contact"><Link to="/contact" data-text="Contact"><i className="ion-email"></i></Link></div>
+        <div className={s.item + ((path == '/code') ? ' ' + s.active : '')} key="code"><Link to="/code" data-text="Code" className={((this.state && this.state.ready) ? ' ' + s.ready : '')}><i className="ion-code"></i></Link></div>
+        <div className={s.item + ((path.substr(0,12) == '/photography') ? ' ' + s.active : '')} key="photography"><Link to="/photography" data-text="Photography" className={((this.state && this.state.ready) ? ' ' + s.ready : '')}><i className="ion-camera"></i></Link></div>
+        <div className={s.item + ((path == '/contact') ? ' ' + s.active : '')} key="contact"><Link to="/contact" data-text="Contact" className={((this.state && this.state.ready) ? ' ' + s.ready : '')}><i className="ion-email"></i></Link></div>
       </nav>
     );
   }

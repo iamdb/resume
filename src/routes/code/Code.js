@@ -10,31 +10,32 @@ function Code({projects, path}) {
       <div className={s.container}>
         <Header path={path} />
         <div className={s.Body}>
+          <div className={s.Bio}>
+            I am a web developer with 6+ years of front-end and Node.js experience. I have a proven history of developing and deploying award-winning digital experiences for clients such as Fox, Netflix, Disney, Naughty Dog, Dodge, Cisco and VMware.
+          </div>
           <div className={s.Projects}>
-            <div className={s.list}>
-              {projects && projects.map(function(project, key){
-                return (
-                  <div className={s.Project} key={project.slug}>
-                    <div className={s.inner}>
-                      <h1>{project.title}</h1>
-                      <div className={s.info}>
-                        <p>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.</p>
-                      </div>
-                      <div className={s.Meta}>
-                        <button data-text="View Site"><i className="ion-link"></i></button>
-                        <div className={s.Badges}>
-                          <div className={s.badge + ' ' + s.html5}><span>HTML 5</span></div>
-                          <div className={s.badge + ' ' + s.css3}><span>CSS 3</span></div>
-                          <div className={s.badge + ' ' + s.js}><span>React.js</span></div>
-                          <div className={s.badge + ' ' + s.nodejs}><span>Node.js</span></div>
-                          <div className={s.badge + ' ' + s.mobile}><span>Mobile</span></div>
-                        </div>
+            {projects && projects.map(function(project, key){
+              let badges = project.tags && project.tags.split(',');
+
+              return (
+                <div className={s.Project} key={project.slug}>
+                  <div className={s.inner}>
+                    <h1>{project.title}</h1>
+                    <div className={s.info} dangerouslySetInnerHTML={{__html:project.description}}></div>
+                    <div className={s.Meta}>
+                      <a href={project.url} target="_blank" data-text={project.buttonText}>{project.buttonText}</a>
+                      <div className={s.Badges}>
+                        {badges && badges.sort().map(function(badge, key){
+                          let badgeClass = badge.replace(/\./ig,'-').replace(/#/ig,'-').toLowerCase();
+
+                          return <div key={project.slug + '-' + badge + '-' + key} className={s.badge + ' ' + s[badgeClass]}><span>{badge}</span></div>;
+                        })}
                       </div>
                     </div>
                   </div>
-                  );  
-              })}
-            </div>
+                </div>
+                );  
+            })}
           </div>
         </div>
       </div>

@@ -68,7 +68,7 @@ class Form extends Component {
             <div><input type="email" name="email" id="fullName" placeholder="Email Address" className={this.state.form.email ? '' : s.error} /></div>
             <div><textarea name="message" id="message" placeholder="How can I help you?" className={this.state.form.message ? '' : s.error}></textarea></div>
           </div>
-          <button type="submit" disabled={_.every(this.state.form) ? false : true} data-text="Send Message"><i className="ion-android-send" aria-hidden="true"></i></button>
+          <button type="submit" disabled={_.every(this.state.form) ? false : true} data-text="Send Message"><i className="ion-android-send" aria-hidden="true"></i> Send</button>
         </form>
         <div className={s.thankyou}><span>Thank you.</span></div>
       </div>

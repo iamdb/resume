@@ -1,5 +1,6 @@
 @import '../../../node_modules/normalize.css/normalize.css';
-@import 'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css';
+@import 'https://fonts.googleapis.com/css?family=Prompt:300,300i,400,400i,500,500i,700,700i';
+@import 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css';
 
 /*! React Starter Kit | MIT License | https://www.reactstarterkit.com/ */
 
@@ -15,24 +16,26 @@
    -moz-box-sizing: border-box;
    -webkit-box-sizing: border-box;
    box-sizing: border-box;
+   -webkit-font-smoothing: antialiased;
  }
 
 html {
-  color: #333;
+  color: $font-color;
   font-size: 62.5%;
   font-family: $font-family-base;
   font-weight: 300;
   line-height: 1.375;
-  background-color: #ebebeb;
-}
+  background-color: $grey-base;
 
-body {
-  visibility: hidden;
+  &.wf-active {
+    background-color: $blue-base;
+  }
 }
 
 .copyright {
+  font-size: 1.5vw;
   text-align: center;
-  padding: 10em 0 5em;
+  padding: 3vw 0;
 }
 
 /*
@@ -44,14 +47,14 @@ body {
  */
 
 ::-moz-selection {
-  color: #333;
-  background: #333;
+  color: $font-color;
+  background: $dark-base;
   text-shadow: none;
 }
 
 ::selection {
-  color: #ebebeb;
-  background: #333;
+  color: $grey-base;
+  background: $dark-base;
   text-shadow: none;
 }
 
