@@ -1,0 +1,31 @@
+header {
+  width: 100%;
+  flex-grow: 0;
+  padding: 20px 0 20px;
+  text-align: center;
+
+  h1 {
+    font-family: "fresno-inline", sans-serif;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 1em;
+    margin: 0;
+    text-align: center;
+
+    a {
+      color: #37333F;
+      text-decoration: none;
+
+      &:hover {
+        font-family: 'fresno', sans-serif;
+        color: #00CECB;
+      }
+    }
+  }
+
+  h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+  }
+}

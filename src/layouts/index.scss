@@ -1,0 +1,38 @@
+html {
+  box-sizing: border-box;
+  background-color: #00CECB;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+#App {
+  position: relative;
+  font-family:  "brother-1816", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  background-color: #FF5E5B;
+  color: #37333F;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  & .site-content {
+    z-index: 100;
+    opacity: 0;
+    position: relative;
+    max-width: 480px;
+    background-color: #D8D8D8;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.wf-active #App .site-content {
+  opacity: 1;
+  transition: opacity 300ms;
+}

@@ -1,0 +1,38 @@
+footer {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 20px 40px;
+
+  a {
+    display: inline-block;
+    padding: 1%;
+    border-radius: 5px;
+    background-color: #D8D8D8;
+    border: 1px solid #D8D8D8;
+
+    &:hover {
+      background-color: #ADFCF9;
+      border-color: #00CECB;
+
+      svg {
+        fill: #fff;
+      }
+
+      &:active {
+        svg {
+          fill: #FF5E5B;
+        }
+      }
+
+    }
+
+    svg {
+      fill: #37333F;
+      display: block;
+      width: 100%;
+    }
+  }
+}

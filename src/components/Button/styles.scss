@@ -1,0 +1,38 @@
+.Button {
+  background-image: linear-gradient(-180deg, #EEEEEE 29%, #D8D8D8 100%);
+  flex-grow: 1;
+  margin-right: 1em;
+  text-align: center;
+  display: inline-block;
+  border-radius: 5px;
+
+  &:last-child {
+    margin: 0;
+  }
+
+  a, button {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #37333F;
+    border-radius: 5px;
+    background: none;
+    width: 100%;
+    font-size: 18px;
+    line-height: 57px;
+    font-family:  "brother-1816", sans-serif;
+    font-weight: 300;
+
+    &:hover {
+      background-image: linear-gradient(-180deg, #D8D8D8 0%, #EEEEEE 100%);
+      border: 1px solid #37333F;
+    }
+
+    &:active {
+      background: #FFFFFF;
+      border: 1px solid #ADFCF9;
+    }
+  }
+}

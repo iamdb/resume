@@ -1,5 +1,3 @@
 ## My Resume Site
 <br>
-This site is the same that powers my resume site at [iamdb.co](https://iamdb.co). It's built upon [React Start Kit](https://github.com/kriasoft/react-starter-kit) and, in addition, I'm using the [Lost](https://github.com/peterramsing/lost) grid system for CSS layout.
-
-The server is hosted by [Digital Ocean](http://digitalocean.com), SSL certificates provided by [Let's Encrypt](https://letsencrypt.org/) and deployed using [dokku-alt](https://github.com/dokku-alt/dokku-alt).
+This is the code for my resume/portfolio site. Built in React using [Gatsby](https://www.gatsbyjs.org/) and hosted on [Netlify](https://www.netlify.com/). Barrier grid animations are made with Adobe After Effects, [Animbar](http://animbar.mnim.org/) and displayed using [Pixi.js](http://www.pixijs.com/).

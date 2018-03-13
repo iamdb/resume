@@ -1,6 +1,0 @@
-{
-  "name": "Photo",
-  "version": "0.0.0",
-  "private": true,
-  "main": "./Photo.js"
-}
