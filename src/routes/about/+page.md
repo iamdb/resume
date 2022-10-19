@@ -2,7 +2,7 @@ When I was 12 years old, my father brought a personal computer home. My father w
 
 My parents were always pretty liberal with how I spent my time as long as I wasn't breaking anything and I was fascinated by this computer. The computer came with a bunch of free software, so I spent a of time installing all the apps one-by-one and seeing how they worked. I eventually broke something and not wanting my parents to get mad or take it away, I read through all of the manuals (pre-Internet) until it was fixed, let out a huge **sigh** and told myself I would never do that again.
 
-Of course I eventually broke it again, but I also learned at a young age that discovery often comes through failure. 
+Of course I eventually broke it again, but I also learned at a young age that discovery often comes through failure.
 
 We didn't have a programming club at my high school and with my personal experience I felt unchallenged by the computer classes offered. But there was a TV production class. I took that class all four years of high school and learned so much about working and collaborating with other people and how to take an idea and make it into a reality.
 
@@ -14,10 +14,12 @@ He was right, though. While the traffic for the site grew, I expanded the networ
 
 In 2009, I found myself unemployed after being laid off from a "vintage" content start-up and struggling to find work. While I felt I accomplished a lot up until then, I didn't have a defined set of skills I was just able to make things happen if someone gave me the chance and freedom to do so. Struggling to sell myself, I decided to start a blog since I had content experience and needed something to fill my days when not submitting applications.
 
-I started a blog called Brain Droppings in 2008 and it didn't really go anywhere, but I built it in Wordpress and found I really liked building the site much more than writing content for it. So I gave up the blog and started building Wordpress sites for small companies. 
+I started a blog called Brain Droppings in 2008 and it didn't really go anywhere, but I built it in Wordpress and found I really liked building the site much more than writing content for it. So I gave up the blog and started building Wordpress sites for small companies.
 
 After getting comfortable with Wordpress and building sites, I got a job working on the front-end for [TotalBeauty.com](https://www.totalbeauty.com). It was a good job, but very limited. My role was very specific to HTML and CSS since my Javascript experience was lacking, but I also never improved my Javascript skills because they would never let me touch it.
 
 I needed to learn and gain experience with Javascript so I took a freelance job with Ignition Interactive hoping it would lead to more work and I could get my experience that way. My first job was building the home page for the first Hunger Games film. I toiled away at it every night and delievered it on time. They offered me a job and there I worked on campaigns for [Prometheus](https://www.behance.net/gallery/14357945/Prometheus-Transmedia-Campaign), [Arrested Developement](https://arresteddevelopment.fandom.com/wiki/You%27re_Gonna_Get_Some_Walk-Ons_fan_contest) and the relaunch of the Dodge Dart.
 
-[![wakatime](https://wakatime.com/badge/user/a20519d3-9690-4af7-ad04-136d21595be5.svg?style=flat-square)](https://wakatime.com/@a20519d3-9690-4af7-ad04-136d21595be5)
+From there I have been the tech lead for a boutique agency, a senior front-end developer for an eSports startup and a senior full-stack developer for a boutique consultancy. Along the way I've worked for myself in a freelance capacity and taken time to learn new languages and technologies.
+
+[![wakatime](https://wakatime.com/badge/user/a20519d3-9690-4af7-ad04-136d21595be5.svg?style=flat-square)](https://wakatime.com/@a20519d3-9690-4af7-ad04-136d21595be5) <sub>(since 2017)</sub>
