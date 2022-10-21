@@ -19,12 +19,12 @@
 	});
 </script>
 
-<div class="w-full flex flex-row items-center justify-start rounded-full bg-black-900">
+<div class="flex flex-row items-center justify-start rounded-full bg-black-900">
 	<div
 		style:min-width={`${clientHeight}px`}
 		style:width={`${$currentProgress}%`}
 		bind:clientHeight
-		class="bg-blue-500 rounded-full flex flex-row justify-end align-center"
+		class="bg-blue-500 rounded-full flex flex-row justify-end items-center"
 	>
 		<span
 			class:opacity-100={$showHours}

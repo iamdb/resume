@@ -10,9 +10,7 @@
 	export let color: string;
 </script>
 
-<div
-	class="grid grid-rows-2 md:grid-rows-1 md:grid-cols-[.5fr,1fr] gap-x-4 justify-items-start place-items-center"
->
+<div class="grid grid-cols-[.5fr,1fr] justify-items-stretch items-center place-items-start gap-x-4">
 	<TechIcon {color} {name} icon={StringToIcon(name) || ''} />
 	<Progress {total} {progress} />
 </div>
