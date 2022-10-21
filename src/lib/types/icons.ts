@@ -1,24 +1,27 @@
 export enum Icon {
-  Javascript = "logos:javascript",
-  Typescript = "vscode-icons:file-type-typescript",
-  Rust = "logos:rust",
-  Go = "vscode-icons:file-type-go-gopher",
-  Yaml = "vscode-icons:file-type-yaml",
-  Svelte = "logos:svelte-icon",
+  Javascript = "cib:javascript",
+  Typescript = "cib:typescript",
+  Rust = "cib:rust",
+  Go = "cib:go",
+  Yaml = "file-icons:yaml-alt4",
+  Svelte = "cib:svelte",
   Jsx = "file-icons:jsx-alt",
-  Lua = "logos:lua",
+  Lua = "cib:lua",
   Json = "mdi:code-json",
-  Opencv = "logos:opencv",
-  Linux = "logos:linux-tux",
-  Aws = "logos:aws",
-  WebRtc = "logos:webrtc",
-  Kubernetes = "logos:kubernetes",
-  Docker = "logos:docker",
-  Ffmpeg = "logos:ffmpeg-icon",
-  Neovim = "logos:neovim",
-  Liquid = "logos:shopify",
-  Python = "logos:python",
-  Markdown = "ri:markdown-fill"
+  Opencv = "file-icons:opencv",
+  Linux = "cib:linux",
+  Aws = "fa-brands:aws",
+  WebRtc = "simple-icons:webrtc",
+  Kubernetes = "cib:kubernetes",
+  Docker = "cib:docker",
+  Ffmpeg = "simple-icons:ffmpeg",
+  Neovim = "simple-icons:neovim",
+  Liquid = "cib:shopify",
+  Python = "cib:python",
+  Markdown = "ri:markdown-fill",
+  Graphql = "cib:graphql",
+  Bash = "mdi:bash",
+  Toml = "file-icons:toml"
 }
 
 export function StringToIcon(name: string): Icon | undefined {
@@ -50,5 +53,11 @@ export function StringToIcon(name: string): Icon | undefined {
       return Icon.Markdown
     case 'python':
       return Icon.Python
+    case 'graphql':
+      return Icon.Graphql
+    case 'bash':
+      return Icon.Bash
+    case 'toml':
+      return Icon.Toml
   }
 }

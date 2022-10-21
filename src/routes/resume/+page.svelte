@@ -1,14 +1,22 @@
 <script type="ts">
 	import 'iconify-icon';
+	import { writable } from 'svelte/store';
 	import TechIcon from '$lib/components/tech-icon.svelte';
 	import WorkHistory from '$lib/components/work-history.svelte';
 	import Languages from '$lib/components/languages.svelte';
-	import type { CodingActivity, Language } from './+page.server';
 	import { Icon } from '$lib/types/icons';
+	import { LanguageScale, type CodingActivityNormalized, type Language } from '$lib/types/wakatime';
 
-	export let data: { languages: Language[]; activity: CodingActivity };
+	export let data: {
+		languagesAlltime: Language[];
+		activityAlltime: CodingActivityNormalized;
+		languagesLastYear: Language[];
+		activityLastYear: CodingActivityNormalized;
+	};
 
-	const { languages, activity } = data;
+	const { languagesAlltime, activityAlltime, languagesLastYear, activityLastYear } = data;
+
+	const languageScale = writable(LanguageScale.LastYear);
 </script>
 
 <div class="flex flex-col gap-y-24">
@@ -41,11 +49,24 @@
 				<div class="flex flex-row justify-between items-center">
 					<h3>Languages</h3>
 					<div class="flex flex-row items-center gap-x-4">
-						<button class="bg-grey-500 px-2 py-1 rounded hover:bg-grey-400"> all time </button>
-						<button class="bg-grey-500 px-2 py-1 rounded hover:bg-grey-400"> last year </button>
+						<button
+							class:btn-active={$languageScale === LanguageScale.AllTime}
+							on:click={() => languageScale.set(LanguageScale.AllTime)}
+							class="btn">all time</button
+						>
+						<button
+							class:btn-active={$languageScale === LanguageScale.LastYear}
+							on:click={() => languageScale.set(LanguageScale.LastYear)}
+							class="btn">last year</button
+						>
 					</div>
 				</div>
-				<Languages {activity} {languages} />
+				<Languages
+					activity={$languageScale === LanguageScale.AllTime ? activityAlltime : activityLastYear}
+					languages={$languageScale === LanguageScale.AllTime
+						? languagesAlltime.slice(0, 10)
+						: languagesLastYear.slice(0, 10)}
+				/>
 			</div>
 			<div class="md:w-1/2">
 				<h3>Other Tech</h3>
@@ -58,8 +79,8 @@
 					<TechIcon icon={Icon.WebRtc} name="WebRTC" />
 					<TechIcon icon={Icon.Aws} />
 					<TechIcon icon={Icon.Kubernetes} name="Kubernetes" />
-					<TechIcon icon={Icon.Docker} />
-					<TechIcon icon={Icon.Neovim} />
+					<TechIcon icon={Icon.Docker} name="Docker" />
+					<TechIcon icon={Icon.Neovim} name="Neovim" />
 				</div>
 			</div>
 		</div>
@@ -95,10 +116,10 @@
 					<li>Transferred knowledge to team when contract ended</li>
 				</ul>
 				<div slot="stack" class="flex flex-row flex-wrap gap-6 justify-center items-center">
-					<TechIcon icon="vscode-icons:file-type-typescript-official" name="Typescript" />
-					<TechIcon icon="logos:webrtc" name="WebRTC" />
-					<TechIcon icon="logos:kubernetes" name="Kubernetes" />
-					<TechIcon icon="logos:aws" />
+					<TechIcon icon={Icon.Typescript} name="Typescript" />
+					<TechIcon icon={Icon.WebRtc} name="WebRTC" />
+					<TechIcon icon={Icon.Kubernetes} name="Kubernetes" />
+					<TechIcon icon={Icon.Aws} />
 				</div>
 			</WorkHistory>
 			<WorkHistory companyName="Supergroup" startDate="November 2019" endDate="November 2021">
@@ -115,10 +136,10 @@
 					<li>Redesigned company stack to be easier to deploy and more developer friendly</li>
 				</ul>
 				<div slot="stack" class="flex flex-row flex-wrap gap-6 justify-center items-center">
-					<TechIcon icon="vscode-icons:file-type-typescript-official" name="Typescript" />
-					<TechIcon icon="logos:webrtc" name="WebRTC" />
-					<TechIcon icon="logos:kubernetes" name="Kubernetes" />
-					<TechIcon icon="logos:aws" />
+					<TechIcon icon={Icon.Typescript} name="Typescript" />
+					<TechIcon icon={Icon.WebRtc} name="WebRTC" />
+					<TechIcon icon={Icon.Kubernetes} name="Kubernetes" />
+					<TechIcon icon={Icon.Aws} />
 				</div>
 			</WorkHistory>
 			<WorkHistory companyName="EsportsOne" startDate="April 2018" endDate="November 2019">
@@ -138,10 +159,10 @@
 					</li>
 				</ul>
 				<div slot="stack" class="flex flex-row flex-wrap gap-6 justify-center items-center">
-					<TechIcon icon="vscode-icons:file-type-typescript-official" name="Typescript" />
-					<TechIcon icon="logos:opencv" name="OpenCV" />
-					<TechIcon icon="logos:ffmpeg-icon" name="ffmpeg &bull; libav" />
-					<TechIcon icon="logos:aws" />
+					<TechIcon icon={Icon.Typescript} name="Typescript" />
+					<TechIcon icon={Icon.Opencv} name="OpenCV" />
+					<TechIcon icon={Icon.Ffmpeg} name="ffmpeg &bull; libav" />
+					<TechIcon icon={Icon.Aws} />
 				</div>
 			</WorkHistory>
 		</div>
