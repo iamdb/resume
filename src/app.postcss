@@ -1,4 +1,3 @@
-/* Write your global styles here, in PostCSS syntax */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -25,10 +24,20 @@
   }
 
   p {
-    @apply text-base leading-relaxed mb-6 text-lg 
+    @apply leading-relaxed mb-6 text-lg 
   }
 
   a {
     @apply underline text-blue-500
+  }
+}
+
+@layer utilities {
+  .btn {
+    @apply text-white-300 bg-grey-500 px-2 py-1 rounded hover:bg-grey-400 hover:text-white-300
+  }
+
+  .btn-active {
+    @apply bg-green-500 text-grey-500 hover:bg-green-400 hover:text-grey-500
   }
 }
