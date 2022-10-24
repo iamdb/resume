@@ -4,22 +4,33 @@
 	import TechIcon from '$lib/components/tech-icon.svelte';
 	import WorkHistory from '$lib/components/work-history.svelte';
 	import Languages from '$lib/components/languages.svelte';
-	import { Icon } from '$lib/types/icons';
+	import { Icon, iconToString, stringToIcon } from '$lib/types/icons';
 	import { LanguageScale, type CodingActivityNormalized, type Language } from '$lib/types/wakatime';
+	import type { WorkExperience } from '$lib/types/resume';
+	import { beforeUpdate } from 'svelte';
 
 	export let data: {
 		languagesAlltime: Language[];
 		activityAlltime: CodingActivityNormalized;
 		languagesLastYear: Language[];
 		activityLastYear: CodingActivityNormalized;
+		workExperience: WorkExperience[];
 	};
 
-	const { languagesAlltime, activityAlltime, languagesLastYear, activityLastYear } = data;
+	const { languagesAlltime, workExperience, activityAlltime, languagesLastYear, activityLastYear } =
+		data;
 
 	const languageScale = writable(LanguageScale.LastYear);
+
+	$: allLangs = languagesAlltime.map((lang) => lang.name.toLocaleLowerCase());
+	$: allIcons = Object.keys(Icon).filter(
+		(i) => !allLangs.includes(i.toLocaleLowerCase()) && i.toLocaleLowerCase() !== 'error'
+	);
+
+	beforeUpdate(() => allIcons?.sort());
 </script>
 
-<div class="flex flex-col gap-y-24">
+<div class="flex flex-col gap-y-24 mb-48">
 	<header>
 		<h1 class="leading-tight underline underline-offset-2">David Benjamin</h1>
 		<div class="flex flex-row gap-x-4 items-baseline">
@@ -64,23 +75,19 @@
 				<Languages
 					activity={$languageScale === LanguageScale.AllTime ? activityAlltime : activityLastYear}
 					languages={$languageScale === LanguageScale.AllTime
-						? languagesAlltime.slice(0, 10)
-						: languagesLastYear.slice(0, 10)}
+						? languagesAlltime
+						: languagesLastYear}
 				/>
 			</div>
-			<div class="md:w-1/2">
-				<h3>Other Tech</h3>
+			<div class="md:w-1/2 pt-10">
+				<h3 class="mb-4">Other Tech Experience</h3>
 				<div
-					class="flex flex-row flex-wrap gap-y-8 gap-x-16 justify-center p-8 mt-4 rounded text-white-600 align-center bg-black-200"
+					class="grid grid-cols-3 gap-8 justify-items-start place-content-center p-8 rounded text-white-600 align-center bg-black-200"
 				>
-					<TechIcon icon={Icon.Linux} name="Linux" />
-					<TechIcon icon={Icon.Opencv} name="OpenCV" />
-					<TechIcon icon={Icon.Ffmpeg} name="ffmpeg &bull; libav" />
-					<TechIcon icon={Icon.WebRtc} name="WebRTC" />
-					<TechIcon icon={Icon.Aws} />
-					<TechIcon icon={Icon.Kubernetes} name="Kubernetes" />
-					<TechIcon icon={Icon.Docker} name="Docker" />
-					<TechIcon icon={Icon.Neovim} name="Neovim" />
+					{#each allIcons as techIcon}
+						{@const icon = stringToIcon(techIcon)}
+						<TechIcon {icon} name={iconToString(icon)} />
+					{/each}
 				</div>
 			</div>
 		</div>
@@ -89,82 +96,28 @@
 	<section>
 		<h2 class="mb-8 underline underline-offset-2">Recent Work Experience</h2>
 		<div class="flex overflow-hidden flex-col gap-y-8">
-			<WorkHistory
-				companyName="Little Cinema Digital"
-				startDate="Feburary 2022"
-				endDate="August 2022"
-				temporary
-			>
-				<ul slot="accomplishments" class="flex flex-col gap-y-2 list-disc list-inside">
-					<li>
-						Researched and wrote RFC for a WebRTC deployment with multiple options and the pros and
-						cons of each.
-					</li>
-					<li>
-						Designed a WebRTC infrastructure based around <a
-							href="https://livekit.io/"
-							target="_blank"
-							rel="noreferrer">LiveKit</a
-						>
-					</li>
-					<li>Gave presentation on WebRTC technology to engineering team</li>
-					<li>
-						Constructed UI components within their current application to support the WebRTC
-						infrastructure
-					</li>
-					<li>Wrote AWS CDK to deploy the LiveKit infrastructure along with their current stack</li>
-					<li>Transferred knowledge to team when contract ended</li>
-				</ul>
-				<div slot="stack" class="flex flex-row flex-wrap gap-6 justify-center items-center">
-					<TechIcon icon={Icon.Typescript} name="Typescript" />
-					<TechIcon icon={Icon.WebRtc} name="WebRTC" />
-					<TechIcon icon={Icon.Kubernetes} name="Kubernetes" />
-					<TechIcon icon={Icon.Aws} />
-				</div>
-			</WorkHistory>
-			<WorkHistory companyName="Supergroup" startDate="November 2019" endDate="November 2021">
-				<ul slot="accomplishments" class="flex flex-col gap-y-2 list-disc list-inside">
-					<li>Delivered quality code for client projects</li>
-					<li>Built new and maintained current features for Playboy.com</li>
-					<li>Transferred knowledge to new team at Playboy.com via working sessions</li>
-					<li>
-						Built <a href="https://www.reesesbookclub.com" target="_blank" rel="noreferrer"
-							>reesesbookclub.com</a
-						>
-					</li>
-					<li>Built tool to search subreddits for keywords and sentiment</li>
-					<li>Redesigned company stack to be easier to deploy and more developer friendly</li>
-				</ul>
-				<div slot="stack" class="flex flex-row flex-wrap gap-6 justify-center items-center">
-					<TechIcon icon={Icon.Typescript} name="Typescript" />
-					<TechIcon icon={Icon.WebRtc} name="WebRTC" />
-					<TechIcon icon={Icon.Kubernetes} name="Kubernetes" />
-					<TechIcon icon={Icon.Aws} />
-				</div>
-			</WorkHistory>
-			<WorkHistory companyName="EsportsOne" startDate="April 2018" endDate="November 2019">
-				<ul slot="accomplishments" class="flex flex-col gap-y-2 list-disc list-inside">
-					<li>
-						Built a UI dashboard to display real-time information from a League of Legends computer
-						vision processor
-					</li>
-					<li>
-						Built a Twitch.tv extension, both ui and backend, to display real-time data about the
-						League of Legends match currently being played on stream
-					</li>
-					<li>
-						Rebuilt original computer vision processor, basically converting it from C# and needing
-						to be manually operated through Remote Desktop to a Go codebase with higher performance
-						and much lower resource requirements.
-					</li>
-				</ul>
-				<div slot="stack" class="flex flex-row flex-wrap gap-6 justify-center items-center">
-					<TechIcon icon={Icon.Typescript} name="Typescript" />
-					<TechIcon icon={Icon.Opencv} name="OpenCV" />
-					<TechIcon icon={Icon.Ffmpeg} name="ffmpeg &bull; libav" />
-					<TechIcon icon={Icon.Aws} />
-				</div>
-			</WorkHistory>
+			{#each workExperience as job}
+				<WorkHistory
+					companyName={job.name}
+					startDate={job.startDate.toLocaleString()}
+					endDate={job.endDate.toLocaleString()}
+					temporary={job.contract}
+				>
+					<ul slot="accomplishments" class="flex flex-col gap-y-2 list-disc list-inside">
+						{#each job.accomplishments as immagoodboy}
+							<li class="text-lg">{@html immagoodboy}</li>
+						{/each}
+					</ul>
+					<div
+						slot="stack"
+						class="flex flex-row flex-wrap gap-x-12 gap-y-8 justify-evenly items-center"
+					>
+						{#each job.stack as techIcon}
+							<TechIcon icon={stringToIcon(techIcon)} name={techIcon} />
+						{/each}
+					</div>
+				</WorkHistory>
+			{/each}
 		</div>
 	</section>
 </div>

@@ -6,14 +6,9 @@
 </script>
 
 {#if $page.url.pathname !== '/'}
-	<header class="mb-24">
-		<nav
-			class="text-4xl font-bold flex flex-row align-center justify-end gap-x-8 underline-offset-2"
-		>
-			<NavLink pathname="/">Home</NavLink>
-			<NavLink pathname="/about">About</NavLink>
-			<NavLink pathname="/resume">Resume</NavLink>
-			<NavLink pathname="/photos">Photos</NavLink>
+	<header class="mb-12">
+		<nav class="text-4xl font-bold text-right underline-offset-2">
+			<button class="btn" on:click={() => window.history.back()}>back</button>
 		</nav>
 	</header>
 {/if}

@@ -1,31 +1,77 @@
 export enum Icon {
-  Javascript = "cib:javascript",
-  Typescript = "cib:typescript",
-  Rust = "cib:rust",
-  Go = "cib:go",
-  Yaml = "file-icons:yaml-alt4",
-  Svelte = "cib:svelte",
-  Jsx = "file-icons:jsx-alt",
-  Lua = "cib:lua",
-  Json = "mdi:code-json",
-  Opencv = "file-icons:opencv",
-  Linux = "cib:linux",
-  Aws = "fa-brands:aws",
-  WebRtc = "simple-icons:webrtc",
-  Kubernetes = "cib:kubernetes",
-  Docker = "cib:docker",
-  Ffmpeg = "simple-icons:ffmpeg",
-  Neovim = "simple-icons:neovim",
-  Liquid = "cib:shopify",
-  Python = "cib:python",
-  Markdown = "ri:markdown-fill",
-  Graphql = "cib:graphql",
+  Aws = "simple-icons:amazonaws",
   Bash = "mdi:bash",
-  Toml = "file-icons:toml"
+  Contentful = "simple-icons:contentful",
+  Css = "cib:css3-shiled",
+  DigitalOcean = "simple-icons:digitalocean",
+  Docker = "cib:docker",
+  Error = "bx:error-circle",
+  Ffmpeg = "simple-icons:ffmpeg",
+  Github = "simple-icons:github",
+  Go = "simple-icons:go",
+  Graphql = "cib:graphql",
+  Hasura = "simple-icons:hasura",
+  Html = "cib:html5",
+  Javascript = "cib:javascript",
+  Jira = "simple-icons:jira",
+  Json = "mdi:code-json",
+  Kubernetes = "cib:kubernetes",
+  Linux = "cib:linux",
+  Lua = "cib:lua",
+  Markdown = "ri:markdown-fill",
+  MobX = "simple-icons:mobx",
+  Neovim = "simple-icons:neovim",
+  Netlify = "simple-icons:netlify",
+  NextJs = "file-icons:nextjs",
+  Nodejs = "simple-icons:nodejs",
+  Opencv = "file-icons:opencv",
+  Python = "cib:python",
+  React = "simple-icons:react",
+  Rust = "cib:rust",
+  Shopify = "simple-icons:shopify",
+  Svelte = "cib:svelte",
+  Toml = "file-icons:toml",
+  Typescript = "cib:typescript",
+  WebRtc = "simple-icons:webrtc",
+  Yaml = "file-icons:yaml-alt4",
 }
 
-export function StringToIcon(name: string): Icon | undefined {
-  const lowerName = name.toLocaleLowerCase()
+export function iconToString(icon: Icon): string {
+  switch (icon) {
+    case Icon.Opencv:
+      return "OpenCV"
+    case Icon.WebRtc:
+      return "WebRTC"
+    case Icon.Nodejs:
+      return "Node.js"
+    case Icon.NextJs:
+      return "Next.js"
+    case Icon.Json:
+      return "JSON"
+    case Icon.Css:
+      return "CSS"
+    case Icon.Html:
+      return "HTML"
+    case Icon.Javascript:
+      return "JavaScript"
+    case Icon.Ffmpeg:
+      return "FFMpeg"
+    case Icon.Aws:
+      return "AWS"
+    case Icon.Typescript:
+      return 'TypeScript'
+    case Icon.Neovim:
+      return "NeoVim"
+  }
+
+  const techIcon = Object.entries(Icon).filter((k) => k[1] === icon).at(0)?.at(0) || "error"
+
+  return techIcon
+}
+
+export function stringToIcon(name: string): Icon {
+  const lowerName = name.toLocaleLowerCase().replace('.', '')
+
   switch (lowerName) {
     case 'javascript':
       return Icon.Javascript
@@ -39,14 +85,12 @@ export function StringToIcon(name: string): Icon | undefined {
       return Icon.Yaml
     case 'svelte':
       return Icon.Svelte
-    case 'jsx':
-      return Icon.Jsx
     case 'lua':
       return Icon.Lua
     case 'json':
       return Icon.Json
-    case 'liquid':
-      return Icon.Liquid
+    case 'mobx':
+      return Icon.MobX
     case 'linux':
       return Icon.Linux
     case 'markdown':
@@ -59,5 +103,46 @@ export function StringToIcon(name: string): Icon | undefined {
       return Icon.Bash
     case 'toml':
       return Icon.Toml
+    case 'aws':
+      return Icon.Aws
+    case 'libav':
+    case 'ffmpeg':
+      return Icon.Ffmpeg
+    case 'kubernetes':
+      return Icon.Kubernetes
+    case 'html':
+      return Icon.Html
+    case 'css':
+      return Icon.Css
+    case 'nodejs':
+      return Icon.Nodejs
+    case 'hasura':
+      return Icon.Hasura
+    case 'webrtc':
+      return Icon.WebRtc
+    case 'contentful':
+      return Icon.Contentful
+    case 'shopify':
+      return Icon.Shopify
+    case 'digitalocean':
+      return Icon.DigitalOcean
+    case 'netlify':
+      return Icon.Netlify
+    case 'github':
+      return Icon.Github
+    case 'jira':
+      return Icon.Jira
+    case 'neovim':
+      return Icon.Neovim
+    case 'opencv':
+      return Icon.Opencv
+    case 'docker':
+      return Icon.Docker
+    case 'nextjs':
+      return Icon.NextJs
+    case 'react':
+      return Icon.React
   }
+
+  return Icon.Error
 }
