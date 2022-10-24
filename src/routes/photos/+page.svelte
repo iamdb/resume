@@ -7,8 +7,8 @@
 
 <p>
 	From 2011 until 2017 I spent a lot of my nights taking photos at venues all around Los Angeles. I
-	even once made the <a href="/photos/latimes-weirdal">LA Times</a>. These are a selection of my
-	work.
+	even made the <a href="/photos/latimes-weirdal">LA Times</a> (online &amp; print) once. These are a
+	selection of my work.
 </p>
 
 <div class="grid grid-cols-2 gap-14">

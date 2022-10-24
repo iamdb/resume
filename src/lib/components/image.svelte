@@ -17,6 +17,7 @@
 	export let src: string;
 
 	let state: ImageState = ImageState.Loading;
+	let showMeta = false;
 
 	onMount(() => {
 		const img = new Image();
@@ -48,11 +49,31 @@
 	>
 		<span class="text-[#ff0000]/70">Image failed to load :-(</span>
 	</div>
-	<div class:hidden={state !== ImageState.Loaded} class:block={state === ImageState.Loaded}>
+	<div
+		on:focus={() => {
+			showMeta = true;
+		}}
+		on:blur={() => {
+			showMeta = false;
+		}}
+		on:mouseout={() => {
+			showMeta = false;
+		}}
+		on:mouseover={() => {
+			showMeta = true;
+		}}
+		class:hidden={state !== ImageState.Loaded}
+		class:block={state === ImageState.Loaded}
+		class="overflow-hidden relative"
+	>
 		<img class="object-cover w-full h-full" alt={src} {src} />
 		{#if meta}
 			<div
-				class="absolute bottom-0 left-0 flex flex-row justify-between items-end py-4 px-8 w-full bg-black-200/80"
+				class:bottom-[-100%]={!showMeta}
+				class:bottom-0={showMeta}
+				class:opacity-0={!showMeta}
+				class:opacity-100={showMeta}
+				class="absolute transition-all left-0 flex flex-row justify-between items-end py-4 px-8 w-full bg-black-200/80"
 			>
 				<h5 class="text-white-400 ">{meta.location}</h5>
 				<h4 class="text-white-200">{meta.name}</h4>

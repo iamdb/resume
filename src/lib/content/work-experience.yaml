@@ -1,0 +1,73 @@
+experience:
+  - name: Little Cinema Digital
+    contract: true
+    startDate: 02/01/2022
+    endDate: 08/01/2022
+    stack:
+      - Typescript
+      - Node.js
+      - Kubernetes
+      - WebRTC
+      - AWS
+      - Github
+    accomplishments:
+      - Researched and wrote RFC for a WebRTC deployment with multiple options and the pros and cons of each.
+      - Designed a WebRTC infrastructure based around LiveKit
+      - Gave presentation on WebRTC technology to engineering team
+      - Constructed UI components within their current application to support the WebRTC infrastructure
+      - Wrote AWS CDK to deploy the <a href="https://www.livekit.io" target="_blank" rel="noreferrer">LiveKit</a> infrastructure along with their current stack
+      - Transferred knowledge to team when contract ended
+  - name: Supergroup
+    startDate: 11/01/2019
+    endDate: 11/01/2021
+    stack:
+      - React
+      - Typescript
+      - Node.js
+      - GraphQL
+      - Next.js
+      - Hasura
+      - AWS
+      - Github
+      - Shopify
+      - Contentful
+      - Netlify
+    accomplishments:
+      - Delivered quality code for client projects
+      - Built new and maintained current features for Playboy.com
+      - Transferred knowledge to new team at Playboy.com via working sessions
+      - Built <a href="https://www.reesesbookclub.com" target="_blank" rel="noreferrer">reesesbookclub.com</a> 
+      - Built tool to search subreddits for keywords and sentiment
+      - Redesigned company stack to be easier to deploy and more developer friendly
+  - name: EsportsOne
+    startDate: 04/01/2018
+    endDate: 11/01/2019
+    stack:
+      - Go
+      - Javascript
+      - Typescript
+      - Node.js
+      - GraphQL
+      - React
+      - Next.js
+      - MobX
+      - libav
+      - AWS
+      - Github
+    accomplishments:
+      - Rebuilt original computer vision processor, basically converting it from C# and needing to be manually operated through Remote Desktop to a Go codebase with higher performance and much lower resource requirements.
+      - Built a UI dashboard to display real-time information from a League of Legends computer vision processor
+      - Built a Twitch.tv extension, both ui and backend, to display real-time data about the League of Legends match currently being played on stream
+  - name: Union + Webster / The Craftsman Agency
+    startDate: 04/01/2013
+    endDate: 08/01/2015
+    stack:
+      - React
+      - Next.js
+      - Javascript
+      - HTML
+      - CSS
+      - Node.js
+      - DigitalOcean
+    accomplishments:
+      - Lead all tech projects

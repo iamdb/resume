@@ -1,14 +1,27 @@
+import fs from 'fs'
+import path from 'path'
+import yaml from 'yaml'
 import { error } from '@sveltejs/kit'
 import { Urls, type CodingActivityAllTime, type CodingActivityLastYear, type CodingActivityNormalized, type Language } from '$lib/types/wakatime'
+import type { WorkExperience } from '$lib/types/resume'
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
-  const activityAlltime = await fetchJson(Urls.ActivityAllTime)
-  const languagesAlltime = await fetchJson(Urls.LanguagesAllTime)
-  const activityLastYear = await fetchJson(Urls.ActivityLastYear)
-  const languagesLastYear = await fetchJson(Urls.LanguagesLastYear)
+  return {
+    languagesAlltime: fetchJson(Urls.LanguagesAllTime),
+    activityAlltime: fetchJson(Urls.ActivityAllTime),
+    activityLastYear: fetchJson(Urls.ActivityLastYear),
+    languagesLastYear: fetchJson(Urls.LanguagesLastYear),
+    workExperience: getWorkHistory()
+  }
+}
 
-  return { languagesAlltime, activityAlltime, activityLastYear, languagesLastYear }
+function getWorkHistory(): WorkExperience[] {
+  const yamlPath = path.join(import.meta.url.replace("file://", ""), "..", "..", "..", "lib/content/work-experience.yaml")
+  const historyYaml = fs.readFileSync(yamlPath)
+  const history = yaml.parse(historyYaml.toString()).experience
+
+  return history
 }
 
 async function fetchJson(url: Urls): Promise<Language[] | CodingActivityNormalized | undefined> {
@@ -43,7 +56,7 @@ async function fetchJson(url: Urls): Promise<Language[] | CodingActivityNormaliz
 }
 
 function normalizeAllTimeCodingActivity(activity: CodingActivityAllTime): CodingActivityNormalized {
-  const totalHours = activity.grand_total.total_seconds / 60 / 60
+  const totalHours = activity.grand_total.total_seconds_including_other_language / 60 / 60
   const startDate = new Date(activity.range.start)
   const dailyAverageHours = activity.grand_total.daily_average / 60 / 60
 
@@ -57,7 +70,7 @@ function normalizeAllTimeCodingActivity(activity: CodingActivityAllTime): Coding
 function normalizeLastYearCodingActivity(activity: CodingActivityLastYear): CodingActivityNormalized {
   const totalHours: number = activity?.days.map((d) => d.total).reduce((a, b) => a + b) / 60 / 60;
   const startDate = new Date(activity?.days[0].date)
-  const dailyAverageHours = totalHours / 365;
+  const dailyAverageHours = totalHours / activity?.days.length;
 
   return {
     totalHours,
@@ -67,6 +80,6 @@ function normalizeLastYearCodingActivity(activity: CodingActivityLastYear): Codi
 }
 
 function filterLangs(langs: Language[]): Language[] {
-  return langs.filter((v) => v.name !== 'Other' && v.name !== 'JSON' && v.name !== 'JSX' && v.name !== 'SCSS' && v.name !== 'conf' && v.name !== 'INI')
+  return langs.filter((v) => v.name !== 'Other' && v.name !== 'JSON' && v.name !== 'JSX' && v.name !== 'SCSS' && v.name !== 'conf' && v.name !== 'INI').slice(0, 10)
 }
 
