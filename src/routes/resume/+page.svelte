@@ -105,7 +105,7 @@
 				>
 					<ul slot="accomplishments" class="flex flex-col gap-y-2 list-disc list-inside">
 						{#each job.accomplishments as immagoodboy}
-							<li class="text-lg">{@html immagoodboy}</li>
+							<li>{@html immagoodboy}</li>
 						{/each}
 					</ul>
 					<div
