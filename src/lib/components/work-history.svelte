@@ -23,12 +23,12 @@
 	</h4>
 	<div class="flex flex-row gap-x-12 p-6 rounded-tl-lg rounded-bl-lg bg-black-700">
 		<div class="flex-shrink-0 w-1/2">
-			<h4 class="mb-4 underline text-white-400">Accomplishments</h4>
+			<h5 class="mb-4 underline text-white-400">Accomplishments</h5>
 			<slot name="accomplishments" />
 		</div>
 		<div class="border-r border-r-black-100" />
 		<div class="flex-grow pr-6 rounded">
-			<h4 class="mb-4 text-white-400 underline">Stack</h4>
+			<h5 class="mb-4 text-white-400 underline">Stack</h5>
 			<div class="p-6 bg-black-200"><slot name="stack" /></div>
 		</div>
 	</div>
