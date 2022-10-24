@@ -1,9 +1,7 @@
-import fs from 'fs'
-import path from 'path'
-import yaml from 'yaml'
+// @ts-ignore
+import { experience } from '$lib/content/work-experience.yaml'
 import { error } from '@sveltejs/kit'
 import { Urls, type CodingActivityAllTime, type CodingActivityLastYear, type CodingActivityNormalized, type Language } from '$lib/types/wakatime'
-import type { WorkExperience } from '$lib/types/resume'
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
@@ -12,16 +10,8 @@ export async function load() {
     activityAlltime: fetchJson(Urls.ActivityAllTime),
     activityLastYear: fetchJson(Urls.ActivityLastYear),
     languagesLastYear: fetchJson(Urls.LanguagesLastYear),
-    workExperience: getWorkHistory()
+    workExperience: experience
   }
-}
-
-function getWorkHistory(): WorkExperience[] {
-  const yamlPath = path.join(import.meta.url.replace("file://", ""), "..", "..", "..", "lib/content/work-experience.yaml")
-  const historyYaml = fs.readFileSync(yamlPath)
-  const history = yaml.parse(historyYaml.toString()).experience
-
-  return history
 }
 
 async function fetchJson(url: Urls): Promise<Language[] | CodingActivityNormalized | undefined> {
