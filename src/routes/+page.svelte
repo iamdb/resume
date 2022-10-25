@@ -7,8 +7,6 @@
 	export let data: {
 		pinnedItems: Repo[];
 	};
-
-	console.log(data.pinnedItems);
 </script>
 
 <h1 class="text-8xl font-bold leading-tight">Hi</h1>
