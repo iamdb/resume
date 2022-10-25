@@ -15,7 +15,7 @@ experience:
       - Designed a WebRTC infrastructure based around LiveKit
       - Gave presentation on WebRTC technology to engineering team
       - Constructed UI components within their current application to support the WebRTC infrastructure
-      - Wrote AWS CDK to deploy the <a href="https://www.livekit.io" target="_blank" rel="noreferrer">LiveKit</a> infrastructure along with their current stack
+      - Wrote AWS CDK to deploy the <a href="https://www.livekit.io" target="_blank" rel="noreferrer noopener">LiveKit</a> infrastructure along with their current stack
       - Transferred knowledge to team when contract ended
   - name: Supergroup
     startDate: 11/01/2019
@@ -36,7 +36,7 @@ experience:
       - Delivered quality code for client projects
       - Built new and maintained current features for Playboy.com
       - Transferred knowledge to new team at Playboy.com via working sessions
-      - Built <a href="https://www.reesesbookclub.com" target="_blank" rel="noreferrer">reesesbookclub.com</a> 
+      - Built <a href="https://www.reesesbookclub.com" target="_blank" rel="noreferrer noopener">reesesbookclub.com</a> 
       - Built tool to search subreddits for keywords and sentiment
       - Redesigned company stack to be easier to deploy and more developer friendly
   - name: EsportsOne
