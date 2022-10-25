@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { writable } from 'svelte/store';
 
 	interface ImageMeta {
 		location: string;
@@ -17,7 +18,11 @@
 	export let src: string;
 
 	let state: ImageState = ImageState.Loading;
-	let showMeta = false;
+	let showMeta = writable(false);
+
+	const setShowMeta = (show: boolean) => {
+		showMeta.set(show);
+	};
 
 	onMount(() => {
 		const img = new Image();
@@ -51,18 +56,10 @@
 			<span class="text-[#ff0000]/70">Image failed to load :-(</span>
 		</div>
 		<div
-			on:focus={() => {
-				showMeta = true;
-			}}
-			on:blur={() => {
-				showMeta = false;
-			}}
-			on:mouseout={() => {
-				showMeta = false;
-			}}
-			on:mouseover={() => {
-				showMeta = true;
-			}}
+			on:focus={() => setShowMeta(true)}
+			on:blur={() => setShowMeta(false)}
+			on:mouseout={() => setShowMeta(false)}
+			on:mouseover={() => setShowMeta(true)}
 			class:hidden={state !== ImageState.Loaded}
 			class:block={state === ImageState.Loaded}
 			class="h-full w-full cursor-cell"
