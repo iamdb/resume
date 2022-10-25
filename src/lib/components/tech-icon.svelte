@@ -8,12 +8,12 @@
 </script>
 
 <div class:flex-row-reverse={reverse} class="flex flex-row justify-between items-center gap-1">
-	<iconify-icon mode="style" style:color class="text-4xl" {icon} />
+	<iconify-icon style:color class="text-4xl" {icon} />
 	{#if name}
 		<span
 			class:ml-4={!reverse}
 			class:mr-4={reverse}
-			class="text-2xl leading-none font-bold cursor-default">{name}</span
+			class="text-xl leading-none font-bold cursor-default">{name}</span
 		>
 	{/if}
 </div>

@@ -1,10 +1,12 @@
-// @ts-ignore
+// @ts-expect-error For some reason the yaml is not being seen as a module. 
 import { experience } from '$lib/content/work-experience.yaml'
 import { error } from '@sveltejs/kit'
 import { Urls, type CodingActivityAllTime, type CodingActivityLastYear, type CodingActivityNormalized, type Language } from '$lib/types/wakatime'
+import type { WorkExperience } from '$lib/types/resume';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
+  experience.forEach((e: WorkExperience) => e.stack.sort());
   return {
     languagesAlltime: fetchJson(Urls.LanguagesAllTime),
     activityAlltime: fetchJson(Urls.ActivityAllTime),
