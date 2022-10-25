@@ -41,14 +41,14 @@
 		<div class="flex flex-row justify-start gap-x-4 items-baseline">
 			<h3>Software Engineer</h3>
 			<a class="text-2xl font-bold" href="mailto:hireme@iamdb.co">hireme@iamdb.co</a>
-			<a class="text-2xl" href="https://github.com/iamdb" target="_blank" rel="noreferrer">
+			<a class="text-2xl" href="https://github.com/iamdb" target="_blank" rel="noreferrer noopener">
 				<iconify-icon icon="simple-icons:github" />
 			</a>
 			<a
 				class="text-2xl"
 				href="https://www.linkedin.com/in/davidabenjamin"
 				target="_blank"
-				rel="noreferrer"
+				rel="noreferrer noopener"
 			>
 				<iconify-icon icon="simple-icons:linkedin" />
 			</a>
