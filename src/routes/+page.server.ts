@@ -1,4 +1,4 @@
-import { Octokit } from 'octokit'
+import { Octokit } from '@octokit/core'
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
