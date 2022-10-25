@@ -67,10 +67,10 @@
 			<img class="object-cover block w-full h-full" alt={src} {src} />
 			{#if meta}
 				<div
-					class:bottom-[-100%]={!showMeta}
-					class:bottom-0={showMeta}
-					class:opacity-0={!showMeta}
-					class:opacity-100={showMeta}
+					class:bottom-[-100%]={!$showMeta}
+					class:bottom-0={$showMeta}
+					class:opacity-0={!$showMeta}
+					class:opacity-100={$showMeta}
 					class="absolute transition-all left-0 flex flex-row justify-between items-end py-4 px-8 w-full bg-black-200/80"
 				>
 					<h5 class="text-white-400 ">{meta.location}</h5>
