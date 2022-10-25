@@ -62,6 +62,8 @@ export function iconToString(icon: Icon): string {
       return 'TypeScript'
     case Icon.Neovim:
       return "NeoVim"
+    case Icon.Yaml:
+      return "YAML"
   }
 
   const techIcon = Object.entries(Icon).filter((k) => k[1] === icon).at(0)?.at(0) || "error"
@@ -122,6 +124,7 @@ export function stringToIcon(name: string): Icon {
       return Icon.WebRtc
     case 'contentful':
       return Icon.Contentful
+    case 'liquid':
     case 'shopify':
       return Icon.Shopify
     case 'digitalocean':

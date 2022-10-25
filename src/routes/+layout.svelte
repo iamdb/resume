@@ -8,5 +8,5 @@
 		<Header />
 		<slot />
 	</div>
-	<p class="text-sm text-grey-500 text-center mt-48">&copy; 2022 David Benjamin</p>
+	<p class="text-sm text-grey-500 text-center">&copy; 2022 David Benjamin</p>
 </div>

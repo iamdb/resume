@@ -7,7 +7,7 @@
 	import { Icon, iconToString, stringToIcon } from '$lib/types/icons';
 	import { LanguageScale, type CodingActivityNormalized, type Language } from '$lib/types/wakatime';
 	import type { WorkExperience } from '$lib/types/resume';
-	import { beforeUpdate } from 'svelte';
+	import { onMount } from 'svelte';
 
 	export let data: {
 		languagesAlltime: Language[];
@@ -22,12 +22,53 @@
 
 	const languageScale = writable(LanguageScale.LastYear);
 
-	$: allLangs = languagesAlltime.map((lang) => lang.name.toLocaleLowerCase());
+	$: allLangs = languagesAlltime
+		.concat(languagesLastYear)
+		.map((lang) => lang.name.toLocaleLowerCase());
 	$: allIcons = Object.keys(Icon).filter(
 		(i) => !allLangs.includes(i.toLocaleLowerCase()) && i.toLocaleLowerCase() !== 'error'
 	);
 
-	beforeUpdate(() => allIcons?.sort());
+	onMount(() => {
+		allIcons?.sort();
+	});
+
+	const formatDate = (date: Date) => {
+		const newDate = new Date(date);
+
+		return `${intToMonth(newDate.getMonth())} ${newDate.getFullYear()}`;
+	};
+
+	const intToMonth = (int: number): string => {
+		switch (int) {
+			case 0:
+				return 'January';
+			case 1:
+				return 'February';
+			case 2:
+				return 'March';
+			case 3:
+				return 'April';
+			case 4:
+				return 'May';
+			case 5:
+				return 'June';
+			case 6:
+				return 'July';
+			case 7:
+				return 'August';
+			case 8:
+				return 'September';
+			case 9:
+				return 'October';
+			case 10:
+				return 'November';
+			case 11:
+				return 'December';
+		}
+
+		return '';
+	};
 </script>
 
 <div class="flex flex-col gap-y-24 mb-48">
@@ -86,7 +127,8 @@
 				>
 					{#each allIcons as techIcon}
 						{@const icon = stringToIcon(techIcon)}
-						<TechIcon {icon} name={iconToString(icon)} />
+						{@const name = iconToString(icon)}
+						<TechIcon {icon} {name} />
 					{/each}
 				</div>
 			</div>
@@ -99,18 +141,18 @@
 			{#each workExperience as job}
 				<WorkHistory
 					companyName={job.name}
-					startDate={job.startDate.toLocaleString()}
-					endDate={job.endDate.toLocaleString()}
+					startDate={formatDate(job.startDate)}
+					endDate={formatDate(job.endDate)}
 					temporary={job.contract}
 				>
-					<ul slot="accomplishments" class="flex flex-col gap-y-2 list-disc list-inside">
+					<ul slot="accomplishments" class="list-disc list-inside">
 						{#each job.accomplishments as immagoodboy}
-							<li>{@html immagoodboy}</li>
+							<li class="mb-4 leading-tight">{@html immagoodboy}</li>
 						{/each}
 					</ul>
 					<div
 						slot="stack"
-						class="flex flex-row flex-wrap gap-x-12 gap-y-8 justify-evenly items-center"
+						class="flex flex-row flex-wrap gap-x-12 gap-y-8 justify-around items-center"
 					>
 						{#each job.stack as techIcon}
 							<TechIcon icon={stringToIcon(techIcon)} name={techIcon} />

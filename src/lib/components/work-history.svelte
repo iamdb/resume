@@ -27,9 +27,9 @@
 			<slot name="accomplishments" />
 		</div>
 		<div class="border-r border-r-black-100" />
-		<div class="flex-grow pr-6 rounded">
+		<div class="flex-grow pr-6">
 			<h5 class="mb-4 text-white-400 underline">Stack</h5>
-			<div class="p-6 bg-black-200"><slot name="stack" /></div>
+			<div class="p-6 bg-black-200 rounded"><slot name="stack" /></div>
 		</div>
 	</div>
 </div>
