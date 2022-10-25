@@ -101,6 +101,7 @@ export function stringToIcon(name: string): Icon {
       return Icon.Python
     case 'graphql':
       return Icon.Graphql
+    case 'shell':
     case 'bash':
       return Icon.Bash
     case 'toml':
