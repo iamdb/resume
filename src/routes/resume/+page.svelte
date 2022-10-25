@@ -7,7 +7,8 @@
 	import { Icon, iconToString, stringToIcon } from '$lib/types/icons';
 	import { LanguageScale, type CodingActivityNormalized, type Language } from '$lib/types/wakatime';
 	import type { WorkExperience } from '$lib/types/resume';
-	import { onMount } from 'svelte';
+	import { beforeUpdate } from 'svelte';
+	import { formatDate } from '$lib/util';
 
 	export let data: {
 		languagesAlltime: Language[];
@@ -29,54 +30,28 @@
 		(i) => !allLangs.includes(i.toLocaleLowerCase()) && i.toLocaleLowerCase() !== 'error'
 	);
 
-	onMount(() => {
+	beforeUpdate(() => {
 		allIcons?.sort();
 	});
-
-	const formatDate = (date: Date) => {
-		const newDate = new Date(date);
-
-		return `${intToMonth(newDate.getMonth())} ${newDate.getFullYear()}`;
-	};
-
-	const intToMonth = (int: number): string => {
-		switch (int) {
-			case 0:
-				return 'January';
-			case 1:
-				return 'February';
-			case 2:
-				return 'March';
-			case 3:
-				return 'April';
-			case 4:
-				return 'May';
-			case 5:
-				return 'June';
-			case 6:
-				return 'July';
-			case 7:
-				return 'August';
-			case 8:
-				return 'September';
-			case 9:
-				return 'October';
-			case 10:
-				return 'November';
-			case 11:
-				return 'December';
-		}
-
-		return '';
-	};
 </script>
 
 <div class="flex flex-col gap-y-24 mb-48">
 	<header>
 		<h1 class="leading-tight underline underline-offset-2">David Benjamin</h1>
-		<div class="flex flex-row gap-x-4 items-baseline">
+		<div class="flex flex-row justify-start gap-x-4 items-baseline">
 			<h3>Software Engineer</h3>
 			<a class="text-2xl font-bold" href="mailto:hireme@iamdb.co">hireme@iamdb.co</a>
+			<a class="text-2xl" href="https://github.com/iamdb" target="_blank" rel="noreferrer">
+				<iconify-icon icon="simple-icons:github" />
+			</a>
+			<a
+				class="text-2xl"
+				href="https://www.linkedin.com/in/davidabenjamin"
+				target="_blank"
+				rel="noreferrer"
+			>
+				<iconify-icon icon="simple-icons:linkedin" />
+			</a>
 		</div>
 		<p class="mt-16 mb-0 text-xl">
 			I am an experienced software engineer seeking a full-time <a href="/about">non-full-stack</a> position
