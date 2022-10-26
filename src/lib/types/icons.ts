@@ -1,3 +1,12 @@
+import { loadIcon, buildIcon, type IconifyIconBuildResult } from 'iconify-icon';
+
+export const getLoadingIcon = async (): Promise<IconifyIconBuildResult> => {
+  const iconInfo = await loadIcon('line-md:downloading-loop');
+  const icon = buildIcon(iconInfo);
+
+  return icon
+};
+
 export enum Icon {
   Aws = "simple-icons:amazonaws",
   Bash = "mdi:bash",

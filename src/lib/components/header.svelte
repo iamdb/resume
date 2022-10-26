@@ -1,8 +1,6 @@
 <script>
 	import 'iconify-icon';
 	import { page } from '$app/stores';
-
-	import NavLink from './nav-link.svelte';
 </script>
 
 {#if $page.url.pathname !== '/'}

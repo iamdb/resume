@@ -4,6 +4,8 @@ import { error } from '@sveltejs/kit'
 import { Urls, type CodingActivityAllTime, type CodingActivityLastYear, type CodingActivityNormalized, type Language } from '$lib/types/wakatime'
 import type { WorkExperience } from '$lib/types/resume';
 
+export const prerender = false
+
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
   experience.forEach((e: WorkExperience) => e.stack.sort());

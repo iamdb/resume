@@ -1,10 +1,11 @@
 <script>
 	import 'iconify-icon';
+	import 'animate.css';
 	import '../app.postcss';
 	import Header from '$lib/components/header.svelte';
 </script>
 
-<div class="container flex flex-col justify-between h-full p-4 mx-auto">
+<div class="container flex flex-col justify-between h-full p-4 mx-auto relative">
 	<div class="mb-24">
 		<Header />
 		<slot />

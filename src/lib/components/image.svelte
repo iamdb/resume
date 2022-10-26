@@ -1,6 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { fade, slide } from 'svelte/transition';
+	import { beforeUpdate, onMount } from 'svelte';
 	import { writable } from 'svelte/store';
+	import { getLoadingIcon } from '$lib/types/icons';
 
 	interface ImageMeta {
 		location: string;
@@ -16,68 +18,95 @@
 
 	export let meta: ImageMeta;
 	export let src: string;
+	export let disableHover = false;
 
-	let state: ImageState = ImageState.Loading;
-	let showMeta = writable(false);
+	const state = writable(ImageState.Loading);
+	const showMeta = writable(false);
+	const isHovered = writable(false);
+	const loadingIcon = getLoadingIcon();
 
-	const setShowMeta = (show: boolean) => {
-		showMeta.set(show);
+	const setIsHovered = (hovered: boolean) => {
+		isHovered.set(hovered);
+	};
+
+	let imageElem: HTMLDivElement | undefined;
+
+	const loadImage = (entries: IntersectionObserverEntry[]) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting && entry.target === imageElem) {
+				const img = new Image();
+
+				img.onload = () => {
+					state.set(ImageState.Loaded);
+				};
+
+				img.onerror = () => {
+					state.set(ImageState.Failed);
+				};
+
+				img.src = src;
+			}
+		});
 	};
 
 	onMount(() => {
-		const img = new Image();
+		if (imageElem) {
+			let options = {
+				threshold: 0.75
+			};
 
-		img.onload = () => {
-			state = ImageState.Loaded;
-		};
+			let observer = new IntersectionObserver(loadImage, options);
 
-		img.onerror = () => {
-			state = ImageState.Failed;
-		};
+			observer.observe(imageElem);
+		}
+	});
 
-		img.src = src;
+	beforeUpdate(() => {
+		if (disableHover || $isHovered) {
+			showMeta.set(true);
+		} else {
+			showMeta.set(false);
+		}
 	});
 </script>
 
-<div class="relative flex flex-col overflow-clip" style="padding-top: 66.6%">
+<div bind:this={imageElem} class="relative flex flex-col overflow-clip" style="padding-top: 66.6%">
 	<div class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-grey-700">
-		<div
-			class:hidden={state !== ImageState.Loading}
-			class:block={state === ImageState.Loading}
-			class="flex flex-col items-center justify-center"
-		>
-			<p>Loading...</p>
-		</div>
-		<div
-			class:hidden={state !== ImageState.Failed}
-			class:block={state === ImageState.Failed}
-			class="flex flex-col items-center h-full bg-grey-800 justify-center"
-		>
-			<span class="text-[#ff0000]/70">Image failed to load :-(</span>
-		</div>
-		<div
-			on:focus={() => setShowMeta(true)}
-			on:blur={() => setShowMeta(false)}
-			on:mouseout={() => setShowMeta(false)}
-			on:mouseover={() => setShowMeta(true)}
-			class:hidden={state !== ImageState.Loaded}
-			class:block={state === ImageState.Loaded}
-			class="h-full w-full cursor-cell"
-		>
-			<img class="object-cover block w-full h-full" alt={src} {src} />
-			{#if meta}
-				<div
-					class:bottom-[-100%]={!$showMeta}
-					class:bottom-0={$showMeta}
-					class:opacity-0={!$showMeta}
-					class:opacity-100={$showMeta}
-					class="absolute transition-all left-0 flex flex-row justify-between items-end py-4 px-8 w-full bg-black-200/80"
-				>
-					<h5 class="text-white-400 ">{meta.location}</h5>
-					<h4 class="text-white-200">{meta.name}</h4>
-					<h5 class="text-white-400">{meta.date}</h5>
-				</div>
-			{/if}
-		</div>
+		{#if $state === ImageState.Loading}
+			<div class="flex flex-col items-center justify-center">
+				{#await loadingIcon then icon}
+					<svg {...icon.attributes} class="text-grey-100 text-6xl">{@html icon.body}</svg>
+				{/await}
+			</div>
+		{/if}
+		{#if $state === ImageState.Failed}
+			<div class="flex flex-col items-center h-full bg-grey-800 justify-center">
+				<span class="text-[#ff0000]/70">Image failed to load :-(</span>
+			</div>
+		{/if}
+		{#if $state === ImageState.Loaded}
+			<div
+				on:focus={() => !disableHover && setIsHovered(true)}
+				on:blur={() => !disableHover && setIsHovered(false)}
+				on:mouseout={() => !disableHover && setIsHovered(false)}
+				on:mouseover={() => !disableHover && setIsHovered(true)}
+				class:hidden={$state !== ImageState.Loaded}
+				class:block={$state === ImageState.Loaded}
+				class="h-full w-full cursor-cell vignette"
+				transition:fade|local
+			>
+				<img class="object-cover block w-full h-full" alt={src} {src} />
+				{#if meta && $showMeta}
+					<div
+						transition:slide={{ duration: 150 }}
+						class="absolute transition-all bottom-0 left-0 flex flex-row justify-between items-end py-4 px-8 w-full bg-black-200/80"
+					>
+						<h5 class="text-white-400 ">{meta.location}</h5>
+						<h4 class="text-white-200">{meta.name}</h4>
+						<h5 class="text-white-400">{meta.date}</h5>
+					</div>
+				{/if}
+			</div>
+		{/if}
 	</div>
 </div>
