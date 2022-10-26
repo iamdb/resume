@@ -13,7 +13,7 @@
 
 	const cardColor = new Color(color || '#eeeeee');
 	const backgroundColor = cardColor.fade(0.25).darken(0.6);
-	const textColor = cardColor.lighten(0.2).toString();
+	const textColor = cardColor.lighten(0.2);
 
 	const setHovered = (isHovered: boolean) => {
 		hovered.set(isHovered);
@@ -23,7 +23,7 @@
 <a
 	href={url}
 	style:background-color={$hovered ? backgroundColor.lighten(0.5).hex() : backgroundColor.hex()}
-	class="flex flex-col justify-between p-6 w-1/4 no-underline rounded-lg underline-offset-2 aspect-square"
+	class="flex flex-col justify-between px-6 py-4 w-1/4 no-underline rounded-lg underline-offset-2"
 	target="_blank"
 	rel="noreferrer"
 	on:mouseover={() => setHovered(true)}
@@ -31,13 +31,21 @@
 	on:focus={() => setHovered(true)}
 	on:blur={() => setHovered(false)}
 >
-	<div style:color={textColor}>
+	<div style:color={textColor.hex()}>
 		<h4 class="cursor-pointer leading-none mb-4 text-2xl font-bold underline">{name}</h4>
 		<p>{description}</p>
 	</div>
-	<div class="flex flex-row flex-wrap gap-x-4">
-		{#each icons as icon}
-			<iconify-icon style:color={cardColor.toString()} class="text-4xl text-grey-800" {icon} />
-		{/each}
+	<div>
+		<span class="leading-none text-xs" style:color={backgroundColor.lighten(0.25).hex()}>
+			LANGUAGES
+		</span>
+		<div
+			style:background-color={backgroundColor.lighten(0.25).hex()}
+			class="flex flex-row flex-wrap gap-x-2 p-2 rounded shadow-nner"
+		>
+			{#each icons as icon}
+				<iconify-icon style:color={cardColor.toString()} class="text-4xl text-grey-800" {icon} />
+			{/each}
+		</div>
 	</div>
 </a>
