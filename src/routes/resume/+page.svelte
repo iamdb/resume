@@ -1,4 +1,6 @@
 <script type="ts">
+	export let prerender = false;
+
 	import 'iconify-icon';
 	import { writable } from 'svelte/store';
 	import TechIcon from '$lib/components/tech-icon.svelte';

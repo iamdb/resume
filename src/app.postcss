@@ -48,4 +48,17 @@
   .btn-active {
     @apply bg-green-500 text-grey-500 hover:bg-green-400 hover:text-grey-500
   }
+
+  .vignette {
+    position: relative;
+  }
+
+  .vignette:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0; bottom: 0; right: 0;
+    box-shadow: inset 0px 0px 3rem rgba(0,0,0,0.75);
+  }
 }
