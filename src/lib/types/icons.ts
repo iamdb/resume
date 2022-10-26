@@ -1,4 +1,4 @@
-import { loadIcon, buildIcon, type IconifyIconBuildResult } from 'iconify-icon';
+import { loadIcon, buildIcon, type IconifyIconBuildResult, loadIcons } from 'iconify-icon';
 
 export const getLoadingIcon = async (): Promise<IconifyIconBuildResult> => {
   const iconInfo = await loadIcon('line-md:downloading-loop');
@@ -43,6 +43,13 @@ export enum Icon {
   Typescript = "cib:typescript",
   WebRtc = "simple-icons:webrtc",
   Yaml = "file-icons:yaml-alt4",
+}
+
+export function loadAllIcons(cb?: () => void) {
+  const iconNames = Object.values(Icon)
+  loadIcons(iconNames, () => {
+    cb && cb()
+  })
 }
 
 export function iconToString(icon: Icon): string {
