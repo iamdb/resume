@@ -1,6 +1,5 @@
 <script>
 	import 'iconify-icon';
-	import 'animate.css';
 	import '../app.postcss';
 	import Header from '$lib/components/header.svelte';
 </script>
