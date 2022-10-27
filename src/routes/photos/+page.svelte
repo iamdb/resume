@@ -1,4 +1,5 @@
 <script type="ts">
+	import 'iconify-icon';
 	import type { Show } from './+page';
 	import Image from '$lib/components/image.svelte';
 	import { writable } from 'svelte/store';
@@ -34,14 +35,6 @@
 	details.
 </p>
 
-<div class="fixed bottom-4 right-4">
-	{#if !$disableHover}
-		<button class="btn" on:click={() => disableHover.set(true)}>Reveal All</button>
-	{:else}
-		<button class="btn" on:click={() => disableHover.set(false)}>Hide All</button>
-	{/if}
-</div>
-
 <div class="grid grid-cols-1 md:grid-cols-2 gap-14 mt-12">
 	{#each data.shows as show}
 		{#if show.photos}
@@ -59,4 +52,17 @@
 			{/each}
 		{/if}
 	{/each}
+</div>
+
+<div class="fixed top-1/3 right-4 z-10">
+	<button
+		class="btn aspect-square w-10 flex items-center justify-center"
+		on:click={() => disableHover.set(!$disableHover)}
+	>
+		{#if !$disableHover}
+			<iconify-icon class="block" width="100%" icon="bi:eye-fill" />
+		{:else}
+			<iconify-icon class="block" width="100%" icon="bi:eye-slash-fill" />
+		{/if}
+	</button>
 </div>

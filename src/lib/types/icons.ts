@@ -49,6 +49,9 @@ export function loadAllIcons(cb?: () => void) {
   const iconNames = Object.values(Icon) as string[]
   iconNames.push("carbon:location-filled")
   iconNames.push("clarity:date-line")
+  iconNames.push("bi:eye-slash-fill")
+  iconNames.push("bi:eye-fill")
+
   loadIcons(iconNames, () => {
     cb && cb()
   })
