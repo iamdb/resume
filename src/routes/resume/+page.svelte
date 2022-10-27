@@ -9,7 +9,6 @@
 	import type { WorkExperience } from '$lib/types/resume';
 	import { beforeUpdate } from 'svelte';
 	import { formatDate } from '$lib/util';
-	import { loadAllIcons } from '$lib/types/icons';
 
 	export let data: {
 		languagesAlltime: Language[];
@@ -32,7 +31,6 @@
 	);
 
 	beforeUpdate(() => {
-		loadAllIcons();
 		allIcons?.sort();
 	});
 </script>
