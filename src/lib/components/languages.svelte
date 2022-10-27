@@ -2,7 +2,6 @@
 	import Color from 'color';
 	import { flip } from 'svelte/animate';
 	import { quintOut } from 'svelte/easing';
-	import { writable } from 'svelte/store';
 	import { afterUpdate } from 'svelte';
 
 	import type { CodingActivityNormalized, Language } from '$lib/types/wakatime';
@@ -14,11 +13,11 @@
 	$: norm_modifier = 100 / languages[0].percent;
 
 	let listHeight = 0;
-	const maxHeight = writable(0);
+	let maxHeight = 0;
 
 	afterUpdate(() => {
-		if (listHeight > $maxHeight) {
-			maxHeight.set(listHeight);
+		if (listHeight > maxHeight) {
+			maxHeight = listHeight;
 		}
 	});
 </script>
@@ -34,17 +33,17 @@
 	<span>Since <strong>{new Date(activity.startDate).toLocaleDateString()}</strong></span>
 </div>
 <div
-	style:min-height={`${$maxHeight}px`}
+	style:min-height={`${maxHeight}px`}
 	bind:offsetHeight={listHeight}
-	class={`grid grid-rows-[${languages.length}fr] gap-y-8 p-8 rounded bg-black-200`}>
+	class={`p-8 rounded bg-black-200`}>
 	{#each languages as lang (lang.name)}
-		<span animate:flip={{ duration: (d) => Math.sqrt(d) * 50, easing: quintOut }}>
+		<div class="mb-4" animate:flip={{ duration: (d) => Math.sqrt(d) * 50, easing: quintOut }}>
 			<Skill
 				color={lang.color}
 				total={Math.ceil(activity.totalHours * (lang.percent * 0.01))}
 				name={lang.name}
 				progress={lang.percent * norm_modifier}
 				progressColor={new Color(lang.color).darken(0.25).desaturate(0.25).toString()} />
-		</span>
+		</div>
 	{/each}
 </div>

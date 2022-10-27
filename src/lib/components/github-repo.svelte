@@ -23,7 +23,7 @@
 <a
 	href={url}
 	style:background-color={$hovered ? backgroundColor.lighten(0.5).hex() : backgroundColor.hex()}
-	class="flex flex-col justify-between px-6 py-4 w-1/4 no-underline rounded-lg underline-offset-2"
+	class="flex h-full flex-col justify-between px-6 py-4 no-underline rounded-lg underline-offset-2"
 	target="_blank"
 	rel="noreferrer"
 	on:mouseover={() => setHovered(true)}

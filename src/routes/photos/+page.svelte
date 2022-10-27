@@ -2,16 +2,15 @@
 	import 'iconify-icon';
 	import type { Show } from './+page';
 	import Image from '$lib/components/image.svelte';
-	import { writable } from 'svelte/store';
 
 	export let data: {
 		shows: Show[];
 	};
 
-	let disableHover = writable(false);
+	let disableHover = false;
 </script>
 
-<h1 class="leading-tight mb-1 underline underline-offset-2">Concert Photography</h1>
+<h1 class="leading-tight mb-4 underline underline-offset-2">Concert Photography</h1>
 
 <p>
 	For as long as I can remember I have been interested in both photography and music. Sometime
@@ -34,14 +33,14 @@
 	details.
 </p>
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-14 mt-12">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-14 mt-12">
 	{#each data.shows as show}
 		{#if show.photos}
 			{@const photos = show.photos}
 			{#each photos as photo}
 				<Image
 					src={`/photos/music/${photo}`}
-					disableHover={$disableHover}
+					{disableHover}
 					meta={{
 						name: show.artist,
 						location: show.location,
@@ -55,11 +54,16 @@
 <div class="fixed top-1/3 right-4 z-10">
 	<button
 		class="btn aspect-square w-10 flex items-center justify-center"
-		on:click={() => disableHover.set(!$disableHover)}>
-		{#if !$disableHover}
-			<iconify-icon class="block" width="100%" icon="bi:eye-fill" />
-		{:else}
-			<iconify-icon class="block" width="100%" icon="bi:eye-slash-fill" />
-		{/if}
+		on:click={() => {
+			if (disableHover) {
+				disableHover = false;
+			} else {
+				disableHover = true;
+			}
+		}}>
+		<iconify-icon
+			class="block"
+			width="100%"
+			icon={`${disableHover ? 'bi:eye-slash-fill' : 'bi:eye-fill'}`} />
 	</button>
 </div>
