@@ -46,7 +46,9 @@ export enum Icon {
 }
 
 export function loadAllIcons(cb?: () => void) {
-  const iconNames = Object.values(Icon)
+  const iconNames = Object.values(Icon) as string[]
+  iconNames.push("carbon:location-filled")
+  iconNames.push("clarity:date-line")
   loadIcons(iconNames, () => {
     cb && cb()
   })

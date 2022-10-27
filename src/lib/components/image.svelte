@@ -1,6 +1,7 @@
 <script lang="ts">
 	import 'iconify-icon';
-	import { fade, slide } from 'svelte/transition';
+	import { quadOut, quintOut } from 'svelte/easing';
+	import { fade, fly } from 'svelte/transition';
 	import { beforeUpdate, onMount } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { getLoadingIcon } from '$lib/types/icons';
@@ -12,6 +13,7 @@
 	}
 
 	enum ImageState {
+		Idle,
 		Loaded,
 		Loading,
 		Failed
@@ -21,7 +23,7 @@
 	export let src: string;
 	export let disableHover = false;
 
-	const state = writable(ImageState.Loading);
+	const state = writable(ImageState.Idle);
 	const showMeta = writable(false);
 	const isHovered = writable(false);
 	const loadingIcon = getLoadingIcon();
@@ -35,6 +37,8 @@
 	const loadImage = (entries: IntersectionObserverEntry[]) => {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting && entry.target === imageElem) {
+				state.set(ImageState.Loading);
+
 				const img = new Image();
 
 				img.onload = () => {
@@ -53,7 +57,7 @@
 	onMount(() => {
 		if (imageElem) {
 			let options = {
-				threshold: 0.75
+				threshold: 0.25
 			};
 
 			let observer = new IntersectionObserver(loadImage, options);
@@ -69,6 +73,8 @@
 			showMeta.set(false);
 		}
 	});
+
+	let metaWidth = 0;
 </script>
 
 <div bind:this={imageElem} class="relative flex flex-col overflow-clip" style="padding-top: 66.6%">
@@ -81,7 +87,7 @@
 			</div>
 		{/if}
 		{#if $state === ImageState.Failed}
-			<div class="flex flex-col items-center bg-grey-800 justify-center w-full h-full">
+			<div class="flex flex-col items-center justify-center w-full h-full">
 				<iconify-icon class="text-[#ff0000]/70 text-2xl mb-1" icon="bx:error-alt" />
 				<span class="text-[#ff0000]/70 uppercase font-bold leading-tight">Image failed to load</span
 				>
@@ -102,15 +108,16 @@
 				<img class="object-cover block w-full h-full" alt={src} {src} />
 				{#if meta && $showMeta}
 					<div
-						transition:slide={{ duration: 150 }}
+						bind:offsetWidth={metaWidth}
+						transition:fly={{ x: metaWidth, easing: quintOut }}
 						class="absolute bottom-0 right-0 px-6 py-4 flex flex-col bg-black-900/80 rounded-tl-lg"
 					>
-						<h3 class="text-white-200 leading-none mb-4">{meta.name}</h3>
+						<h3 class="text-white-200 leading-none mb-4 pr-10">{meta.name}</h3>
 						<div class="flex flex-row items-center justify-between gap-x-8">
-							<span class="text-white-400 text-base leading-none">
+							<span class="text-white-400 text-base leading-tight">
 								<iconify-icon inline icon="carbon:location-filled" class="mr-2" />{meta.location}
 							</span>
-							<span class="text-white-400 text-sm leading-none">
+							<span class="text-white-400 text-sm leading-tight">
 								<iconify-icon inline icon="clarity:date-line" class="mr-2" />{meta.date}
 							</span>
 						</div>

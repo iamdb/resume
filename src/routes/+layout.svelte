@@ -3,8 +3,13 @@
 	import { enableCache } from 'iconify-icon';
 	import '../app.postcss';
 	import Header from '$lib/components/header.svelte';
+	import { loadAllIcons } from '$lib/types/icons';
+	import { onMount } from 'svelte';
 
-	enableCache('local');
+	onMount(() => {
+		loadAllIcons();
+		enableCache('local');
+	});
 </script>
 
 <div class="container flex flex-col justify-between h-full p-4 mx-auto relative">
