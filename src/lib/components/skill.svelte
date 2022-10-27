@@ -14,7 +14,11 @@
 	$: formattedName = iconToString(icon);
 </script>
 
-<div class="grid grid-cols-[.5fr,1fr] justify-items-stretch items-center place-items-start gap-x-4">
-	<TechIcon reverse {color} name={formattedName} {icon} />
-	<Progress {total} {progress} barColor={progressColor} />
+<div class="flex flex-row items-center justify-start gap-x-4">
+	<div class="w-1/4">
+		<TechIcon reverse {color} name={formattedName} {icon} />
+	</div>
+	<div class="flex-grow">
+		<Progress {total} {progress} barColor={progressColor} />
+	</div>
 </div>

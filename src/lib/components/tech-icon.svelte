@@ -8,7 +8,9 @@
 </script>
 
 <div class:flex-row-reverse={reverse} class="flex flex-row justify-between items-center gap-1">
-	<iconify-icon style:color class="text-4xl" {icon} />
+	<div class="w-4 md:w-6 lg:w-10 aspect-square">
+		<iconify-icon width="100%" style:color {icon} />
+	</div>
 	{#if name}
 		<span
 			class:ml-4={!reverse}

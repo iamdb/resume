@@ -1,13 +1,12 @@
 <script type="ts">
 	import 'iconify-icon';
-	import { writable } from 'svelte/store';
 	import TechIcon from '$lib/components/tech-icon.svelte';
 	import WorkHistory from '$lib/components/work-history.svelte';
 	import Languages from '$lib/components/languages.svelte';
 	import { Icon, iconToString, stringToIcon } from '$lib/types/icons';
 	import { LanguageScale, type CodingActivityNormalized, type Language } from '$lib/types/wakatime';
 	import type { WorkExperience } from '$lib/types/resume';
-	import { beforeUpdate } from 'svelte';
+	import { onMount } from 'svelte';
 	import { formatDate } from '$lib/util';
 
 	export let data: {
@@ -21,7 +20,11 @@
 	const { languagesAlltime, workExperience, activityAlltime, languagesLastYear, activityLastYear } =
 		data;
 
-	const languageScale = writable(LanguageScale.LastYear);
+	let languageScale = LanguageScale.LastYear;
+
+	onMount(() => {
+		allIcons?.sort();
+	});
 
 	$: allLangs = languagesAlltime
 		.concat(languagesLastYear)
@@ -30,9 +33,8 @@
 		(i) => !allLangs.includes(i.toLocaleLowerCase()) && i.toLocaleLowerCase() !== 'error'
 	);
 
-	beforeUpdate(() => {
-		allIcons?.sort();
-	});
+	$: languages = languageScale === LanguageScale.LastYear ? languagesLastYear : languagesAlltime;
+	$: activity = languageScale === LanguageScale.LastYear ? activityLastYear : activityAlltime;
 </script>
 
 <div class="flex flex-col gap-y-24 mb-48">
@@ -76,20 +78,16 @@
 					<h3>Languages</h3>
 					<div class="flex flex-row items-center gap-x-4">
 						<button
-							class:btn-active={$languageScale === LanguageScale.AllTime}
-							on:click={() => languageScale.set(LanguageScale.AllTime)}
+							class:btn-active={languageScale === LanguageScale.AllTime}
+							on:click={() => (languageScale = LanguageScale.AllTime)}
 							class="btn">all time</button>
 						<button
-							class:btn-active={$languageScale === LanguageScale.LastYear}
-							on:click={() => languageScale.set(LanguageScale.LastYear)}
+							class:btn-active={languageScale === LanguageScale.LastYear}
+							on:click={() => (languageScale = LanguageScale.LastYear)}
 							class="btn">last year</button>
 					</div>
 				</div>
-				<Languages
-					activity={$languageScale === LanguageScale.AllTime ? activityAlltime : activityLastYear}
-					languages={$languageScale === LanguageScale.AllTime
-						? languagesAlltime
-						: languagesLastYear} />
+				<Languages {activity} {languages} />
 			</div>
 			<div class="md:w-1/2 pt-10">
 				<h3 class="mb-4">Other Tech Experience</h3>

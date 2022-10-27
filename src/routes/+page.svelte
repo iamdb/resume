@@ -19,14 +19,16 @@
 		building dependable software.
 	</p>
 </div>
-<div class="flex flex-row gap-8 my-8 flex-wrap-1">
+<div class="flex flex-col md:flex-row gap-8 my-8 flex-wrap-1">
 	{#each data.pinnedItems as repo}
-		<GithubRepo
-			name={repo.name}
-			url={repo.url}
-			description={repo.description}
-			icons={repo.languages.nodes.map((lang) => stringToIcon(lang.name))}
-			color={repo.languages.nodes.at(0)?.color} />
+		<div class="w-full md:w-2/5 lg:w-1/3 xl:w-1/5">
+			<GithubRepo
+				name={repo.name}
+				url={repo.url}
+				description={repo.description}
+				icons={repo.languages.nodes.map((lang) => stringToIcon(lang.name))}
+				color={repo.languages.nodes.at(0)?.color} />
+		</div>
 	{/each}
 </div>
 
