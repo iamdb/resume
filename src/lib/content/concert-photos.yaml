@@ -1,114 +1,324 @@
 shows:
+  - artist: Soundgarden
+    location: The Forum
+    date: 7/22/2011
+    photos:
+      - soundgarden-1.jpg
   - artist: Beach House
     location: The Fonda Theatre
+    date: 12/9/2015
+    photos:
+      - beach-house-1.jpg
   - artist: Beck
     location: The Orpheum Theatre
+    date: 9/20/2014
+    photos:
+      - beck-1.jpg
   - artist: Damien Rice
-    location: Unitarian Church
+    location: The Greek Theatre 
+    date: 8/24/2015
+    photos:
+      - damien-rice-1.jpg
+      - damien-rice-2.jpg
   - artist: Alabama Shakes
     location: The Greek Theatre
+    date: 8/10/2016
+    photos:
+      - alabama-shakes-1.jpg
+      - alabama-shakes-2.jpg
   - artist: Andrew Bird
     location: Teragram Ballroom
+    date: 2/9/2016
+    photos:
+      - andrew-bird-1.jpg
+      - andrew-bird-2.jpg
   - artist: Bad Rabbit
     location: Troubadour
+    date: 7/29/13
+    photos:
+      - badrabbits-1.jpg
   - artist: A$AP Rocky
-    location: Exposition Park
+    location: Camp Flog Gnaw 2015
+    date: 11/14/2015
+    photos:
+      - asaprocky-1.jpg
+      - asaprocky-2.jpg
   - artist: Dan Deacon
     location: The Forum
+    date: 8/02/2014
+    photos:
+      - dan-deacon-1.jpg
+      - dan-deacon-2.jpg
   - artist: D'Angelo
     location: Club Nokia
+    date: 6/8/2015
+    photos:
+      - dangelo-1.jpg
+      - dangelo-2.jpg
   - artist: Dead Sara
     location: Troubadour
+    date: 5/12/2015
+    photos:
+      - dead-sara-1.jpg
+      - dead-sara-2.jpg
   - artist: Eagles of Death Metal
     location: Teragram Ballroom
+    date: 10/19/2015
+    photos:
+      - eodm-1.jpg
+      - eodm-2.jpg
   - artist: Hot Chip
     location: The Greek Theatre
+    date: 8/11/2015
+    photos:
+      - hot-chip-1.jpg
+      - hot-chip-2.jpg
   - artist: Juliette Lewis
     location: El Rey Theatre
+    date: 7/23/2015
+    photos:
+      - juliette-lewis-1.jpg
+      - juliette-lewis-2.jpg
   - artist: July Talk
     location: The Echo
+    date: 6/6/2015
+    photos:
+      - july-talk-1.jpg
+      - july-talk-2.jpg
   - artist: Kimbra
     location: Troubadour
+    date: 4/17/2012
+    photos:
+      - kimbra-1.jpg
+      - kimbra-2.jpg
   - artist: Leon Bridges
     location: Troubadour
+    date: 3/24/2015
+    photos:
+      - leon-bridges-1.jpg
+      - leon-bridges-2.jpg
   - artist: M83
-    location: LA Historic Park
-  - artist: Mumford &amp; Sons
+    location: FYF Fest 2012
+    date: 9/2/2012
+    photos:
+      - m83-1.jpg
+  - artist: Mumford & Sons
     location: The Hollywood Bowl
+    date: 11/10/2012
+    photos:
+      - mumford-and-sons-1.jpg
+      - mumford-and-sons-2.jpg
   - artist: Phantagram
     location: Hollywood Forever Cemetery
+    date: 9/6/2014
+    photos:
+      - phantagram-1.jpg
+      - phantagram-2.jpg
   - artist: My Morning Jacket
     location: The Wiltern
+    date: 9/13/2012
+    photos:
+      - my-morning-jacket-1.jpg
+      - my-morning-jacket-2.jpg
   - artist: Refused
-    location: LA Historic Park
+    location: FYF Fest 2012
+    date: 9/2/2012
+    photos:
+      - refused-1.jpg
   - artist: Prince Rama
     location: The Echoplex
+    date: 5/2/2015
+    photos:
+      - prince-rama-1.jpg
+      - prince-rama-2.jpg
   - artist: Ride
     location: The Roxy Theatre
+    date: 4/8/2015
+    photos:
+      - ride-1.jpg
   - artist: Roger Waters
     location: The L.A. Memorial Colliseum
+    date: 5/19/2012
+    photos:
+      - roger-waters-1.jpg
   - artist: Savages
     location: The Roxy Theatre
+    date: 8/26/2015
+    photos:
+      - savages-roxy-1.jpg
   - artist: Savages
     location: The Fox Theatre Pomona
+    date: 4/20/2016
+    photos:
+      - savages-pomona-1.jpg
+      - savages-pomona-2.jpg
   - artist: Slash
     location: The Wiltern
+    date: 9/2/2012
+    photos:
+      - slash-1.jpg
   - artist: Snoop Dogg
-    location: Exposition Park
+    location: Camp Flog Gnaw 2015
+    date: 11/14/2015
+    photos:
+      - snoop-1.jpg
+      - snoop-3.jpg
   - artist: Sleater Kinney
     location: The Palladium
+    date: 4/30/2015
+    photos:
+      - sleater-kinney-1.jpg
+      - sleater-kinney-2.jpg
   - artist: Tame Impala
     location: Hollywood Forever Cemetery
+    date: 8/7/2015
+    photos:
+      - tame-impala-1.jpg
+      - tame-impala-2.jpg
+      - tame-impala-3.jpg
   - artist: Spoon
     location: The Wiltern
+    date: 5/30/2015
+    photos:
+      - spoon-1.jpg
   - artist: The Arcs
     location: The Fonda Theatre
+    date: 4/19/2016
+    photos:
+      - the-arcs-1.jpg
+      - the-arcs-2.jpg
   - artist: The Avett Brothers
     location: The Greek Theatre
+    date: 8/11/2017
+    photos:
+      - avett-bros-1.jpg
+      - avett-bros-2.jpg
   - artist: The Kills
     location: The Mayan
+    date: 8/13/2012
+    photos:
+      - the-kills-1.jpg
   - artist: The Last Shadow Puppets
+    location: Alcove Los Feliz
+    date: 2/23/2016
+    photos: 
+      - the-last-shadow-puppets-1.jpg
+      - the-last-shadow-puppets-2.jpg
   - artist: Trombone Shorty
     location: The El Rey Theatre
+    date: 2/8/2013
+    photos:
+      - trombone-shorty-1.jpg
+      - trombone-shorty-2.jpg
   - artist: TV on the Radio
-    location: Fest
+    location: Annenberg Space for Photography
+    date: 7/25/2015
+    photos:
+      - tv-on-the-radio-1.jpg
+      - tv-on-the-radio-2.jpg
   - artist: Tyler the Creator
-    location: Exposition Park
+    location: Camp Flog Gnaw 2015
+    date: 11/14/2015
   - artist: Vince Staples
     location: The Fonda Theatre
+    date: 4/11/2017
+    photos:
+      - vince-staples-1.jpg
+      - vince-staples-2.jpg
   - artist: The War on Drugs
     location: The Troubadour
+    date: 4/6/2014
+    photos:
+      - war-on-drugs-1.jpg
   - artist: Weird Al Yankovic
     location: The Hollywood Bowl
+    date: 6/22/2016
+    photos:
+      - weird-al-1.jpg
+      - weird-al-2.jpg
   - artist: Wilco
     location: The Greek Theatre
+    date: 8/5/2015
+    photos:
+      - wilco-1.jpg
+      - wilco-2.jpg
   - artist: Zella Day
     location: The Troubadour
+    date: 6/3/2015
+    photos:
+      - zella-day-1.jpg
+      - zella-day-2.jpg
   - artist: ZZ Top
     location: House of Blues West Hollywood
+    date: 12/4/2012
+    photos:
+      - zz-top-1.jpg
+      - zz-top-2.jpg
   - artist: St. Vincent
     location: The Palladium
-  - artist: Iron &amp; Wine
-    location: Unitarian Church
+    date: 1/25/2018
+    photos:
+      - st-vincent-1.jpg
+      - st-vincent-2.jpg
+  - artist: Iron & Wine
+    location: Immanuel Presbyterian Church
+    date: 10/26/2017
+    photos:
+      - iron-and-wine-1.jpg
+      - iron-and-wine-2.jpg
   - artist: Bush
     location: The Palladium
+    date: 7/28/2017
+    photos:
+      - bush-1.jpg
   - artist: U2
     location: The Rose Bowl
+    date: 5/21/2017
+    photos:
+      - u2-1.jpg
   - artist: A Place to Bury Strangers
     location: The Broad
+    date: 8/26/2017
+    photos:
+      - aptbs-1.jpg
+      - aptbs-2.jpg
   - artist: The Pixies
     location: The Ace Hotel
+    date: 4/26/2017
+    photos:
+      - the-pixies-1.jpg
+      - the-pixies-2.jpg
   - artist: Future Islands
     location: The Roxy Theatre
+    date: 4/15/2017
+    photos:
+      - future-islands-1.jpg
   - artist: Run The Jewels
-    location: The Shrine Theatre
-  - artist: James
+    location: Shrine Exposition Hall
+    date: 2/1/2017
+    photos:
+      - rtj-1.jpg
+      - rtj-2.jpg
+  - artist: James Blake
     location: Beath Goth 2017
+    date: 8/1/2017
+    photos:
+      - james-blake-1.jpg
+      - james-blake-2.jpg
   - artist: Jamie XX
-    location: The Shrine Theatre
+    location: The Shrine Exposition Hall
+    date: 10/12/2015
+    photos:
+      - jamiexx-1.jpg
+      - jamiexx-2.jpg
   - artist: Garbage
     location: The Greek Theatre
+    date: 10/8/2015
+    photos:
+      - garbage-1.jpg
   - artist: Father John Misty
-    location: El Rey Theatre
-  - artist: Tennis
-    location: The Troubadour
+    location: The Roxy Theatre
+    date: 2/11/2015
+    photos:
+      - father-john-misty-1.jpg
+      - father-john-misty-2.jpg

@@ -1,7 +1,11 @@
-<script>
-	import photos from './photos.json';
+<script type="ts">
+	import type { Show } from './+page';
 	import Image from '$lib/components/image.svelte';
 	import { writable } from 'svelte/store';
+
+	export let data: {
+		shows: Show[];
+	};
 
 	let disableHover = writable(false);
 </script>
@@ -23,11 +27,20 @@
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-14">
-	{#each photos as src}
-		<Image
-			src={`/photos/music/${src}`}
-			disableHover={$disableHover}
-			meta={{ name: 'Test', location: 'test', date: 'date' }}
-		/>
+	{#each data.shows as show}
+		{#if show.photos}
+			{@const photos = show.photos}
+			{#each photos as photo}
+				<Image
+					src={`/photos/music/${photo}`}
+					disableHover={$disableHover}
+					meta={{
+						name: show.artist,
+						location: show.location,
+						date: show.date.toLocaleDateString()
+					}}
+				/>
+			{/each}
+		{/if}
 	{/each}
 </div>
