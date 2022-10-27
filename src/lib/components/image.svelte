@@ -1,4 +1,5 @@
 <script lang="ts">
+	import 'iconify-icon';
 	import { fade, slide } from 'svelte/transition';
 	import { beforeUpdate, onMount } from 'svelte';
 	import { writable } from 'svelte/store';
@@ -80,8 +81,11 @@
 			</div>
 		{/if}
 		{#if $state === ImageState.Failed}
-			<div class="flex flex-col items-center h-full bg-grey-800 justify-center">
-				<span class="text-[#ff0000]/70">Image failed to load :-(</span>
+			<div class="flex flex-col items-center bg-grey-800 justify-center w-full h-full">
+				<iconify-icon class="text-[#ff0000]/70 text-2xl mb-1" icon="bx:error-alt" />
+				<span class="text-[#ff0000]/70 uppercase font-bold leading-tight">Image failed to load</span
+				>
+				<span class="leading-none text-grey-300">{src}</span>
 			</div>
 		{/if}
 		{#if $state === ImageState.Loaded}
@@ -99,11 +103,17 @@
 				{#if meta && $showMeta}
 					<div
 						transition:slide={{ duration: 150 }}
-						class="absolute transition-all bottom-0 left-0 flex flex-row justify-between items-end py-4 px-8 w-full bg-black-200/80"
+						class="absolute bottom-0 right-0 px-6 py-4 flex flex-col bg-black-900/80 rounded-tl-lg"
 					>
-						<h5 class="text-white-400 ">{meta.location}</h5>
-						<h4 class="text-white-200">{meta.name}</h4>
-						<h5 class="text-white-400">{meta.date}</h5>
+						<h3 class="text-white-200 leading-none mb-4">{meta.name}</h3>
+						<div class="flex flex-row items-center justify-between gap-x-8">
+							<span class="text-white-400 text-base leading-none">
+								<iconify-icon inline icon="carbon:location-filled" class="mr-2" />{meta.location}
+							</span>
+							<span class="text-white-400 text-sm leading-none">
+								<iconify-icon inline icon="clarity:date-line" class="mr-2" />{meta.date}
+							</span>
+						</div>
 					</div>
 				{/if}
 			</div>
