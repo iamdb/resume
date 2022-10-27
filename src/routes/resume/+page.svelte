@@ -48,16 +48,15 @@
 				class="text-2xl"
 				href="https://www.linkedin.com/in/davidabenjamin"
 				target="_blank"
-				rel="noreferrer noopener"
-			>
+				rel="noreferrer noopener">
 				<iconify-icon icon="simple-icons:linkedin" />
 			</a>
 		</div>
 		<p class="mt-16 mb-0 text-xl">
-			I am an experienced software engineer seeking a full-time <a href="/about">non-full-stack</a> position
-			writing code in Rust or Go. I take pride in writing reliable and performant software in code that
-			is understandable. I have always had a passion for audio and video and would like my work to be
-			involved with it in some way.
+			I am an experienced software engineer seeking a full-time position writing code in <strong
+				>Rust</strong>
+			or <strong>Go</strong>. I take pride in writing reliable, performant and maintainable
+			software.
 		</p>
 	</header>
 
@@ -79,27 +78,23 @@
 						<button
 							class:btn-active={$languageScale === LanguageScale.AllTime}
 							on:click={() => languageScale.set(LanguageScale.AllTime)}
-							class="btn">all time</button
-						>
+							class="btn">all time</button>
 						<button
 							class:btn-active={$languageScale === LanguageScale.LastYear}
 							on:click={() => languageScale.set(LanguageScale.LastYear)}
-							class="btn">last year</button
-						>
+							class="btn">last year</button>
 					</div>
 				</div>
 				<Languages
 					activity={$languageScale === LanguageScale.AllTime ? activityAlltime : activityLastYear}
 					languages={$languageScale === LanguageScale.AllTime
 						? languagesAlltime
-						: languagesLastYear}
-				/>
+						: languagesLastYear} />
 			</div>
 			<div class="md:w-1/2 pt-10">
 				<h3 class="mb-4">Other Tech Experience</h3>
 				<div
-					class="grid grid-cols-3 gap-8 justify-items-start place-content-center p-8 rounded text-white-600 align-center bg-black-200"
-				>
+					class="grid grid-cols-3 gap-8 justify-items-start place-content-center p-8 rounded text-white-600 align-center bg-black-200">
 					{#each allIcons as techIcon}
 						{@const icon = stringToIcon(techIcon)}
 						{@const name = iconToString(icon)}
@@ -117,9 +112,8 @@
 				<WorkHistory
 					companyName={job.name}
 					startDate={formatDate(job.startDate)}
-					endDate={formatDate(job.endDate)}
-					temporary={job.contract}
-				>
+					endDate={job.endDate && formatDate(job.endDate)}
+					temporary={job.contract}>
 					<ul slot="accomplishments" class="list-disc list-inside">
 						{#each job.accomplishments as immagoodboy}
 							<li class="mb-4 leading-tight">{@html immagoodboy}</li>
@@ -127,8 +121,7 @@
 					</ul>
 					<div
 						slot="stack"
-						class="flex flex-row flex-wrap gap-x-12 gap-y-8 justify-around items-center"
-					>
+						class="flex flex-row flex-wrap gap-x-12 gap-y-8 justify-around items-center">
 						{#each job.stack as techIcon}
 							<TechIcon icon={stringToIcon(techIcon)} name={techIcon} />
 						{/each}

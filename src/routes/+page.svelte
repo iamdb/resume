@@ -26,14 +26,12 @@
 			url={repo.url}
 			description={repo.description}
 			icons={repo.languages.nodes.map((lang) => stringToIcon(lang.name))}
-			color={repo.languages.nodes.at(0)?.color}
-		/>
+			color={repo.languages.nodes.at(0)?.color} />
 	{/each}
 </div>
 
 <p class="text-2xl">
 	In addition to software development, I was a prolific <a class="font-bold" href="/photos"
-		>live concert photographer</a
-	>
+		>live concert photographer</a>
 	from <strong>2011</strong> until <strong>2018</strong> in Los Angeles.
 </p>

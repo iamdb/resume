@@ -36,8 +36,7 @@
 <div
 	style:min-height={`${$maxHeight}px`}
 	bind:offsetHeight={listHeight}
-	class={`grid grid-rows-[${languages.length}fr] gap-y-8 p-8 rounded bg-black-200`}
->
+	class={`grid grid-rows-[${languages.length}fr] gap-y-8 p-8 rounded bg-black-200`}>
 	{#each languages as lang (lang.name)}
 		<span animate:flip={{ duration: (d) => Math.sqrt(d) * 50, easing: quintOut }}>
 			<Skill
@@ -45,8 +44,7 @@
 				total={Math.ceil(activity.totalHours * (lang.percent * 0.01))}
 				name={lang.name}
 				progress={lang.percent * norm_modifier}
-				progressColor={new Color(lang.color).darken(0.25).desaturate(0.25).toString()}
-			/>
+				progressColor={new Color(lang.color).darken(0.25).desaturate(0.25).toString()} />
 		</span>
 	{/each}
 </div>

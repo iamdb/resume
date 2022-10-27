@@ -1,6 +1,15 @@
 experience:
+  - name: Contract / Self-employed
+    startDate: 05/01/2009
+    accomplishments:
+      - Did stuff
+    stack:
+      - TypeScript
+      - JavaScript
+      - Node.js
+      - AWS
+      - Github
   - name: Little Cinema Digital
-    contract: true
     startDate: 02/01/2022
     endDate: 08/01/2022
     stack:
@@ -70,4 +79,6 @@ experience:
       - Node.js
       - DigitalOcean
     accomplishments:
-      - Lead all tech projects
+      - Lead all tech efforts within organization
+      - Collaborated with account managers to refine their ideas into buildable products
+      - Wrote code, deployed and maintained nearly all development projects

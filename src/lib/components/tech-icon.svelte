@@ -13,7 +13,6 @@
 		<span
 			class:ml-4={!reverse}
 			class:mr-4={reverse}
-			class="text-xl leading-none font-bold cursor-default">{name}</span
-		>
+			class="text-xl leading-none font-bold cursor-default">{name}</span>
 	{/if}
 </div>

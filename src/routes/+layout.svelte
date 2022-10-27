@@ -26,8 +26,7 @@
 			<a
 				href="https://www.linkedin.com/in/davidabenjamin"
 				target="_blank"
-				rel="noreferrer noopener"
-			>
+				rel="noreferrer noopener">
 				<iconify-icon icon="simple-icons:linkedin" />
 			</a>
 		</div>

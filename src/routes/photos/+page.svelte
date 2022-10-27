@@ -20,8 +20,7 @@
 	first DSLR and from then until 2018 I spent a lot of my nights taking photos at venues all around
 	Los Angeles. I primarily photographed for two legendary Los Angeles music publications
 	<a href="https://buzzbands.la/?s=%22david+benjamin%22" target="_blank" rel="noopener noreferrer"
-		>Buzzbands.la</a
-	>
+		>Buzzbands.la</a>
 	and
 	<a href="https://larecord.com/?s=%22david+benjamin%22" target="_blank" rel="noreferrer noopener"
 		>LA Record</a
@@ -47,8 +46,7 @@
 						name: show.artist,
 						location: show.location,
 						date: show.date.toLocaleDateString()
-					}}
-				/>
+					}} />
 			{/each}
 		{/if}
 	{/each}
@@ -57,8 +55,7 @@
 <div class="fixed top-1/3 right-4 z-10">
 	<button
 		class="btn aspect-square w-10 flex items-center justify-center"
-		on:click={() => disableHover.set(!$disableHover)}
-	>
+		on:click={() => disableHover.set(!$disableHover)}>
 		{#if !$disableHover}
 			<iconify-icon class="block" width="100%" icon="bi:eye-fill" />
 		{:else}

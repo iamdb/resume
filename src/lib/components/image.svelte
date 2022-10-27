@@ -89,8 +89,8 @@
 		{#if $state === ImageState.Failed}
 			<div class="flex flex-col items-center justify-center w-full h-full">
 				<iconify-icon class="text-[#ff0000]/70 text-2xl mb-1" icon="bx:error-alt" />
-				<span class="text-[#ff0000]/70 uppercase font-bold leading-tight">Image failed to load</span
-				>
+				<span class="text-[#ff0000]/70 uppercase font-bold leading-tight"
+					>Image failed to load</span>
 				<span class="leading-none text-grey-300">{src}</span>
 			</div>
 		{/if}
@@ -103,15 +103,13 @@
 				class:hidden={$state !== ImageState.Loaded}
 				class:block={$state === ImageState.Loaded}
 				class="h-full w-full cursor-cell vignette"
-				transition:fade|local
-			>
+				transition:fade|local>
 				<img class="object-cover block w-full h-full" alt={src} {src} />
 				{#if meta && $showMeta}
 					<div
 						bind:offsetWidth={metaWidth}
 						transition:fly={{ x: metaWidth, easing: quintOut }}
-						class="absolute bottom-0 right-0 px-6 py-4 flex flex-col bg-black-900/80 rounded-tl-lg"
-					>
+						class="absolute bottom-0 right-0 px-6 py-4 flex flex-col bg-black-900/80 rounded-tl-lg">
 						<h3 class="text-white-200 leading-none mb-4 pr-10">{meta.name}</h3>
 						<div class="flex flex-row items-center justify-between gap-x-8">
 							<span class="text-white-400 text-base leading-tight">

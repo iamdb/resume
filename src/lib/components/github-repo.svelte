@@ -29,8 +29,7 @@
 	on:mouseover={() => setHovered(true)}
 	on:mouseout={() => setHovered(false)}
 	on:focus={() => setHovered(true)}
-	on:blur={() => setHovered(false)}
->
+	on:blur={() => setHovered(false)}>
 	<div style:color={textColor.hex()}>
 		<h4 class="cursor-pointer leading-none mb-4 text-2xl font-bold underline">{name}</h4>
 		<p>{description}</p>
@@ -41,8 +40,7 @@
 		</span>
 		<div
 			style:background-color={backgroundColor.lighten(0.25).hex()}
-			class="flex flex-row flex-wrap gap-x-2 p-2 rounded shadow-nner"
-		>
+			class="flex flex-row flex-wrap gap-x-2 p-2 rounded shadow-nner">
 			{#each icons as icon}
 				<iconify-icon style:color={cardColor.toString()} class="text-4xl text-grey-800" {icon} />
 			{/each}

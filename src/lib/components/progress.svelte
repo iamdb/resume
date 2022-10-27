@@ -26,23 +26,20 @@
 		style:width={`${$currentProgress}%`}
 		style:background-color={barColor}
 		bind:clientHeight
-		class="rounded-full flex flex-row justify-end items-center"
-	>
+		class="rounded-full flex flex-row justify-end items-center">
 		<span
 			class:opacity-100={$showHours}
 			class:opacity-0={!$showHours}
 			class:invisible={progress <= 75}
 			class="transition-opacity duration-75 text-black-800 pr-3 font-bold whitespace-nowrap"
-			>{total}{`${total === 1 ? ' hour' : ' hours'}`}</span
-		>
+			>{total}{`${total === 1 ? ' hour' : ' hours'}`}</span>
 	</div>
 	<span
 		class:opacity-100={$showHours}
 		class:opacity-0={!$showHours}
 		class:hidden={progress >= 75}
 		style:color={barColor}
-		class="transition-opacity duration-75 px-3 font-bold whitespace-nowrap"
-	>
+		class="transition-opacity duration-75 px-3 font-bold whitespace-nowrap">
 		{total}{`${total === 1 ? ' hour' : ' hours'}`}
 	</span>
 </div>
