@@ -1,13 +1,49 @@
 <script type="ts">
+	import { browser } from '$app/environment';
 	import 'iconify-icon';
 	import type { Show } from './+page';
-	import Image from '$lib/components/image.svelte';
+	import ConcertPhoto from '$lib/components/concert-photo.svelte';
+	import { afterUpdate, onMount } from 'svelte';
 
 	export let data: {
 		shows: Show[];
 	};
 
 	let disableHover = false;
+	let visiblePhotos = new Set();
+
+	const loadImage = (entries: IntersectionObserverEntry[]) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				visiblePhotos.add(entry.target.getAttribute('data-photo-src'));
+				visiblePhotos = visiblePhotos;
+			} else {
+				visiblePhotos.delete(entry.target.getAttribute('data-photo-src'));
+				visiblePhotos = visiblePhotos;
+			}
+		});
+	};
+
+	let options = {
+		threshold: 0.25
+	};
+
+	let photoContainer: HTMLDivElement | undefined;
+
+	onMount(() => {
+		const observer = new IntersectionObserver(loadImage, options);
+		const photos = photoContainer?.querySelectorAll('.concert-photo');
+
+		photos?.forEach((p) => {
+			observer.observe(p);
+		});
+
+		return () => {
+			photos?.forEach((p) => {
+				observer.unobserve(p);
+			});
+		};
+	});
 </script>
 
 <h1 class="leading-tight mb-4 underline underline-offset-2">Concert Photography</h1>
@@ -33,13 +69,16 @@
 	details.
 </p>
 
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-14 mt-12">
+<div bind:this={photoContainer} class="grid grid-cols-1 lg:grid-cols-2 gap-14 mt-12">
 	{#each data.shows as show}
 		{#if show.photos}
 			{@const photos = show.photos}
 			{#each photos as photo}
-				<Image
-					src={`/photos/music/${photo}`}
+				{@const photoUrl = `/photos/music/${photo}`}
+				{@const showImage = visiblePhotos.has(photoUrl)}
+				<ConcertPhoto
+					src={photoUrl}
+					{showImage}
 					{disableHover}
 					meta={{
 						name: show.artist,
