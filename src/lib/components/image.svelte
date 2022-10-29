@@ -44,7 +44,7 @@
 	};
 </script>
 
-<div transition:fade|local data-photo-src={src} class="relative overflow-hidden">
+<div transition:fade|local data-photo-src={src} class="relative w-full h-full overflow-hidden">
 	{#if state === ImageState.Loading}
 		<div class="flex flex-col w-full h-full items-center justify-center">
 			{#if loadingIcon}
