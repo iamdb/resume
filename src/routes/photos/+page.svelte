@@ -1,9 +1,9 @@
 <script type="ts">
-	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
 	import 'iconify-icon';
 	import type { Show } from './+page';
 	import ConcertPhoto from '$lib/components/concert-photo.svelte';
-	import { afterUpdate, onMount } from 'svelte';
+	import PageHead from '$lib/components/page-head.svelte';
 
 	export let data: {
 		shows: Show[];
@@ -25,7 +25,7 @@
 	};
 
 	let options = {
-		threshold: 0.25
+		threshold: 0.05
 	};
 
 	let photoContainer: HTMLDivElement | undefined;
@@ -46,6 +46,7 @@
 	});
 </script>
 
+<PageHead title="Concert Photography" />
 <h1 class="leading-tight mb-4 underline underline-offset-2">Concert Photography</h1>
 
 <p>

@@ -3,6 +3,7 @@
 	import TechIcon from '$lib/components/tech-icon.svelte';
 	import WorkHistory from '$lib/components/work-history.svelte';
 	import Languages from '$lib/components/languages.svelte';
+	import PageHead from '$lib/components/page-head.svelte';
 	import { Icon, iconToString, stringToIcon } from '$lib/types/icons';
 	import { LanguageScale, type CodingActivityNormalized, type Language } from '$lib/types/wakatime';
 	import type { WorkExperience } from '$lib/types/resume';
@@ -36,6 +37,8 @@
 	$: languages = languageScale === LanguageScale.LastYear ? languagesLastYear : languagesAlltime;
 	$: activity = languageScale === LanguageScale.LastYear ? activityLastYear : activityAlltime;
 </script>
+
+<PageHead title="Resume" />
 
 <div class="flex flex-col gap-y-24 mb-48">
 	<header>

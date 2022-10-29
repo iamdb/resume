@@ -3,11 +3,14 @@
 	import GithubRepo from '$lib/components/github-repo.svelte';
 	import { stringToIcon } from '$lib/types/icons';
 	import type { Repo } from './+page.server';
+	import PageHead from '$lib/components/page-head.svelte';
 
 	export let data: {
 		pinnedItems: Repo[];
 	};
 </script>
+
+<PageHead />
 
 <h1 class="text-8xl font-bold leading-tight">Hi</h1>
 <div>
