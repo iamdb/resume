@@ -1,6 +1,9 @@
 <script type="ts">
 	import pets from './pets.jpg';
+	import PageHead from '$lib/components/page-head.svelte';
 </script>
+
+<PageHead title="About Me" />
 
 <div class="flex flex-row items-baseline mb-12 justify-between">
 	<h1>About Me <sub class="text-base md:text-lg">(David Benjamin)</sub></h1>
