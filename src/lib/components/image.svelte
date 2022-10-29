@@ -66,11 +66,12 @@
 			<span class="leading-none text-grey-300">{src}</span>
 		</div>
 	{/if}
-	{#if !hideImage}
-		<div transition:fade|local class="vignette">
-			{#if state === ImageState.Loaded}
-				<img class="object-cover block w-full h-full" {alt} {src} />
-			{/if}
-		</div>
-	{/if}
+	<div
+		class:opacity-0={hideImage}
+		class:opacity-100={!hideImage}
+		class="transition-opacity duration-1000 vignette">
+		{#if state === ImageState.Loaded}
+			<img class="object-cover block w-full h-full" {alt} {src} />
+		{/if}
+	</div>
 </div>

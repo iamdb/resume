@@ -44,7 +44,15 @@
 			});
 		};
 	});
+
+	const scrollToTop = () => {
+		window.scrollTo(0, 0);
+	};
+
+	let scrollPos: number;
 </script>
+
+<svelte:window bind:scrollY={scrollPos} />
 
 <PageHead title="Concert Photography" />
 <h1 class="leading-tight mb-4 underline underline-offset-2">Concert Photography</h1>
@@ -67,10 +75,35 @@
 <p>
 	Below is a small selection of my favorite work from those years. The photos are ordered from the
 	earliest show to the latest. Tap your finger on or hover your mouse over a photograph to see more
-	details.
+	details. Use the buttons to the right to toggle the details for all photos and bring the page back
+	to the top.
 </p>
 
-<div bind:this={photoContainer} class="grid grid-cols-1 lg:grid-cols-2 gap-14 mt-12">
+<div class="sticky top-96 translate-x-full pl-12 z-10 flex flex-col gap-y-4">
+	<button
+		class:opacity-100={scrollPos > 200}
+		class:opacity-0={scrollPos <= 200}
+		class="btn transition-opacity aspect-square w-10 flex items-center justify-center"
+		on:click={scrollToTop}>
+		<iconify-icon class="block" width="100%" icon="bxs:to-top" />
+	</button>
+	<button
+		class="btn aspect-square w-10 flex items-center justify-center"
+		on:click={() => {
+			if (disableHover) {
+				disableHover = false;
+			} else {
+				disableHover = true;
+			}
+		}}>
+		<iconify-icon
+			class="block"
+			width="100%"
+			icon={`${disableHover ? 'bi:eye-slash-fill' : 'bi:eye-fill'}`} />
+	</button>
+</div>
+
+<div bind:this={photoContainer} class="relative grid grid-cols-1 lg:grid-cols-2 gap-14 -mt-12">
 	{#each data.shows as show}
 		{#if show.photos}
 			{@const photos = show.photos}
@@ -89,21 +122,4 @@
 			{/each}
 		{/if}
 	{/each}
-</div>
-
-<div class="fixed top-1/3 right-4 z-10">
-	<button
-		class="btn aspect-square w-10 flex items-center justify-center"
-		on:click={() => {
-			if (disableHover) {
-				disableHover = false;
-			} else {
-				disableHover = true;
-			}
-		}}>
-		<iconify-icon
-			class="block"
-			width="100%"
-			icon={`${disableHover ? 'bi:eye-slash-fill' : 'bi:eye-fill'}`} />
-	</button>
 </div>
