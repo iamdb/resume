@@ -46,7 +46,7 @@
 
 <div transition:fade|local data-photo-src={src} class="relative overflow-hidden">
 	{#if state === ImageState.Loading}
-		<div class="flex flex-col items-center justify-center">
+		<div class="flex flex-col w-full h-full items-center justify-center">
 			{#if loadingIcon}
 				<svg {...loadingIcon.attributes} class="text-grey-100 text-6xl"
 					>{@html loadingIcon.body}</svg>
