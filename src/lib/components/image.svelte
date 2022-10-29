@@ -1,6 +1,6 @@
 <script lang="ts">
 	import 'iconify-icon';
-	import { onMount } from 'svelte';
+	import { beforeUpdate, onMount } from 'svelte';
 	import { getLoadingIcon } from '$lib/types/icons';
 	import type { IconifyIconBuildResult } from 'iconify-icon';
 	import { fade } from 'svelte/transition';
@@ -14,13 +14,19 @@
 
 	export let alt: string;
 	export let src: string;
+	export let hideImage = true;
 
 	let state = ImageState.Idle;
 	let loadingIcon: IconifyIconBuildResult;
 
 	onMount(async () => {
 		loadingIcon = await getLoadingIcon();
-		loadImage();
+	});
+
+	beforeUpdate(() => {
+		if (!hideImage) {
+			loadImage();
+		}
 	});
 
 	const loadImage = () => {
@@ -44,7 +50,7 @@
 	};
 </script>
 
-<div transition:fade|local data-photo-src={src} class="relative w-full h-full overflow-hidden">
+<div data-photo-src={src} class="relative w-full h-full overflow-hidden">
 	{#if state === ImageState.Loading}
 		<div class="flex flex-col w-full h-full items-center justify-center">
 			{#if loadingIcon}
@@ -60,7 +66,7 @@
 			<span class="leading-none text-grey-300">{src}</span>
 		</div>
 	{/if}
-	{#if state === ImageState.Loaded}
-		<img class="object-cover block w-full h-full" {alt} {src} />
+	{#if state === ImageState.Loaded && !hideImage}
+		<img transition:fade|local class="object-cover block w-full h-full" {alt} {src} />
 	{/if}
 </div>
