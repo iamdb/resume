@@ -2,7 +2,7 @@
 	import 'iconify-icon';
 	import { quintOut } from 'svelte/easing';
 	import { fade, fly } from 'svelte/transition';
-	import { beforeUpdate, onMount } from 'svelte';
+	import { afterUpdate, beforeUpdate, onMount } from 'svelte';
 	import { getLoadingIcon } from '$lib/types/icons';
 	import type { IconifyIconBuildResult } from 'iconify-icon';
 
@@ -15,6 +15,7 @@
 	enum ImageState {
 		Idle,
 		Loaded,
+		Hidden,
 		Loading,
 		Failed
 	}
@@ -32,20 +33,26 @@
 
 	const loadImage = (entries: IntersectionObserverEntry[]) => {
 		entries.forEach((entry) => {
-			if (entry.isIntersecting && entry.target === imageElem && state !== ImageState.Loaded) {
-				state = ImageState.Loading;
+			if (entry.isIntersecting && entry.target === imageElem) {
+				if (state === ImageState.Idle) {
+					state = ImageState.Loading;
 
-				const img = new Image();
+					const img = new Image();
 
-				img.onload = () => {
+					img.onload = () => {
+						state = ImageState.Loaded;
+					};
+
+					img.onerror = () => {
+						state = ImageState.Failed;
+					};
+
+					img.src = src;
+				} else if (state === ImageState.Hidden) {
 					state = ImageState.Loaded;
-				};
-
-				img.onerror = () => {
-					state = ImageState.Failed;
-				};
-
-				img.src = src;
+				}
+			} else {
+				state = ImageState.Hidden;
 			}
 		});
 	};
@@ -70,7 +77,7 @@
 		};
 	});
 
-	beforeUpdate(() => {
+	afterUpdate(() => {
 		if (disableHover || isHovered) {
 			showMeta = true;
 		} else {
