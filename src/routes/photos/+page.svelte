@@ -7,6 +7,8 @@
 
 	export let data: {
 		shows: Show[];
+		intro: string;
+		title: string;
 	};
 
 	let disableHover = false;
@@ -54,56 +56,38 @@
 
 <svelte:window bind:scrollY={scrollPos} />
 
-<PageHead title="Concert Photography" />
-<h1 class="leading-tight mb-4 underline underline-offset-2">Concert Photography</h1>
+<PageHead title={data.title} />
+<h1 class="leading-tight mb-4 underline underline-offset-2">{data.title}</h1>
 
-<p>
-	For as long as I can remember I have been interested in both photography and music. Sometime
-	around 2007 I started going concerts regularly and really started to love the idea of being in the
-	photo pit amongst the chaos, trying to capture the best photograph possible. In 2011 I bought my
-	first DSLR and from then until 2018 I spent a lot of my nights taking photos at venues all around
-	Los Angeles. I primarily photographed for two legendary Los Angeles music publications
-	<a href="https://buzzbands.la/?s=%22david+benjamin%22" target="_blank" rel="noopener noreferrer"
-		>Buzzbands.la</a>
-	and
-	<a href="https://larecord.com/?s=%22david+benjamin%22" target="_blank" rel="noreferrer noopener"
-		>LA Record</a
-	>, but my work has also been featured in Consequence of Sound, FILTER and the
-	<a href="/photos/latimes-weirdal">Los Angeles Times</a>.
-</p>
+{@html data.intro}
 
-<p>
-	Below is a small selection of my favorite work from those years. The photos are ordered from the
-	earliest show to the latest. Tap your finger on or hover your mouse over a photograph to see more
-	details. Use the buttons to the right to toggle the details for all photos and bring the page back
-	to the top.
-</p>
-
-<div class="sticky top-96 translate-x-full pl-12 z-10 flex flex-col gap-y-4">
-	<button
-		class:opacity-100={scrollPos > 200}
-		class:opacity-0={scrollPos <= 200}
-		class="btn transition-opacity aspect-square w-10 flex items-center justify-center"
-		on:click={scrollToTop}>
-		<iconify-icon class="block" width="100%" icon="bxs:to-top" />
-	</button>
-	<button
-		class="btn aspect-square w-10 flex items-center justify-center"
-		on:click={() => {
-			if (disableHover) {
-				disableHover = false;
-			} else {
-				disableHover = true;
-			}
-		}}>
-		<iconify-icon
-			class="block"
-			width="100%"
-			icon={`${disableHover ? 'bi:eye-slash-fill' : 'bi:eye-fill'}`} />
-	</button>
+<div class="sticky flex flex-row items-center justify-end top-96 z-10 h-0">
+	<div class="translate-x-full pl-12 flex flex-col items-center gap-y-4 justify-start">
+		<button
+			class:opacity-100={scrollPos > 200}
+			class:opacity-0={scrollPos <= 200}
+			class="btn transition-opacity aspect-square w-10 flex items-center justify-center"
+			on:click={scrollToTop}>
+			<iconify-icon class="block" width="100%" icon="bxs:to-top" />
+		</button>
+		<button
+			class="btn aspect-square w-10 flex items-center justify-center"
+			on:click={() => {
+				if (disableHover) {
+					disableHover = false;
+				} else {
+					disableHover = true;
+				}
+			}}>
+			<iconify-icon
+				class="block"
+				width="100%"
+				icon={`${disableHover ? 'bi:eye-slash-fill' : 'bi:eye-fill'}`} />
+		</button>
+	</div>
 </div>
 
-<div bind:this={photoContainer} class="relative grid grid-cols-1 lg:grid-cols-2 gap-14 -mt-12">
+<div bind:this={photoContainer} class="relative grid grid-cols-1 lg:grid-cols-2 gap-14 mt-12">
 	{#each data.shows as show}
 		{#if show.photos}
 			{@const photos = show.photos}

@@ -1,5 +1,6 @@
 // @ts-expect-error For some reason the yaml is not being seen as a module.
-import { shows } from '$lib/content/concert-photos.yaml'
+import { shows, intro, title } from '$lib/content/concert-photos.yaml'
+import MarkdownIt from 'markdown-it'
 
 export interface Show {
   artist: string
@@ -34,7 +35,12 @@ export async function load() {
 
     return 0
   })
+
+  const md = new MarkdownIt()
+
   return {
-    shows: allShows
+    title,
+    shows: allShows,
+    intro: md.render(intro),
   }
 }
