@@ -12,9 +12,13 @@
 	});
 </script>
 
-<Header />
-<div class="container mx-auto relative">
-	<slot />
+<div class="flex flex-row">
+	<div class="w-11/12">
+		<div class="container mx-auto py-4 pl-8 relative">
+			<slot />
+		</div>
+	</div>
+	<Header />
 </div>
 <footer class="container flex flex-col mt-24 items-center justify-center pb-12">
 	<p class="text-sm leading-none text-grey-500 text-center">&copy; 2022 David Benjamin</p>

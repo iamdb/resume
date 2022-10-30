@@ -47,7 +47,7 @@
 							class="align-middle text-grey-100 w-5">{@html locationIcon.body}</svg>
 						{meta.location}
 					</span>
-					<span class="flex flex-row items-center justify-start gap-x-2">
+					<span class="flex flex-row items-center justify-start gap-x-2 text-sm">
 						<svg
 							viewBox={`${dateIcon.top} ${dateIcon.left} ${dateIcon.width} ${dateIcon.height}`}
 							class="text-grey-100 w-5">{@html dateIcon.body}</svg>
