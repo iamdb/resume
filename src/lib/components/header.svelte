@@ -14,8 +14,8 @@
 
 {#if $page.url.pathname !== '/'}
 	<header
-		class="p-4 w-1/12 top-0 sticky z-10 float-right flex flex-col items-center justify-start gap-y-4">
-		<a class="btn text-xl font-bold no-underline leading-none" href="/">back</a>
+		class="md:text-xl fixed right-0 top-0 w-1/12 z-10 flex flex-col items-center justify-start gap-y-4">
+		<a class="btn font-bold no-underline leading-none" href="/">back</a>
 		{#if $page.url.pathname === '/photos'}
 			<button
 				class="btn text-xl font-bold no-underline leading-none"
@@ -34,7 +34,7 @@
 			</button>
 		{/if}
 		{#if scrollPos > 200}
-			<button class="btn text-xl font-bold no-underline leading-none" on:click={scrollToTop}>
+			<button class="btn font-bold no-underline leading-none" on:click={scrollToTop}>
 				<!-- <iconify-icon class="block" width="100%" icon="bxs:to-top" /> -->
 				top
 			</button>

@@ -15,7 +15,7 @@
 </script>
 
 <div class="flex flex-row items-center justify-start gap-x-4">
-	<div class="w-1/4">
+	<div class="md:w-1/4">
 		<TechIcon reverse {color} name={formattedName} {icon} />
 	</div>
 	<div class="flex-grow">

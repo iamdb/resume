@@ -40,24 +40,30 @@
 
 <PageHead title="Resume" />
 
-<div class="flex flex-col gap-y-24 mb-48">
+<div class="flex flex-col gap-y-12 md:gap-y-24 mb-48">
 	<header>
 		<h1 class="leading-tight underline underline-offset-2">David Benjamin</h1>
-		<div class="flex flex-row justify-start gap-x-4 items-baseline">
+		<div class="flex flex-col md:flex-row justify-start gap-4 items-baseline">
 			<h3>Software Engineer</h3>
 			<a class="text-2xl font-bold" href="mailto:hireme@iamdb.co">hireme@iamdb.co</a>
-			<a class="text-2xl" href="https://github.com/iamdb" target="_blank" rel="noreferrer noopener">
-				<iconify-icon icon="simple-icons:github" />
-			</a>
-			<a
-				class="text-2xl"
-				href="https://www.linkedin.com/in/davidabenjamin"
-				target="_blank"
-				rel="noreferrer noopener">
-				<iconify-icon icon="simple-icons:linkedin" />
-			</a>
+			<div class="flex flex-row gap-x-4">
+				<a
+					class="text-2xl"
+					href="https://github.com/iamdb"
+					target="_blank"
+					rel="noreferrer noopener">
+					<iconify-icon icon="simple-icons:github" />
+				</a>
+				<a
+					class="text-2xl"
+					href="https://www.linkedin.com/in/davidabenjamin"
+					target="_blank"
+					rel="noreferrer noopener">
+					<iconify-icon icon="simple-icons:linkedin" />
+				</a>
+			</div>
 		</div>
-		<p class="mt-16 mb-0 text-xl">
+		<p class="mt-8 md:mt-16 mb-0 text-lg md:text-xl">
 			I am an experienced software engineer seeking a full-time position writing code in <strong
 				>Rust</strong>
 			or <strong>Go</strong>. I take pride in writing reliable, performant and maintainable
@@ -67,7 +73,7 @@
 
 	<section>
 		<h2 class="mb-8 underline underline-offset-2">Career Highlights</h2>
-		<ul class="text-xl list-disc list-inside">
+		<ul class="text-lg md:text-xl list-disc list-inside">
 			<li>10+ years experience writing high quality code.</li>
 			<li>5+ years of experience with Linux as both a desktop and server OS.</li>
 		</ul>
