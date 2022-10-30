@@ -1,10 +1,9 @@
-import { loadIcon, buildIcon, type IconifyIconBuildResult, loadIcons } from 'iconify-icon';
+import { getIcon, loadIcons, type IconifyIcon } from 'iconify-icon';
 
-export const getLoadingIcon = async (): Promise<IconifyIconBuildResult> => {
-  const iconInfo = await loadIcon('line-md:downloading-loop');
-  const icon = buildIcon(iconInfo);
+export const getLoadingIcon = (): Required<IconifyIcon> => {
+  const iconInfo = getIcon('line-md:downloading-loop');
 
-  return icon
+  return iconInfo
 };
 
 export enum Icon {
@@ -53,6 +52,7 @@ export function loadAllIcons(cb?: () => void) {
   iconNames.push("bi:eye-fill")
 
   loadIcons(iconNames, () => {
+    console.log('all icons loaded')
     cb && cb()
   })
 }

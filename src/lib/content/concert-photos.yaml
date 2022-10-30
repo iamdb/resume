@@ -41,11 +41,11 @@ shows:
   #   date: 12/9/2015
   #   photos:
   #     - beach-house-1.jpg
-  - artist: Beck
-    location: The Orpheum Theatre
-    date: 9/20/2014
-    photos:
-      - beck-1.jpg
+  # - artist: Beck
+  #   location: The Orpheum Theatre
+  #   date: 9/20/2014
+  #   photos:
+  #     - beck-1.jpg
   - artist: Damien Rice
     location: The Greek Theatre 
     date: 8/24/2015
