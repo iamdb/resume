@@ -1,8 +1,7 @@
 <script lang="ts">
 	import 'iconify-icon';
-	import { beforeUpdate, onMount } from 'svelte';
+	import { beforeUpdate } from 'svelte';
 	import { getLoadingIcon } from '$lib/types/icons';
-	import type { IconifyIconBuildResult } from 'iconify-icon';
 
 	enum ImageState {
 		Idle,
@@ -16,11 +15,7 @@
 	export let hideImage = true;
 
 	let state = ImageState.Idle;
-	let loadingIcon: IconifyIconBuildResult;
-
-	onMount(async () => {
-		loadingIcon = await getLoadingIcon();
-	});
+	let loadingIcon = getLoadingIcon();
 
 	beforeUpdate(() => {
 		if (!hideImage) {
@@ -53,8 +48,9 @@
 	{#if state === ImageState.Loading}
 		<div class="flex flex-col w-full h-full items-center justify-center">
 			{#if loadingIcon}
-				<svg {...loadingIcon.attributes} class="text-grey-100 text-6xl"
-					>{@html loadingIcon.body}</svg>
+				<svg
+					viewBox={`${loadingIcon.top} ${loadingIcon.left} ${loadingIcon.width} ${loadingIcon.height}`}
+					class="text-grey-100 w-16">{@html loadingIcon.body}</svg>
 			{/if}
 		</div>
 	{/if}

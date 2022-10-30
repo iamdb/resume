@@ -11,7 +11,6 @@
 		title: string;
 	};
 
-	let disableHover = false;
 	let visiblePhotos = new Set();
 
 	const loadImage = (entries: IntersectionObserverEntry[]) => {
@@ -46,46 +45,12 @@
 			});
 		};
 	});
-
-	const scrollToTop = () => {
-		window.scrollTo(0, 0);
-	};
-
-	let scrollPos: number;
 </script>
-
-<svelte:window bind:scrollY={scrollPos} />
 
 <PageHead title={data.title} />
 <h1 class="leading-tight mb-4 underline underline-offset-2">{data.title}</h1>
 
 {@html data.intro}
-
-<div class="sticky flex flex-row items-center justify-end top-96 z-10 h-0">
-	<div class="translate-x-full pl-12 flex flex-col items-center gap-y-4 justify-start">
-		<button
-			class:opacity-100={scrollPos > 200}
-			class:opacity-0={scrollPos <= 200}
-			class="btn transition-opacity aspect-square w-10 flex items-center justify-center"
-			on:click={scrollToTop}>
-			<iconify-icon class="block" width="100%" icon="bxs:to-top" />
-		</button>
-		<button
-			class="btn aspect-square w-10 flex items-center justify-center"
-			on:click={() => {
-				if (disableHover) {
-					disableHover = false;
-				} else {
-					disableHover = true;
-				}
-			}}>
-			<iconify-icon
-				class="block"
-				width="100%"
-				icon={`${disableHover ? 'bi:eye-slash-fill' : 'bi:eye-fill'}`} />
-		</button>
-	</div>
-</div>
 
 <div bind:this={photoContainer} class="relative grid grid-cols-1 lg:grid-cols-2 gap-14 mt-12">
 	{#each data.shows as show}
@@ -97,7 +62,6 @@
 				<ConcertPhoto
 					src={photoUrl}
 					{showImage}
-					{disableHover}
 					meta={{
 						name: show.artist,
 						location: show.location,
