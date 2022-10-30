@@ -3,7 +3,6 @@
 	import { beforeUpdate, onMount } from 'svelte';
 	import { getLoadingIcon } from '$lib/types/icons';
 	import type { IconifyIconBuildResult } from 'iconify-icon';
-	import { fade } from 'svelte/transition';
 
 	enum ImageState {
 		Idle,
@@ -44,7 +43,7 @@
 			};
 
 			img.src = src;
-		} else {
+		} else if (state !== ImageState.Failed) {
 			state = ImageState.Loaded;
 		}
 	};
