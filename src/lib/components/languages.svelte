@@ -23,11 +23,13 @@
 </script>
 
 <div class="flex flex-row items-center my-4 justify-between">
-	<div class="flex flex-row gap-x-4">
+	<div class="flex flex-row gap-x-1 md:gap-x-4">
 		<span><strong>{Math.ceil(activity.totalHours)}</strong> total hours</span>
-		<span>&bull;</span>
-		<span>
-			<strong>{Math.ceil(activity.dailyAverageHours)}</strong> hours a day
+		<span class="hidden md:block">
+			<span>&bull;</span>
+			<span>
+				<strong>{Math.ceil(activity.dailyAverageHours)}</strong> hours a day
+			</span>
 		</span>
 	</div>
 	<span>Since <strong>{new Date(activity.startDate).toLocaleDateString()}</strong></span>
@@ -35,9 +37,9 @@
 <div
 	style:min-height={`${maxHeight}px`}
 	bind:offsetHeight={listHeight}
-	class={`p-8 rounded bg-black-200`}>
+	class="p-4 flex flex-col gap-y-4 md:p-8 rounded bg-black-200">
 	{#each languages as lang (lang.name)}
-		<div class="mb-4" animate:flip={{ duration: (d) => Math.sqrt(d) * 50, easing: quintOut }}>
+		<div animate:flip={{ duration: (d) => Math.sqrt(d) * 50, easing: quintOut }}>
 			<Skill
 				color={lang.color}
 				total={Math.ceil(activity.totalHours * (lang.percent * 0.01))}
