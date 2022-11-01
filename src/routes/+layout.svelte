@@ -42,7 +42,7 @@
 	class:translate-0={!isOpen}
 	class:-translate-x-[75%]={isOpen && isMobile}
 	class="transition-all w-screen overflow-hidden relative">
-	<div class="container mx-auto py-4 px-8 relative">
+	<div class="container mx-auto py-4 px-2 md:px-8 relative">
 		<slot />
 		<footer class="container flex flex-col mt-24 items-center justify-center pb-12">
 			<p class="text-sm leading-none text-grey-500 text-center">&copy; 2022 David Benjamin</p>
@@ -59,21 +59,13 @@
 			</div>
 		</footer>
 	</div>
-	{#if !isOpen && !isHome}
-		<button class="fixed top-0 right-0" on:click={toggleOpen}>
-			<iconify-icon
-				class:text-grey-500={scrollPos > 200}
-				class="transition-colors block text-4xl md:text-6xl"
-				icon="fe:app-menu" />
-		</button>
-	{/if}
 </div>
 {#if !isHome}
 	<div
 		class:translate-0={!isOpen}
 		class:-translate-x-[75%]={isOpen && isMobile}
 		class:-translate-x-[25%]={isOpen && !isMobile}
-		class="bg-black-400 transition-all fixed left-full z-10 top-0 h-screen w-screen md:25%">
-		<Header on:click={toggleOpen} />
+		class="transition-all fixed left-full z-10 top-0 h-screen w-screen md:25%">
+		<Header {isOpen} on:click={toggleOpen} />
 	</div>
 {/if}

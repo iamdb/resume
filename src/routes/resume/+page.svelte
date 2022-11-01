@@ -101,7 +101,7 @@
 			<div class="md:w-1/2 pt-10">
 				<h3 class="mb-4">Other Tech Experience</h3>
 				<div
-					class="grid grid-cols-3 gap-8 justify-items-start place-content-center p-8 rounded text-white-600 align-center bg-black-200">
+					class="grid grid-cols-3 gap-8 justify-items-center md:justify-items-start place-content-center p-8 rounded text-white-600 align-center bg-black-200">
 					{#each allIcons as techIcon}
 						{@const icon = stringToIcon(techIcon)}
 						{@const name = iconToString(icon)}

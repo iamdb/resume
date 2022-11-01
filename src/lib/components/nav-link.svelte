@@ -10,7 +10,7 @@
 
 <svelte:element
 	this={type}
-	class="aspect-square flex flex-col gap-y-2 items-center justify-center text-lg hover:bg-black-600 rounded no-underline transition-colors hover:text-blue-100 leading-none text-white-500 font-bold cursor-pointer"
+	class="aspect-square flex flex-col gap-y-2 items-center justify-center text-lg hover:bg-blue-800 rounded no-underline transition-colors hover:text-white-300 leading-none text-white-300 font-bold cursor-pointer"
 	on:click
 	{href}>
 	{#if icon}

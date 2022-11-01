@@ -40,7 +40,7 @@
 				class="absolute bottom-0 right-0 px-6 py-4 bg-black-900/80 rounded-tl-lg">
 				<h4 class="text-white-200 leading-none mb-4 pr-10">{meta.name}</h4>
 				<div
-					class="flex text-white-400 text-base leading-tight flex-row items-center justify-between gap-x-8">
+					class="flex text-white-400 text-sm md:text-base leading-tight flex-row items-center justify-between gap-x-8">
 					<span class="flex flex-row items-center justify-start gap-x-2">
 						<svg
 							viewBox={`${locationIcon.top} ${locationIcon.left} ${locationIcon.width} ${locationIcon.height}`}
