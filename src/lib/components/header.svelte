@@ -39,6 +39,8 @@
 	<button
 		class="absolute aspect-square top-2 right-full bg-blue-900 rounded-tl-lg rounded-bl-lg p-4"
 		on:click>
-		<iconify-icon class="text-4xl" icon={isOpen ? 'carbon:close-filled' : 'fe:app-menu'} />
+		<iconify-icon
+			class="text-xl md:text-4xl"
+			icon={isOpen ? 'carbon:close-filled' : 'fe:app-menu'} />
 	</button>
 </nav>
