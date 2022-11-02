@@ -1,4 +1,6 @@
 <script type="ts">
+	export let prerender = false;
+
 	import 'iconify-icon';
 	import TechIcon from '$lib/components/tech-icon.svelte';
 	import WorkHistory from '$lib/components/work-history.svelte';
