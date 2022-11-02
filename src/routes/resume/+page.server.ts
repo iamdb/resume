@@ -1,79 +1,74 @@
-// @ts-expect-error For some reason the yaml is not being seen as a module. 
-import { experience } from '$lib/content/work-experience.yaml'
 import { error } from '@sveltejs/kit'
-import { Urls, type CodingActivityAllTime, type CodingActivityLastYear, type CodingActivityNormalized, type Language } from '$lib/types/wakatime'
-import type { WorkExperience } from '$lib/types/resume';
-
-export const prerender = false
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
-  experience.forEach((e: WorkExperience) => e.stack.sort());
-  return {
-    languagesAlltime: fetchJson(Urls.LanguagesAllTime),
-    activityAlltime: fetchJson(Urls.ActivityAllTime),
-    activityLastYear: fetchJson(Urls.ActivityLastYear),
-    languagesLastYear: fetchJson(Urls.LanguagesLastYear),
-    workExperience: experience
-  }
-}
-
-async function fetchJson(url: Urls): Promise<Language[] | CodingActivityNormalized | undefined> {
   try {
-    const res = await fetch(url)
+    const activity = await getActivity()
+    const languages = await getLanguages()
 
-    if (res.ok) {
-      switch (url) {
-        case Urls.ActivityLastYear: {
-          const json: CodingActivityLastYear = await res.json()
-
-          return normalizeLastYearCodingActivity(json)
-        }
-        case Urls.ActivityAllTime: {
-          const json: { data: CodingActivityAllTime } = await res.json()
-
-          return normalizeAllTimeCodingActivity(json.data)
-
-        }
-        case Urls.LanguagesAllTime:
-        case Urls.LanguagesLastYear: {
-          const json: { data: Language[] } = await res.json()
-
-          return filterLangs(json.data)
-        }
-      }
-    }
-
-  } catch (err) {
-    throw error(500, `${err}`)
+    return { languages: languages?.splice(0, 10), activity }
+  } catch {
+    throw error(404, 'Not found');
   }
 }
 
-function normalizeAllTimeCodingActivity(activity: CodingActivityAllTime): CodingActivityNormalized {
-  const totalHours = activity.grand_total.total_seconds_including_other_language / 60 / 60
-  const startDate = new Date(activity.range.start)
-  const dailyAverageHours = activity.grand_total.daily_average / 60 / 60
+async function getActivity(): Promise<CodingActivity | undefined> {
+  const res = await fetch("https://wakatime.com/share/@iamdb/27e70931-5231-44ff-8451-28dc565e6d85.json")
 
-  return {
-    totalHours,
-    startDate,
-    dailyAverageHours
+  if (res.ok) {
+    const { data } = await res.json()
+
+    return data
   }
 }
 
-function normalizeLastYearCodingActivity(activity: CodingActivityLastYear): CodingActivityNormalized {
-  const totalHours: number = activity?.days.map((d) => d.total).reduce((a, b) => a + b) / 60 / 60;
-  const startDate = new Date(activity?.days[0].date)
-  const dailyAverageHours = totalHours / activity?.days.length;
+async function getLanguages(): Promise<Language[] | undefined> {
+  const res = await fetch(
+    "https://wakatime.com/share/@iamdb/9d4f49c3-737c-4cc6-b178-1a3abc5dd2e3.json"
+  );
 
-  return {
-    totalHours,
-    startDate,
-    dailyAverageHours
+  if (res.ok) {
+    const json: { data: Language[] } = await res.json();
+    const langs = json.data;
+
+    return langs.filter((v) => v.name !== 'Other' && v.name !== 'JSON' && v.name !== 'JSX' && v.name !== 'SCSS')
   }
 }
 
-function filterLangs(langs: Language[]): Language[] {
-  return langs.filter((v) => v.name !== 'Other' && v.name !== 'JSON' && v.name !== 'JSX' && v.name !== 'SCSS' && v.name !== 'conf' && v.name !== 'INI').slice(0, 10)
+export interface Language {
+  color: string;
+  name: string;
+  percent: number;
 }
 
+export interface CodingActivity {
+  best_day: BestDay;
+  grand_total: GrandTotal;
+  range: Range;
+}
+
+export interface BestDay {
+  date: Date;
+  text: string;
+  total_seconds: number;
+}
+
+export interface GrandTotal {
+  daily_average: number;
+  daily_average_including_other_language: number;
+  human_readable_daily_average: string;
+  human_readable_daily_average_including_other_language: string;
+  human_readable_total: string;
+  human_readable_total_including_other_language: string;
+  total_seconds: number;
+  total_seconds_including_other_language: number;
+}
+
+export interface Range {
+  days_including_holidays: number;
+  days_minus_holidays: number;
+  end: Date;
+  holidays: number;
+  range: string;
+  start: Date;
+}

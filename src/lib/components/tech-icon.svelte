@@ -1,20 +1,11 @@
 <script lang="ts">
-	import type { Icon } from '$lib/types/icons';
-
-	export let icon: Icon;
+	export let icon: string;
 	export let name: string | undefined = undefined;
-	export let color: string | undefined = undefined;
-	export let reverse = false;
 </script>
 
-<div class:flex-row-reverse={reverse} class="flex flex-row justify-between items-center gap-1">
-	<div class="w-8 md:w-6 lg:w-10 aspect-square">
-		<iconify-icon width="100%" style:color {icon} />
-	</div>
+<div class="flex flex-row items-center">
+	<iconify-icon class="text-4xl" {icon} />
 	{#if name}
-		<span
-			class:ml-4={!reverse}
-			class:mr-4={reverse}
-			class="text-xl leading-none font-bold cursor-default hidden md:block">{name}</span>
+		<span class="mx-4 text-2xl font-bold cursor-default">{name}</span>
 	{/if}
 </div>

@@ -1,51 +1,31 @@
 <script type="ts">
-	import Color from 'color';
-	import { flip } from 'svelte/animate';
-	import { quintOut } from 'svelte/easing';
-	import { afterUpdate } from 'svelte';
-
-	import type { CodingActivityNormalized, Language } from '$lib/types/wakatime';
+	import type { CodingActivity, Language } from '../../routes/resume/+page.server';
 	import Skill from './skill.svelte';
 
-	export let activity: CodingActivityNormalized;
+	export let activity: CodingActivity;
 	export let languages: Language[];
 
-	$: norm_modifier = 100 / languages[0].percent;
-
-	let listHeight = 0;
-	let maxHeight = 0;
-
-	afterUpdate(() => {
-		if (listHeight > maxHeight) {
-			maxHeight = listHeight;
-		}
-	});
+	const norm_modifier = 100 / languages[0].percent;
+	const activitySince = new Date(activity.range.start);
 </script>
 
 <div class="flex flex-row items-center my-4 justify-between">
-	<div class="flex flex-row gap-x-1 md:gap-x-4">
-		<span><strong>{Math.ceil(activity.totalHours)}</strong> total hours</span>
-		<span class="hidden md:block">
-			<span>&bull;</span>
-			<span>
-				<strong>{Math.ceil(activity.dailyAverageHours)}</strong> hours a day
-			</span>
+	<div class="flex flex-row gap-x-4">
+		<span><strong>{activity.grand_total.human_readable_total}</strong> total</span>
+		<span>
+			<strong>{activity.grand_total.human_readable_daily_average}</strong> daily
+			<span class="text-xs">(includes weekends)</span>
 		</span>
 	</div>
-	<span>Since <strong>{new Date(activity.startDate).toLocaleDateString()}</strong></span>
+	<span>Since <strong>{activitySince.toLocaleDateString()}</strong></span>
 </div>
-<div
-	style:min-height={`${maxHeight}px`}
-	bind:offsetHeight={listHeight}
-	class="p-4 flex flex-col gap-y-4 md:p-8 rounded bg-black-200">
-	{#each languages as lang (lang.name)}
-		<div animate:flip={{ duration: (d) => Math.sqrt(d) * 50, easing: quintOut }}>
-			<Skill
-				color={lang.color}
-				total={Math.ceil(activity.totalHours * (lang.percent * 0.01))}
-				name={lang.name}
-				progress={lang.percent * norm_modifier}
-				progressColor={new Color(lang.color).darken(0.25).desaturate(0.25).toString()} />
-		</div>
+<div class="flex flex-col gap-y-8 p-8 rounded bg-black-200">
+	{#each languages as lang}
+		<Skill
+			total={Math.round((activity.grand_total.total_seconds * (lang.percent * 0.01)) / 60 / 60)}
+			icon=""
+			name={lang.name}
+			progress={lang.percent * norm_modifier}
+		/>
 	{/each}
 </div>
