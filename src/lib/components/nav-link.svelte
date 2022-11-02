@@ -1,16 +1,22 @@
 <script type="ts">
-	import { page } from '$app/stores';
-	import { afterUpdate } from 'svelte';
+	import 'iconify-icon';
+	import { LinkType } from '$lib/types/app';
 
-	export let pathname: string;
-
-	let isActive = $page.url.pathname === pathname;
-
-	afterUpdate(() => {
-		isActive = $page.url.pathname === pathname;
-	});
+	export let type: LinkType = LinkType.Anchor;
+	export let href: string | undefined = undefined;
+	export let mini = false;
+	export let icon: string | undefined = undefined;
 </script>
 
-<a href={pathname} class:text-white-700={!isActive} class:text-white-400={isActive}>
-	<slot />
-</a>
+<svelte:element
+	this={type}
+	class="aspect-square flex flex-col gap-y-2 items-center justify-center text-lg hover:bg-blue-800 rounded no-underline transition-colors hover:text-white-300 leading-none text-white-300 font-bold cursor-pointer"
+	on:click
+	{href}>
+	{#if icon}
+		<iconify-icon class="text-4xl" {icon} />
+	{/if}
+	{#if !mini}
+		<span><slot /></span>
+	{/if}
+</svelte:element>
