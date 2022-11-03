@@ -1,11 +1,23 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	export let title: string | undefined = undefined;
 </script>
 
 <svelte:head>
 	{#if title}
 		<title>{title} | David Benjamin</title>
+		<meta property="og:title" content={`${title} | David Benjamin`} />
 	{:else}
 		<title>David Benjamin</title>
+		<meta property="og:title" content="David Benjamin" />
 	{/if}
+	<meta property="og:url" content={$page?.url.toString()} />
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="software engineer" />
+	<meta property="og:image" content="" />
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:description" content="software engineer" />
+	<meta property="twitter:image" content="" />
 </svelte:head>
