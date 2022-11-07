@@ -50,6 +50,9 @@
 				<a href="https://github.com/iamdb" target="_blank" rel="noreferrer noopener">
 					<iconify-icon icon="simple-icons:github" />
 				</a>
+				<a target="_blank" rel="me noopener noreferrer" href="https://hachyderm.io/@db">
+					<iconify-icon icon="simple-icons:mastodon" />
+				</a>
 				<a
 					href="https://www.linkedin.com/in/davidabenjamin"
 					target="_blank"

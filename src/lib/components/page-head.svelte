@@ -14,10 +14,14 @@
 	<meta property="og:url" content={$page?.url.toString()} />
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
-	<meta property="og:description" content="software engineer" />
+	<meta
+		property="og:description"
+		content="I am a software engineer with over a decade of experience building dependable software." />
 	<meta property="og:image" content="" />
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:description" content="software engineer" />
+	<meta
+		property="twitter:description"
+		content="I am a software engineer with over a decade of experience building dependable software." />
 	<meta property="twitter:image" content="" />
 </svelte:head>
