@@ -2,7 +2,11 @@ experience:
   - name: Contract / Self-employed
     startDate: 05/01/2009
     accomplishments:
-      - Did stuff
+      - Original web version of Jumanji Run game for the movie release
+      - A distributed kiosk quiz experience for BlackHat conference
+      - A talking robot gif generator for the Netflix show Glow
+      - Original Hunger Games movie site
+      - Wizard of Oz 50th Anniversary site
     stack:
       - TypeScript
       - JavaScript
