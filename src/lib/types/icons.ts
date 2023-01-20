@@ -38,6 +38,7 @@ export enum Icon {
   Rust = "cib:rust",
   Shopify = "simple-icons:shopify",
   Svelte = "cib:svelte",
+  Terraform = "logos:terraform-icon",
   Toml = "file-icons:toml",
   Typescript = "cib:typescript",
   WebRtc = "simple-icons:webrtc",
@@ -85,6 +86,8 @@ export function iconToString(icon: Icon): string {
       return "NeoVim"
     case Icon.Yaml:
       return "YAML"
+    case Icon.Terraform:
+      return "Terraform"
   }
 
   const techIcon = Object.entries(Icon).filter((k) => k[1] === icon).at(0)?.at(0) || "error"
@@ -167,6 +170,8 @@ export function stringToIcon(name: string): Icon {
       return Icon.NextJs
     case 'react':
       return Icon.React
+    case 'terraform':
+      return Icon.Terraform
   }
 
   return Icon.Error
