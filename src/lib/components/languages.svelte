@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
 	import Color from 'color';
 	import { flip } from 'svelte/animate';
 	import { quintOut } from 'svelte/easing';

@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import 'iconify-icon';
 	import type { Show } from './+page';

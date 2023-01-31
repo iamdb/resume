@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
 	import PageHead from '$lib/components/page-head.svelte';
 </script>
 

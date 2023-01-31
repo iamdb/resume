@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
 	import 'iconify-icon';
 	import { LinkType } from '$lib/types/app';
 

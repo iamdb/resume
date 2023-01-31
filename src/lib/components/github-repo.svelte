@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
 	import Color from 'color';
 	import type { Icon } from '$lib/types/icons';
 	import { writable } from 'svelte/store';

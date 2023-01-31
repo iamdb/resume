@@ -1,5 +1,5 @@
-<script type="ts">
-	export let prerender = false;
+<script lang="ts">
+	export const prerender = false;
 
 	import 'iconify-icon';
 	import TechIcon from '$lib/components/tech-icon.svelte';

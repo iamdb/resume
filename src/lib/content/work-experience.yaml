@@ -5,7 +5,6 @@ experience:
       - Original web version of Jumanji Run game for the movie release
       - A distributed kiosk quiz experience for BlackHat conference
       - A talking robot gif generator for the Netflix show Glow
-      - Original Hunger Games movie site
       - Wizard of Oz 50th Anniversary site
     stack:
       - TypeScript
@@ -14,6 +13,7 @@ experience:
       - AWS
       - Github
   - name: Little Cinema Digital
+    title: Senior Video Engineer 
     startDate: 02/01/2022
     endDate: 08/01/2022
     stack:
@@ -31,6 +31,7 @@ experience:
       - Wrote AWS CDK to deploy the <a href="https://www.livekit.io" target="_blank" rel="noreferrer noopener">LiveKit</a> infrastructure along with their current stack
       - Transferred knowledge to team when contract ended
   - name: Supergroup
+    title: Senior Fullstack Developer
     startDate: 11/01/2019
     endDate: 11/01/2021
     stack:
@@ -53,6 +54,7 @@ experience:
       - Built tool to search subreddits for keywords and sentiment
       - Redesigned company stack to be easier to deploy and more developer friendly
   - name: EsportsOne
+    title: Senior Fullstack Developer
     startDate: 04/01/2018
     endDate: 11/01/2019
     stack:
@@ -72,8 +74,9 @@ experience:
       - Built a UI dashboard to display real-time information from a League of Legends computer vision processor
       - Built a Twitch.tv extension, both ui and backend, to display real-time data about the League of Legends match currently being played on stream
   - name: Union + Webster / The Craftsman Agency
-    startDate: 04/01/2013
-    endDate: 08/01/2015
+    title: Technical Lead
+    startDate: 07/01/2013
+    endDate: 03/01/2016
     stack:
       - React
       - Next.js
@@ -85,4 +88,65 @@ experience:
     accomplishments:
       - Lead all tech efforts within organization
       - Collaborated with account managers to refine their ideas into buildable products
-      - Wrote code, deployed and maintained nearly all development projects
+      - Wrote code for, deployed and maintained nearly all development projects
+  - name: Ignition Interactive
+    title: Senior Interactive Developer 
+    startDate: 03/01/2012
+    endDate: 03/01/2013
+    stack:
+      - Javascript
+      - jQuery
+      - HTML
+      - CSS
+    accomplishments:
+      - The Last of Us game web site
+      - The Hunger Games movie web site
+      - Arrested Development "You're Going to get Some Walk Ons" contest site
+      - Dodge Dart relaunch crowdfunding site 
+  - name: TotalBeauty.com 
+    title: Front-end Developer
+    startDate: 02/01/2011
+    endDate: 11/01/2012
+    stack:
+      - HTML
+      - CSS
+    accomplishments:
+      - Wrote HTML and CSS for main site
+icons:
+  AWS: skill-icons:aws-dark
+  Bash: skill-icons:bash-dark
+  Contentful: simple-icons:contentful
+  CSS: skill-icons:css
+  Docker: skill-icons:docker
+  Error:  bx:error-circle
+  FFmpeg: simple-icons:ffmpeg
+  Github: skill-icons:github-dark
+  Go: skill-icons:golang
+  Graphql: skill-icons:graphql-dark
+  Hasura: simple-icons:hasura
+  Html: skill-icons:html
+  JavaScript: skill-icons:javascript
+  Jira: simple-icons:jira
+  JSON: simple-icons:json
+  jQuery: skill-icons:jquery
+  Kubernetes: skill-icons:kubernetes
+  Linux: skill-icons:linux-dark
+  Lua: skill-icons:lua-dark
+  Markdown: skill-icons:markdown-dark
+  MobX: simple-icons:mobx
+  Neovim: skill-icons:neovim-dark
+  Netlify: skill-icons:netlify-dark
+  NextJS: skill-icons:nextjs-dark
+  Nodejs: skill-icons:nodejs-dark
+  OpenCV: simple-icons:opencv
+  Python: skill-icons:python-dark
+  React: skill-icons:react-dark
+  Rust: skill-icons:rust
+  Shopify: simple-icons:shopify
+  Svelte: skill-icons:svelte
+  Terraform: simple-icons:terraform
+  Toml: simple-icons:toml
+  TypeScript: skill-icons:typescript
+  WebRTC: simple-icons:webrtc
+  YAML: file-icons:yaml-alt4
+  External: mdi:open-in-new
