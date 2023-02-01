@@ -115,7 +115,7 @@
 	</section>
 
 	<section>
-		<h2 class="mb-8 underline underline-offset-2">Recent Work Experience</h2>
+		<h2 class="mb-8 underline underline-offset-2">Work Experience</h2>
 		<div class="flex overflow-hidden flex-col gap-y-8">
 			{#each workExperience as job}
 				<WorkHistory

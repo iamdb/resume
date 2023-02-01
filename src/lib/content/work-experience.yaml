@@ -1,6 +1,6 @@
 experience:
   - name: Contract / Self-employed
-    startDate: 05/01/2009
+    startDate: 2009-05-01
     accomplishments:
       - Original web version of Jumanji Run game for the movie release
       - A distributed kiosk quiz experience for BlackHat conference
@@ -14,8 +14,8 @@ experience:
       - Github
   - name: Little Cinema Digital
     title: Senior Video Engineer 
-    startDate: 02/01/2022
-    endDate: 08/01/2022
+    startDate: 2022-02-01
+    endDate: 2022-08-01
     stack:
       - Typescript
       - Node.js
@@ -32,8 +32,8 @@ experience:
       - Transferred knowledge to team when contract ended
   - name: Supergroup
     title: Senior Fullstack Developer
-    startDate: 11/01/2019
-    endDate: 11/01/2021
+    startDate: 2019-11-01
+    endDate: 2021-11-01
     stack:
       - React
       - Typescript
@@ -55,8 +55,8 @@ experience:
       - Redesigned company stack to be easier to deploy and more developer friendly
   - name: EsportsOne
     title: Senior Fullstack Developer
-    startDate: 04/01/2018
-    endDate: 11/01/2019
+    startDate: 2018-04-01
+    endDate: 2019-11-01
     stack:
       - Go
       - Javascript
@@ -75,8 +75,8 @@ experience:
       - Built a Twitch.tv extension, both ui and backend, to display real-time data about the League of Legends match currently being played on stream
   - name: Union + Webster / The Craftsman Agency
     title: Technical Lead
-    startDate: 07/01/2013
-    endDate: 03/01/2016
+    startDate: 2013-07-01
+    endDate: 2016-03-01
     stack:
       - React
       - Next.js
@@ -91,8 +91,8 @@ experience:
       - Wrote code for, deployed and maintained nearly all development projects
   - name: Ignition Interactive
     title: Senior Interactive Developer 
-    startDate: 03/01/2012
-    endDate: 03/01/2013
+    startDate: 2012-03-01
+    endDate: 2013-03-01
     stack:
       - Javascript
       - jQuery
@@ -105,8 +105,8 @@ experience:
       - Dodge Dart relaunch crowdfunding site 
   - name: TotalBeauty.com 
     title: Front-end Developer
-    startDate: 02/01/2011
-    endDate: 11/01/2012
+    startDate: 2011-02-01
+    endDate: 2012-03-01
     stack:
       - HTML
       - CSS

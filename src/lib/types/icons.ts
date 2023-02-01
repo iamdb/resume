@@ -23,6 +23,7 @@ export enum Icon {
   Javascript = "cib:javascript",
   Jira = "simple-icons:jira",
   Json = "mdi:code-json",
+  Jquery = "simple-icons:jquery",
   Kubernetes = "cib:kubernetes",
   Linux = "cib:linux",
   Lua = "cib:lua",
@@ -88,6 +89,8 @@ export function iconToString(icon: Icon): string {
       return "YAML"
     case Icon.Terraform:
       return "Terraform"
+    case Icon.Jquery:
+      return "jQuery"
   }
 
   const techIcon = Object.entries(Icon).filter((k) => k[1] === icon).at(0)?.at(0) || "error"
@@ -172,6 +175,8 @@ export function stringToIcon(name: string): Icon {
       return Icon.React
     case 'terraform':
       return Icon.Terraform
+    case 'jquery':
+      return Icon.Jquery
   }
 
   return Icon.Error

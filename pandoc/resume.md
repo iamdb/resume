@@ -1,6 +1,8 @@
 ---
 title: Software Engineer
 author: David Benjamin
+include_cover: false
+linestretch: 1.25
 pagestyle: empty
 indent: false
 lang: en-US
@@ -18,3 +20,5 @@ colorlinks: false
 linkcolor: blue
 urlcolor: blue
 ---
+
+## This is my cover page

@@ -9,6 +9,7 @@ $if(CJKmainfont)$
 $endif$
 %
 \documentclass[
+english,
 $if(fontsize)$
   $fontsize$,
 $endif$
@@ -20,18 +21,16 @@ $for(classoption)$
 $endfor$
 ]{$documentclass$}
 \usepackage[T1]{fontenc}
-\usepackage{relsize}
+\usepackage[USenglish,printdayoff]{isodate}
+\usepackage{titlesec}
 \usepackage{fontawesome5}
-\usepackage[inkscape=forced, inkscapepath=src/lib/icons/svg-inkscape/]{svg}
+\usepackage[inkscapepath=src/lib/icons/svg-inkscape/]{svg}
 \usepackage[off]{svg-extract}
 \svgsetup{clean=true}
 \svgpath{{src/lib/icons/}}
-\usepackage{titlesec}
 \usepackage{titling}
 \usepackage{multicol}
-\usepackage{tabularx}
 \usepackage{enumitem}
-\usepackage{amsmath,amssymb}
 $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
 $else$
@@ -194,7 +193,7 @@ $if(graphics)$
 \makeatother
 $endif$
 $if(strikeout)$
-$-- also used for underline
+$-- also used for compactuline
 \usepackage[normalem]{ulem}
 $endif$
 \setlength{\emergencystretch}{3em} % prevent overfull lines
@@ -334,13 +333,15 @@ $endif$
 $endif$
   pdfcreator={LaTeX via pandoc}}
 
-\titleformat{\section}[block]{\bfseries\Large}{}{0em}{\underline}
-\titleformat{\subsection}[runin]{\bfseries\large}{}{0em}{}
-\titleformat{\subsubsection}[block]{\small}{}{0em}{}
+\newcommand\compactuline{\bgroup\markoverwith
+  {{\rule[-0.25ex]{2pt}{0.75pt}}}\ULon}
+
+\titleformat{\section}[block]{\bfseries\Large}{}{0em}{\compactuline}[\vspace{0.25\baselineskip}]
+\titleformat{\subsection}[runin]{\bfseries\large}{}{0em}{\vspace{0pt}}
+\titleformat{\subsubsection}[block]{\small}{}{0em}{\textsc}
 
 \title{$title$}
 \author{$author$}
-\date{$date$}
 
 \renewcommand{\maketitle}{\noindent\bfseries\Huge\theauthor \\
   \normalsize\normalfont\thetitle
@@ -353,15 +354,39 @@ $endif$
   \end{tabular}
 }
 \renewcommand{\labelitemi}{\tiny\blacktriangleright}
+\newcommand{\currentproj}[3]{
+  		\normalsize\bfseries{\href{#2}{#1 \includesvg[height=0.5em]{src/lib/icons/external}}}\\
+		\small\normalfont{#3}\\
+}
+
+\newcommand{\workexp}[5]{\subsection{#1}
+  \hfill
+  \begin{tabular}{c c c}
+    \notblank{#3}{\small\printdate{#2}& \rightarrow& \small\printdate{#3}\\}{\small\printdate{#2}& \rightarrow& \small{Present}\\}
+  \end{tabular}
+  \notblank{#4}{\newline{\textsc{\normalsize\lowercase{#4}}}}{}
+  \subsubsection{\lowercase{Accomplishments}}
+  \small{#5}}
+
+\newcommand{\sectionsep}{\begin{center}
+	\begin{tabular}{c c c}
+		\small\blacktriangle     &
+		\small\blacktriangledown &
+		\small\blacktriangle
+	\end{tabular}
+\end{center}}
 
 \begin{document}
 $for(include-before)$
 $include-before$
 $endfor$
-%$body$
+$if(include_cover)$
+$body$
+\newpage
+$endif$
 \maketitle \\
+\section{\large{Languages}}
 \begin{multicols}{5}
-	[\bfseries\large\underline{Languages}]
 	$for(languages)$
 	\begin{tabular}{c c}
 		\includesvg[height=1em]{src/lib/icons/{$it.name/lowercase$}} &
@@ -369,76 +394,29 @@ $endfor$
 	\end{tabular}
 	$endfor$
 \end{multicols}
-\begin{multicols}{3}
-	[\bfseries\large\underline{Current Projects}]
-	\begin{center}
-		$for(repos)$
-		\normalsize\bfseries{\href{$it.url$}{$it.name$ \includesvg[height=0.5em]{src/lib/icons/external}}}\\
-		\small\normalfont{$it.description$}\\
-		$endfor$
-	\end{center}
-\end{multicols}
-\section{Work History}
-\vspace{1em}
-$for(experience/allbutlast)$
-\subsection{$experience.name$}
-\hfill
-\small
-\begin{tabular}{ c c c }
-	$experience.startDate$ &
-	$if(experience.endDate)$
-	\rightarrowfill        &
-	$experience.endDate$
-	$else$
-	\rightarrowfill        &
-	Present
-	$endif$
-\end{tabular}
-$if(experience.title)$
-\newline{$experience.title$}
-$endif$
-\subsubsection{Accomplishments}
-\begin{itemize}[leftmargin=*]
-	$for(experience.accomplishments)$
-	\small\item{$it$}
-	$endfor$
-\end{itemize}
-
-\vspace{0.5em}
+\section{\large{Current Projects}}
 \begin{center}
-	\begin{tabular}{c c c}
-		\small\blacktriangle     &
-		\small\blacktriangledown &
-		\small\blacktriangle
-	\end{tabular}
+	\begin{multicols}{$repos/length$}
+		$for(repos)$
+		\currentproj{$it.name$}{$it.url$}{$it.description$}
+		$endfor$
+	\end{multicols}
 \end{center}
-\vspace{0.5em}
-\goodbreak
+\section{Work Experience}
+$for(experience/allbutlast)$
+\workexp{$it.name$}{$it.startDate$}{$it.endDate$}{$it.title$}{\begin{itemize}[leftmargin=*]
+		$for(experience.accomplishments)$
+		\small\item{$it$}
+		$endfor$
+	\end{itemize}}
+\sectionsep
 $endfor$
 $for(experience/last)$
-\subsection{$experience.name$}
-\hfill
-\small
-\begin{tabular}{ c c c }
-	$experience.startDate$ &
-	$if(experience.endDate)$
-	\rightarrowfill        &
-	$experience.endDate$
-	$else$
-	\rightarrowfill        &
-	Present
-	$endif$
-\end{tabular}
-$if(experience.title)$
-\newline\normalsize{$experience.title$}
-$endif$
-\subsubsection{Accomplishments}
-\begin{itemize}[leftmargin=*]
-	$for(experience.accomplishments)$
-	\item{$it$}
-	$endfor$
-\end{itemize}
-\goodbreak
+\workexp{$it.name$}{$it.startDate$}{$it.endDate$}{$it.title$}{\begin{itemize}[leftmargin=*]
+		$for(experience.accomplishments)$
+		\small\item{$it$}
+		$endfor$
+	\end{itemize}}
 $endfor$
 $if(has-frontmatter)$
 \backmatter
