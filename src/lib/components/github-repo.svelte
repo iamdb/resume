@@ -40,8 +40,9 @@
 		</span>
 		<div
 			style:background-color={backgroundColor.lighten(0.25).hex()}
+			class:justify-between={icons.length >= 3}
 			class="flex flex-row flex-wrap gap-x-2 p-2 rounded shadow-nner">
-			{#each icons as icon}
+			{#each icons.slice(0, 4) as icon}
 				<iconify-icon style:color={cardColor.toString()} class="text-4xl text-grey-800" {icon} />
 			{/each}
 		</div>
