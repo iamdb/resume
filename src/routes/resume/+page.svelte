@@ -47,22 +47,26 @@
 		<h1 class="leading-tight underline underline-offset-2">David Benjamin</h1>
 		<div class="flex flex-col md:flex-row justify-start gap-4 items-baseline">
 			<h3>Software Engineer</h3>
-			<a class="text-2xl font-bold" href="mailto:hireme@iamdb.co">hireme@iamdb.co</a>
-			<div class="flex flex-row gap-x-4">
-				<a
-					class="text-2xl"
-					href="https://github.com/iamdb"
-					target="_blank"
-					rel="noreferrer noopener">
-					<iconify-icon icon="simple-icons:github" />
-				</a>
-				<a
-					class="text-2xl"
-					href="https://www.linkedin.com/in/davidabenjamin"
-					target="_blank"
-					rel="noreferrer noopener">
-					<iconify-icon icon="simple-icons:linkedin" />
-				</a>
+			<div class="flex flex-row items-center justify-between flex-grow">
+				<div class="flex flex-row gap-x-4">
+					<a class="text-2xl font-bold" href="mailto:hireme@iamdb.co">hireme@iamdb.co</a>
+					<a
+						class="text-2xl"
+						href="https://github.com/iamdb"
+						target="_blank"
+						rel="noreferrer noopener">
+						<iconify-icon icon="simple-icons:github" />
+					</a>
+					<a
+						class="text-2xl"
+						href="https://www.linkedin.com/in/davidabenjamin"
+						target="_blank"
+						rel="noreferrer noopener">
+						<iconify-icon icon="simple-icons:linkedin" />
+					</a>
+				</div>
+				<a class="text-2xl" href="/resume.pdf" target="_blank" rel="noopener noreferrer"
+					><iconify-icon class="align-middle text-4xl" icon="bx:cloud-download" /> pdf</a>
 			</div>
 		</div>
 		<p class="mt-8 md:mt-16 mb-0 text-lg md:text-xl">

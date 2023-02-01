@@ -192,10 +192,7 @@ $if(graphics)$
 \def\fps@figure{htbp}
 \makeatother
 $endif$
-$if(strikeout)$
-$-- also used for compactuline
 \usepackage[normalem]{ulem}
-$endif$
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
