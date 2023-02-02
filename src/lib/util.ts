@@ -1,7 +1,6 @@
 
 export function formatDate(date: Date) {
   const newDate = new Date(date);
-  console.log(newDate)
 
   return `${intToMonth(newDate.getUTCMonth())} ${newDate.getUTCFullYear()}`;
 };
