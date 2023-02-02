@@ -1,4 +1,4 @@
-// @ts-expect-error For some reason the yaml is not being seen as a module. 
+// @ts-expect-error For some reason the yaml is not being seen as a module.
 import { experience } from '$lib/content/work-experience.yaml'
 import { error } from '@sveltejs/kit'
 import { Urls, type CodingActivityAllTime, type CodingActivityLastYear, type CodingActivityNormalized, type Language } from '$lib/types/wakatime'
