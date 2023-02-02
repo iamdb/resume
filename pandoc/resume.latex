@@ -356,10 +356,11 @@ $endif$
 		\small\normalfont{#3}\\
 }
 
-\newcommand{\workexp}[5]{\subsection{#1}
+\newcommand{\workexp}[6]{\subsection{#1}
+  \notblank{#6}{\ifbool{#6}{\tiny{SHORT TERM CONTRACT}}{}}{}
   \hfill
   \begin{tabular}{c c c}
-    \notblank{#3}{\small\printdate{#2}& \rightarrow& \small\printdate{#3}\\}{\small\printdate{#2}& \rightarrow& \small{Present}\\}
+    \notblank{#3}{\small\printdate{#2}& \small\rightarrow& \small\printdate{#3}\\}{\small\printdate{#2}& \small\rightarrow& \small{Present}\\}
   \end{tabular}
   \notblank{#4}{\newline{\textsc{\normalsize\lowercase{#4}}}}{}
   \subsubsection{\lowercase{Accomplishments}}
@@ -405,7 +406,7 @@ $for(experience/allbutlast)$
 		$for(experience.accomplishments)$
 		\small\item{$it$}
 		$endfor$
-	\end{itemize}}
+	\end{itemize}}{$it.contract$}
 \sectionsep
 $endfor$
 $for(experience/last)$
@@ -413,7 +414,7 @@ $for(experience/last)$
 		$for(experience.accomplishments)$
 		\small\item{$it$}
 		$endfor$
-	\end{itemize}}
+	\end{itemize}}{$it.contract$}
 $endfor$
 $if(has-frontmatter)$
 \backmatter
