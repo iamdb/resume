@@ -359,20 +359,20 @@ $endif$
 \newcommand{\workexp}[6]{\subsection{#1}
   \notblank{#6}{\ifbool{#6}{\tiny{SHORT TERM CONTRACT}}{}}{}
   \hfill
-  \begin{tabular}{c c c}
+  \begin{tabular}{l c r}
     \notblank{#3}{\small\printdate{#2}& \small\rightarrow& \small\printdate{#3}\\}{\small\printdate{#2}& \small\rightarrow& \small{Present}\\}
   \end{tabular}
   \notblank{#4}{\newline{\textsc{\normalsize\lowercase{#4}}}}{}
   \subsubsection{\lowercase{Accomplishments}}
   \small{#5}}
 
-\newcommand{\sectionsep}{\begin{center}
+\newcommand{\sectionsep}{\bigskip\begin{center}
 	\begin{tabular}{c c c}
 		\small\blacktriangle     &
 		\small\blacktriangledown &
 		\small\blacktriangle
 	\end{tabular}
-\end{center}}
+\end{center}\goodbreak\bigskip}
 
 \begin{document}
 $for(include-before)$
@@ -400,6 +400,14 @@ $endif$
 		$endfor$
 	\end{multicols}
 \end{center}
+\section{\large{Education}}
+\normalsize{Bachelor of Fine Arts in Film and Video Production}\hfill
+\begin{tabular}{l c r}
+	\small\mdseries\textsc{\lowercase{The Art Institute}} &
+	\bullet                                               &
+	\small\mdseries\textsc{\lowercase{Miami, Florida}}
+\end{tabular}
+\normalfont\normalsize
 \section{Work Experience}
 $for(experience/allbutlast)$
 \workexp{$it.name$}{$it.startDate$}{$it.endDate$}{$it.title$}{\begin{itemize}[leftmargin=*]
