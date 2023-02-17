@@ -5,6 +5,7 @@ node_modules
 /package
 .env
 .env.*
+.envrc
 !.env.example
 .cloudflare
 src/lib/icons/*
