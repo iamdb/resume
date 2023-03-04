@@ -10,13 +10,13 @@
 
 <svelte:element
 	this={type}
-	class="aspect-square flex flex-col gap-y-2 items-center justify-center text-lg hover:bg-blue-800 rounded no-underline transition-colors hover:text-white-300 leading-none text-white-300 font-bold cursor-pointer"
+	class="aspect-square flex flex-col gap-y-2 items-center justify-center lg:text-lg hover:bg-lightkhaki rounded no-underline transition-colors hover:text-darkgrey leading-none text-blue font-bold cursor-pointer"
 	on:click
 	on:keydown
 	on:keyup
 	{href}>
 	{#if icon}
-		<iconify-icon class="text-4xl" {icon} />
+		<iconify-icon class="text-2xl lg:text-4xl" {icon} />
 	{/if}
 	{#if !mini}
 		<span><slot /></span>

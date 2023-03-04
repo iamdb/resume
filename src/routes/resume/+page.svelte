@@ -1,16 +1,14 @@
 <script lang="ts">
-	export const prerender = false;
-
 	import 'iconify-icon';
-	import TechIcon from '$lib/components/tech-icon.svelte';
 	import WorkHistory from '$lib/components/work-history.svelte';
 	import Languages from '$lib/components/languages.svelte';
 	import PageHead from '$lib/components/page-head.svelte';
-	import { Icon, iconToString, stringToIcon } from '$lib/types/icons';
+	import { Icon, stringToIcon } from '$lib/types/icons';
 	import { LanguageScale, type CodingActivityNormalized, type Language } from '$lib/types/wakatime';
 	import type { WorkExperience } from '$lib/types/resume';
 	import { onMount } from 'svelte';
 	import { formatDate } from '$lib/util';
+	import PageTitle from '$lib/components/page-title.svelte';
 
 	export let data: {
 		languagesAlltime: Language[];
@@ -42,14 +40,14 @@
 
 <PageHead title="Resume" />
 
-<div class="flex flex-col gap-y-12 md:gap-y-24 mb-48">
+<div class="flex flex-col gap-y-24 mb-48 max-w-screen-lg mx-auto">
 	<header>
-		<h1 class="leading-tight underline underline-offset-2">David Benjamin</h1>
-		<div class="flex flex-col md:flex-row justify-start gap-4 items-baseline">
+		<PageTitle>David Benjamin</PageTitle>
+		<div class="flex flex-col md:flex-row justify-start gap-x-32 items-baseline">
 			<h3>Software Engineer</h3>
 			<div class="flex flex-row items-center justify-between flex-grow">
 				<div class="flex flex-row gap-x-4">
-					<a class="text-2xl font-bold" href="mailto:hireme@iamdb.co">hireme@iamdb.co</a>
+					<a class="text-2xl inline font-bold" href="mailto:hireme@iamdb.co">hireme@iamdb.co</a>
 					<a
 						class="text-2xl"
 						href="https://github.com/iamdb"
@@ -65,62 +63,55 @@
 						<iconify-icon icon="simple-icons:linkedin" />
 					</a>
 				</div>
-				<a class="text-2xl" href="/resume.pdf" target="_blank" rel="noopener noreferrer"
-					><iconify-icon class="align-middle text-4xl" icon="bx:cloud-download" /> pdf</a>
 			</div>
 		</div>
-		<p class="mt-8 md:mt-16 mb-0 text-lg md:text-xl">
-			I am an experienced software engineer seeking a full-time position writing code in <strong
-				>Rust</strong>
-			or <strong>Go</strong>. I take pride in writing reliable, performant and maintainable
-			software.
+		<p class="mt-8 mb-0 text-lg md:text-xl">
+			I am an experienced software engineer seeking a full-time position. I take pride in writing
+			reliable, performant and maintainable software.
 		</p>
 	</header>
 
 	<section>
-		<h2 class="mb-8 underline underline-offset-2">Career Highlights</h2>
+		<h2 class="mb-8 underline underline-offset-2 font-serif font-normal">Career Highlights</h2>
 		<ul class="text-lg md:text-xl list-disc list-inside">
-			<li>10+ years experience writing high quality code.</li>
+			<li>10+ years experience writing web applications</li>
 			<li>5+ years of experience with Linux as both a desktop and server OS.</li>
 		</ul>
 	</section>
 
 	<section>
-		<h2 class="mb-8 underline underline-offset-2">Skills</h2>
-		<div class="flex flex-col gap-y-8 md:flex-row md:gap-y-0 md:gap-x-8 text-white-500">
-			<div class="md:w-1/2">
-				<div class="flex flex-row justify-between items-center">
-					<h3>Languages</h3>
-					<div class="flex flex-row items-center gap-x-4">
-						<button
-							class:btn-active={languageScale === LanguageScale.AllTime}
-							on:click={() => (languageScale = LanguageScale.AllTime)}
-							class="btn">all time</button>
-						<button
-							class:btn-active={languageScale === LanguageScale.LastYear}
-							on:click={() => (languageScale = LanguageScale.LastYear)}
-							class="btn">last year</button>
-					</div>
-				</div>
-				<Languages {activity} {languages} />
+		<h2 class="mb-8 underline underline-offset-2 font-serif font-normal">Languages / Scripting</h2>
+		<Languages {activity} {languages} />
+		<div class="flex flex-col md:flex-row mt-4 items-center justify-between">
+			<div class="flex flex-row gap-x-1 md:gap-x-2">
+				<span>Since <strong>{new Date(activity.startDate).toLocaleDateString()}</strong></span>
+				<span>&bull;</span>
+				<span><strong>~{Math.ceil(activity.totalHours)}</strong> total hours</span>
+				<span>&bull;</span>
+				<span class="hidden md:block">
+					<span>
+						<strong>~{Math.ceil(activity.dailyAverageHours)}</strong> hours a day
+					</span>
+				</span>
 			</div>
-			<div class="md:w-1/2 pt-10">
-				<h3 class="mb-4">Other Tech Experience</h3>
-				<div
-					class="grid grid-cols-3 gap-8 justify-items-center md:justify-items-start place-content-center p-8 rounded text-white-600 align-center bg-black-200">
-					{#each allIcons as techIcon}
-						{@const icon = stringToIcon(techIcon)}
-						{@const name = iconToString(icon)}
-						<TechIcon {icon} {name} />
-					{/each}
-				</div>
+			<div class="flex mt-4 flex-row gap-x-2">
+				<button
+					class:btn-active={languageScale === LanguageScale.AllTime}
+					on:click={() => (languageScale = LanguageScale.AllTime)}
+					class="btn">all time</button>
+				<button
+					class:btn-active={languageScale === LanguageScale.LastYear}
+					on:click={() => (languageScale = LanguageScale.LastYear)}
+					class="btn">last year</button>
 			</div>
 		</div>
 	</section>
 
 	<section>
-		<h2 class="mb-8 underline underline-offset-2">Work Experience</h2>
-		<div class="flex overflow-hidden flex-col gap-y-8">
+		<h2 class="mb-24 underline underline-offset-2 font-serif font-normal text-left md:text-center">
+			Work Experience
+		</h2>
+		<div class="flex flex-col overflow-hidden gap-y-16">
 			{#each workExperience as job}
 				<WorkHistory
 					companyName={job.name}
@@ -129,14 +120,17 @@
 					temporary={job.contract}>
 					<ul slot="accomplishments" class="list-disc list-inside">
 						{#each job.accomplishments as immagoodboy}
-							<li class="mb-4 leading-tight">{@html immagoodboy}</li>
+							<li class="mb-4 leading-snug">{@html immagoodboy}</li>
 						{/each}
 					</ul>
-					<div
-						slot="stack"
-						class="flex flex-row flex-wrap gap-x-12 gap-y-8 justify-around items-center">
+					<div slot="stack" class="grid grid-cols-1 sm:grid-cols-2">
 						{#each job.stack as techIcon}
-							<TechIcon icon={stringToIcon(techIcon)} name={techIcon} />
+							<div class="flex flex-row flex-grow-0 justify-center mb-4 mr-2 md:justify-start">
+								<iconify-icon
+									class="text-2xl text-blue align-middle mr-2"
+									icon={stringToIcon(techIcon)} />
+								<span class="bg-khaki/50 px-1 leading-none">{techIcon}</span>
+							</div>
 						{/each}
 					</div>
 				</WorkHistory>

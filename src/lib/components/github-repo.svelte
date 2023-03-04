@@ -1,50 +1,30 @@
 <script lang="ts">
-	import Color from 'color';
 	import type { Icon } from '$lib/types/icons';
-	import { writable } from 'svelte/store';
 
 	export let icons: Icon[];
 	export let name: string;
 	export let url: string;
 	export let description: string;
-	export let color: string | undefined;
-
-	let hovered = writable(false);
-
-	const cardColor = new Color(color || '#eeeeee');
-	const backgroundColor = cardColor.fade(0.25).darken(0.6);
-	const textColor = cardColor.lighten(0.2);
-
-	const setHovered = (isHovered: boolean) => {
-		hovered.set(isHovered);
-	};
 </script>
 
 <a
 	href={url}
-	style:background-color={$hovered ? backgroundColor.lighten(0.5).hex() : backgroundColor.hex()}
-	class="flex h-full flex-col justify-between px-6 py-4 no-underline rounded-lg underline-offset-2"
+	class="flex h-full flex-col justify-top px-6 py-4 bg-blue no-underline rounded-xl underline-offset-2 hover:bg-lightblue transition-all"
 	target="_blank"
-	rel="noreferrer"
-	on:mouseover={() => setHovered(true)}
-	on:mouseout={() => setHovered(false)}
-	on:focus={() => setHovered(true)}
-	on:blur={() => setHovered(false)}>
-	<div style:color={textColor.hex()}>
-		<h4 class="cursor-pointer leading-none mb-4 text-2xl font-bold underline">{name}</h4>
-		<p>{description}</p>
-	</div>
-	<div>
-		<span class="leading-none text-xs" style:color={backgroundColor.lighten(0.25).hex()}>
-			LANGUAGES
-		</span>
-		<div
-			style:background-color={backgroundColor.lighten(0.25).hex()}
+	rel="noreferrer">
+	<h4
+		class="text-lightkhaki cursor-pointer leading-none mb-4 text-2xl font-bold underline decoration-dotted">
+		{name}
+	</h4>
+	<span class="text-lightkhaki flex-grow mb-0 lg:mb-8">{description}</span>
+	<span class="hidden lg:inline">
+		<span class="leading-none text-xs text-lightkhaki"> LANGUAGES </span>
+		<span
 			class:justify-between={icons.length >= 3}
-			class="flex flex-row flex-wrap gap-x-2 p-2 rounded shadow-nner">
+			class="flex flex-row flex-wrap gap-x-1 p-2 bg-darkblue rounded-lg">
 			{#each icons.slice(0, 4) as icon}
-				<iconify-icon style:color={cardColor.toString()} class="text-4xl text-grey-800" {icon} />
+				<iconify-icon class="text-4xl text-lightkhaki" {icon} />
 			{/each}
-		</div>
-	</div>
+		</span>
+	</span>
 </a>

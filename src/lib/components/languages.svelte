@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Color from 'color';
 	import { flip } from 'svelte/animate';
 	import { quintOut } from 'svelte/easing';
 	import { afterUpdate } from 'svelte';
@@ -22,30 +21,16 @@
 	});
 </script>
 
-<div class="flex flex-row items-center my-4 justify-between">
-	<div class="flex flex-row gap-x-1 md:gap-x-4">
-		<span><strong>{Math.ceil(activity.totalHours)}</strong> total hours</span>
-		<span class="hidden md:block">
-			<span>&bull;</span>
-			<span>
-				<strong>{Math.ceil(activity.dailyAverageHours)}</strong> hours a day
-			</span>
-		</span>
-	</div>
-	<span>Since <strong>{new Date(activity.startDate).toLocaleDateString()}</strong></span>
-</div>
 <div
 	style:min-height={`${maxHeight}px`}
 	bind:offsetHeight={listHeight}
-	class="p-4 flex flex-col gap-y-4 md:p-8 rounded bg-black-200">
+	class="border-8 border-blue border-opacity-50 p-4 flex flex-col gap-y-4 md:py-4 md:px-6 rounded-xl bg-lightkhaki">
 	{#each languages as lang (lang.name)}
 		<div animate:flip={{ duration: (d) => Math.sqrt(d) * 50, easing: quintOut }}>
 			<Skill
-				color={lang.color}
 				total={Math.ceil(activity.totalHours * (lang.percent * 0.01))}
 				name={lang.name}
-				progress={lang.percent * norm_modifier}
-				progressColor={new Color(lang.color).darken(0.25).desaturate(0.25).toString()} />
+				progress={lang.percent * norm_modifier} />
 		</div>
 	{/each}
 </div>

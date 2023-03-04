@@ -4,41 +4,37 @@
 
 @layer base {
   h1 {
-    @apply text-5xl md:text-8xl font-bold leading-tight cursor-default
+    @apply text-6xl md:text-7xl xl:text-8xl font-bold leading-tight cursor-default
   }
 
   h2 {
-    @apply text-4xl md:text-6xl font-bold leading-tight cursor-default
+    @apply text-4xl md:text-5xl xl:text-6xl font-bold leading-tight cursor-default
   }
 
   h3 {
-    @apply text-3xl md:text-4xl font-bold leading-tight cursor-default
+    @apply text-2xl md:text-3xl xl:text-4xl font-bold leading-tight cursor-default
   }
 
   h4 {
-    @apply text-lg md:text-2xl font-bold leading-tight cursor-default
-  }
-
-  h5 {
-    @apply text-lg font-bold leading-tight cursor-default
+    @apply text-lg md:text-xl xl:text-2xl font-bold leading-tight cursor-default
   }
 
   p {
     @apply leading-relaxed mb-6 text-lg 
   }
 
-  a {
-    @apply underline text-blue-500 hover:text-blue-100 underline-offset-2 font-bold hover:decoration-white-300 transition-all hover:underline-offset-4 decoration-dotted
+  a.inline:link, .md-text a:link, a.inline:visited, .md-text a:visited, a.inline:active, .md-text a:active {
+    @apply underline text-blue bg-lightkhaki hover:text-lightblue underline-offset-2 font-bold hover:decoration-lightblue transition-all hover:underline-offset-4 decoration-dotted
   }
 }
 
 @layer utilities {
   .btn {
-    @apply text-white-300 bg-grey-500 px-2 py-1 rounded hover:bg-grey-400 hover:text-white-300
+    @apply text-darkblue bg-khaki pb-1 px-1 border-2 border-lightkhaki leading-none rounded transition-all
   }
 
   .btn-active {
-    @apply bg-green-500 text-grey-500 hover:bg-green-400 hover:text-grey-500
+    @apply bg-lightkhaki text-blue rounded transition-all border-2 border-blue
   }
 
   .vignette {

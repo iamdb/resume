@@ -20,6 +20,7 @@ export enum Icon {
   Graphql = "cib:graphql",
   Hasura = "simple-icons:hasura",
   Html = "cib:html5",
+  Java = "mdi:language-java",
   Javascript = "cib:javascript",
   Jira = "simple-icons:jira",
   Json = "mdi:code-json",
@@ -39,7 +40,7 @@ export enum Icon {
   Rust = "cib:rust",
   Shopify = "simple-icons:shopify",
   Svelte = "cib:svelte",
-  Terraform = "logos:terraform-icon",
+  Terraform = "file-icons:terraform",
   Toml = "file-icons:toml",
   Typescript = "cib:typescript",
   WebRtc = "simple-icons:webrtc",
@@ -91,6 +92,8 @@ export function iconToString(icon: Icon): string {
       return "Terraform"
     case Icon.Jquery:
       return "jQuery"
+    case Icon.Java:
+      return "Java"
   }
 
   const techIcon = Object.entries(Icon).filter((k) => k[1] === icon).at(0)?.at(0) || "error"
@@ -177,6 +180,8 @@ export function stringToIcon(name: string): Icon {
       return Icon.Terraform
     case 'jquery':
       return Icon.Jquery
+    case 'java':
+      return Icon.Java
   }
 
   return Icon.Error

@@ -4,6 +4,7 @@
 	import type { Show } from './+page';
 	import ConcertPhoto from '$lib/components/concert-photo.svelte';
 	import PageHead from '$lib/components/page-head.svelte';
+	import PageTitle from '$lib/components/page-title.svelte';
 
 	export let data: {
 		shows: Show[];
@@ -48,9 +49,13 @@
 </script>
 
 <PageHead title={data.title} />
-<h1 class="leading-tight mb-4 underline underline-offset-2">{data.title}</h1>
 
-{@html data.intro}
+<div class="mx-auto max-w-screen-lg">
+	<PageTitle>{data.title}</PageTitle>
+	<div class="mt-12 md-text">
+		{@html data.intro}
+	</div>
+</div>
 
 <div bind:this={photoContainer} class="relative grid grid-cols-1 lg:grid-cols-2 gap-14 mt-12">
 	{#each data.shows as show}
@@ -58,10 +63,8 @@
 			{@const photos = show.photos}
 			{#each photos as photo}
 				{@const photoUrl = `/photos/music/${photo}`}
-				{@const showImage = visiblePhotos.has(photoUrl)}
 				<ConcertPhoto
 					src={photoUrl}
-					{showImage}
 					meta={{
 						name: show.artist,
 						location: show.location,

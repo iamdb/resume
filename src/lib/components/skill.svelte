@@ -7,8 +7,6 @@
 	export let name: string;
 	export let progress: number;
 	export let total: number;
-	export let color: string;
-	export let progressColor: string;
 
 	$: icon = stringToIcon(name);
 	$: formattedName = iconToString(icon);
@@ -16,9 +14,9 @@
 
 <div class="flex flex-row items-center justify-start gap-x-4">
 	<div class="md:w-1/4">
-		<TechIcon reverse {color} name={formattedName} {icon} />
+		<TechIcon color="text-blue" reverse name={formattedName} {icon} />
 	</div>
 	<div class="flex-grow">
-		<Progress {total} {progress} barColor={progressColor} />
+		<Progress {total} {progress} />
 	</div>
 </div>
