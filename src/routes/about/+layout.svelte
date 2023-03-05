@@ -7,7 +7,7 @@
 
 <div class="md-text max-w-screen-lg mx-auto">
 	<PageTitle>About Me</PageTitle>
-	<div class="mt-12">
+	<div class="mt-12 bg-lightkhaki py-4 px-6 rounded-lg md-text">
 		<slot />
 	</div>
 </div>

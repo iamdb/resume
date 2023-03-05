@@ -4,7 +4,7 @@
 
 @layer base {
   h1 {
-    @apply text-6xl md:text-7xl xl:text-8xl font-bold leading-tight cursor-default
+    @apply text-6xl md:text-8xl font-bold leading-tight cursor-default
   }
 
   h2 {
@@ -23,6 +23,10 @@
     @apply leading-relaxed mb-6 text-lg 
   }
 
+  .md-text p:last-of-type {
+    @apply mb-0
+  }
+
   a.inline:link, .md-text a:link, a.inline:visited, .md-text a:visited, a.inline:active, .md-text a:active {
     @apply underline text-blue bg-lightkhaki hover:text-lightblue underline-offset-2 font-bold hover:decoration-lightblue transition-all hover:underline-offset-4 decoration-dotted
   }
@@ -30,11 +34,11 @@
 
 @layer utilities {
   .btn {
-    @apply text-darkblue bg-khaki pb-1 px-1 border-2 border-lightkhaki leading-none rounded transition-all
+    @apply text-blue bg-lightkhaki/50 pb-[0.25rem] pt-[0.20rem] px-1 border-2 border-lightkhaki leading-none rounded transition-all align-middle
   }
 
   .btn-active {
-    @apply bg-lightkhaki text-blue rounded transition-all border-2 border-blue
+    @apply bg-lightkhaki text-blue rounded transition-all border-2 border-blue align-middle
   }
 
   .vignette {

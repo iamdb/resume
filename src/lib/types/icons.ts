@@ -51,8 +51,10 @@ export function loadAllIcons(cb?: () => void) {
   const iconNames = Object.values(Icon) as string[]
   iconNames.push("carbon:location-filled")
   iconNames.push("clarity:date-line")
-  iconNames.push("bi:eye-slash-fill")
-  iconNames.push("bi:eye-fill")
+  iconNames.push("mdi:download-circle")
+  iconNames.push("mdi:close-circle")
+  iconNames.push("mdi:home-circle")
+  iconNames.push("mdi:hamburger")
 
   loadIcons(iconNames, () => {
     console.log('all icons loaded')
@@ -94,6 +96,10 @@ export function iconToString(icon: Icon): string {
       return "jQuery"
     case Icon.Java:
       return "Java"
+    case Icon.DigitalOcean:
+      return "Digital Ocean"
+    case Icon.Github:
+      return "Github"
   }
 
   const techIcon = Object.entries(Icon).filter((k) => k[1] === icon).at(0)?.at(0) || "error"

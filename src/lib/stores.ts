@@ -1,3 +1,4 @@
 import { writable } from 'svelte/store'
+import { NavState } from './types/app'
 
-export const disableHover = writable(false)
+export const isNavOpen = writable(NavState.Closed)

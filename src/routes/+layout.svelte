@@ -1,29 +1,34 @@
-<script>
+<script lang="ts">
 	import '@fontsource/abril-fatface';
 	import '@fontsource/barlow/500.css';
 	import '@fontsource/barlow/700.css';
 	import 'iconify-icon';
 	import { enableCache } from 'iconify-icon';
-	import { page } from '$app/stores';
 	import Header from '$lib/components/header.svelte';
 	import { loadAllIcons } from '$lib/types/icons';
+	import { page } from '$app/stores';
+	import { isNavOpen } from '$lib/stores';
 	import { onMount } from 'svelte';
 	import '../app.postcss';
+	import { writable } from 'svelte/store';
+	import { NavState } from '$lib/types/app';
+
+	const iconsLoaded = writable(false);
+	let windowWidth: number;
 
 	onMount(() => {
 		enableCache('local');
-		loadAllIcons();
+		loadAllIcons(() => iconsLoaded.set(true));
 	});
-
-	$: isHome = $page.url.pathname === '/';
 </script>
 
+<svelte:window bind:innerWidth={windowWidth} />
+
 <div
-	class:lg:pl-28={!isHome}
-	class:lg:pr-8={!isHome}
-	class:pl-16={!isHome}
-	class:pr-4={!isHome}
-	class="py-4 font-medium">
+	on:click={() => isNavOpen.set(NavState.Closed)}
+	on:keydown={() => isNavOpen.set(NavState.Closed)}
+	class:pl-40={windowWidth > 1280 && $page.url.pathname !== '/'}
+	class="px-8 pt-20">
 	<slot />
 	<footer class="flex flex-col mt-24 items-center justify-center pb-12">
 		<p class="text-sm leading-none text-grey-500 text-center">&copy; 2023 David Benjamin</p>
@@ -44,6 +49,4 @@
 	</footer>
 </div>
 
-{#if !isHome}
-	<Header />
-{/if}
+<Header />

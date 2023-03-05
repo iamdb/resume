@@ -19,22 +19,18 @@
 	});
 </script>
 
-<div class="flex flex-row items-center justify-start rounded-full bg-khaki">
-	<div
+<div class="rounded-full h-6 bg-khaki/50 relative overflow-hidden">
+	<span
 		style:min-width={`${clientHeight}px`}
 		style:width={`${$currentProgress}%`}
 		bind:clientHeight
-		class="rounded-full flex flex-row bg-blue justify-end items-center">
+		class="rounded-full inline-block bg-blue text-right">
 		<span
-			class:opacity-100={$showHours}
-			class:opacity-0={!$showHours}
 			class:invisible={progress <= 75}
-			class="transition-opacity duration-75 text-lightkhaki pr-3 font-bold whitespace-nowrap"
+			class="transition-opacity duration-75 text-lightkhaki pr-3 align-top font-bold whitespace-nowrap"
 			>{total}{`${total === 1 ? ' hour' : ' hours'}`}</span>
-	</div>
+	</span>
 	<span
-		class:opacity-100={$showHours}
-		class:opacity-0={!$showHours}
 		class:hidden={progress >= 75}
 		class="transition-opacity text-blue duration-75 px-3 font-bold whitespace-nowrap">
 		{total}{`${total === 1 ? ' hour' : ' hours'}`}

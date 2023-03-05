@@ -8,7 +8,7 @@
 </script>
 
 <div class:flex-row-reverse={reverse} class="flex flex-row justify-between items-center gap-1">
-	<div class={`w-6 md:w-4 lg:w-8 aspect-square ${color}`}>
+	<div class={`flex items-center justify-center w-6 md:w-4 lg:w-8 aspect-square ${color}`}>
 		<iconify-icon width="100%" {icon} />
 	</div>
 	{#if name}

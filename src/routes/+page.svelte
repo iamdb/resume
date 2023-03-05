@@ -13,7 +13,7 @@
 
 <PageHead />
 
-<div class="container mx-auto px-8">
+<div class="container mx-auto max-w-screen-lg">
 	<PageTitle>Hi.</PageTitle>
 	<div class="mt-8">
 		<p class="text-2xl">
@@ -24,15 +24,13 @@
 			building dependable software.
 		</p>
 	</div>
-	<div class="flex flex-col md:flex-row gap-8 my-8">
+	<div class="grid sm:grid-cols-3 gap-8 my-8">
 		{#each data.pinnedItems as repo}
-			<div class="w-full md:w-2/5 lg:w-1/3 xl:w-1/5">
-				<GithubRepo
-					name={repo.name}
-					url={repo.url}
-					description={repo.description}
-					icons={repo.languages.nodes.map((lang) => stringToIcon(lang.name))} />
-			</div>
+			<GithubRepo
+				name={repo.name}
+				url={repo.url}
+				description={repo.description}
+				icons={repo.languages.nodes.map((lang) => stringToIcon(lang.name))} />
 		{/each}
 	</div>
 

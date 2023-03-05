@@ -9,24 +9,25 @@
 
 <div class="overflow-hidden">
 	<div class="relative flex flex-col lg:flex-row justify-between items-baseline mb-4">
-		<h4
-			class="flex uppercase bg-blue text-lightkhaki leading-tight px-2 flex-col items-baseline md:flex-row gap-x-1 justify-between">
-			{companyName}
+		<h4 class="font-medium">
+			<span class="uppercase bg-blue text-lightkhaki leading-tight px-2">{companyName}</span>
 			{#if temporary}
-				<span class="font-normal text-xs">(temporary contract)</span>
+				<span class="font-normal text-xs align-baseline">(temporary contract)</span>
 			{/if}
 		</h4>
-		<span class="flex flex-row gap-x-4 items-center text-sm md:text-lg">
-			{startDate}
-			<iconify-icon class="text-2xl" icon="fluent:calendar-arrow-right-24-filled" />
-			{#if endDate}
-				{endDate}
-			{:else}
-				Present
-			{/if}
+		<span class="flex flex-row gap-x-2 items-center text-sm md:text-lg">
+			<span class="rounded-lg px-1 text-darkgrey/90">{startDate}</span>
+			<span class="text-darkgrey/90">to</span>
+			<span class="px-1 text-darkgrey/90">
+				{#if endDate}
+					{endDate}
+				{:else}
+					Present
+				{/if}
+			</span>
 		</span>
 	</div>
-	<div class="rounded-xl grid md:grid-cols-[auto,auto] bg-lightkhaki p-8 md:py-4">
+	<div class="rounded-xl grid md:grid-cols-[2fr,1fr] bg-lightkhaki p-8 md:py-4">
 		<div class="border-b md:border-b-0 md:border-r border-khaki pb-8 md:pb-0 md:pr-8">
 			<h5 class="mb-4 underline">Accomplishments</h5>
 			<slot name="accomplishments" />

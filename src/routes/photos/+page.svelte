@@ -52,7 +52,7 @@
 
 <div class="mx-auto max-w-screen-lg">
 	<PageTitle>{data.title}</PageTitle>
-	<div class="mt-12 md-text">
+	<div class="mt-12 bg-lightkhaki py-4 px-6 rounded-lg md-text">
 		{@html data.intro}
 	</div>
 </div>
