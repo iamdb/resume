@@ -1,5 +1,5 @@
 <script lang="ts">
-	import 'iconify-icon';
+	import Icon from '@iconify/svelte';
 	import { LinkType } from '$lib/types/app';
 
 	export let type: LinkType = LinkType.Anchor;
@@ -16,7 +16,7 @@
 	on:keyup
 	{href}>
 	{#if icon}
-		<iconify-icon class="text-3xl" {icon} />
+		<Icon class="text-3xl" {icon} />
 	{/if}
 	{#if !mini}
 		<span><slot /></span>

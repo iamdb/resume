@@ -1,7 +1,8 @@
 <script lang="ts">
-	import type { Icon } from '$lib/types/icons';
+	import type { Icon as IconType } from '$lib/types/icons';
+	import Icon from '@iconify/svelte';
 
-	export let icon: Icon;
+	export let icon: IconType;
 	export let name: string | undefined = undefined;
 	export let reverse = false;
 	export let color = 'text-lightkhaki';
@@ -9,7 +10,7 @@
 
 <div class:flex-row-reverse={reverse} class="flex flex-row justify-between items-center gap-1">
 	<div class={`flex items-center justify-center w-6 md:w-4 lg:w-8 aspect-square ${color}`}>
-		<iconify-icon width="100%" {icon} />
+		<Icon width="100%" {icon} />
 	</div>
 	{#if name}
 		<span

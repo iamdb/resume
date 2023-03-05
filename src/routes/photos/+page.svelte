@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import 'iconify-icon';
 	import type { Show } from './+page';
 	import ConcertPhoto from '$lib/components/concert-photo.svelte';
 	import PageHead from '$lib/components/page-head.svelte';

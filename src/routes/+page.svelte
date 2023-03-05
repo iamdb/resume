@@ -1,5 +1,4 @@
 <script lang="ts">
-	import 'iconify-icon';
 	import GithubRepo from '$lib/components/github-repo.svelte';
 	import { stringToIcon } from '$lib/types/icons';
 	import type { Repo } from './+page.server';

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Image from './image.svelte';
+	import Icon from '@iconify/svelte';
 
 	interface ImageMeta {
 		location: string;
@@ -23,12 +24,12 @@
 		<span class="font-bold text-md flex-grow flex-shrink-0">{meta.name}</span>
 		<div class="flex text-sm flex-row gap-x-1">
 			<span class="flex flex-row items-center justify-start gap-x-1">
-				<iconify-icon icon="carbon:location-filled" />
+				<Icon icon="carbon:location-filled" />
 				{meta.location}
 			</span>
 			<span>&bull;</span>
 			<span class="flex flex-row items-center justify-start gap-x-1">
-				<iconify-icon icon="clarity:date-line" />
+				<Icon icon="clarity:date-line" />
 				{meta.date}
 			</span>
 		</div>

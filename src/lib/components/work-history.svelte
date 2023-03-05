@@ -1,6 +1,4 @@
 <script lang="ts">
-	import 'iconify-icon';
-
 	export let companyName: string;
 	export let startDate: string;
 	export let endDate: string | undefined;

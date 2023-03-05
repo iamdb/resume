@@ -1,5 +1,5 @@
 <script lang="ts">
-	import 'iconify-icon';
+	import Icon from '@iconify/svelte';
 	import WorkHistory from '$lib/components/work-history.svelte';
 	import Languages from '$lib/components/languages.svelte';
 	import PageHead from '$lib/components/page-head.svelte';
@@ -38,13 +38,13 @@
 				<div class="flex flex-row items-center justify-end text-lg gap-x-2">
 					<a class="inline font-bold" href="mailto:hireme@iamdb.co">hireme@iamdb.co</a>
 					<a href="https://github.com/iamdb" target="_blank" rel="noreferrer noopener">
-						<iconify-icon icon="simple-icons:github" />
+						<Icon icon="simple-icons:github" />
 					</a>
 					<a
 						href="https://www.linkedin.com/in/davidabenjamin"
 						target="_blank"
 						rel="noreferrer noopener">
-						<iconify-icon icon="simple-icons:linkedin" />
+						<Icon icon="simple-icons:linkedin" />
 					</a>
 				</div>
 			</div>
@@ -112,9 +112,7 @@
 						{#each job.stack as techIcon}
 							<div
 								class="flex flex-row flex-grow-0 justify-center items-center last-of-type:mb-0 mr-2 md:justify-start">
-								<iconify-icon
-									class="text-2xl text-blue align-middle mr-2"
-									icon={stringToIcon(techIcon)} />
+								<Icon class="text-2xl text-blue align-middle mr-2" icon={stringToIcon(techIcon)} />
 								<span class="bg-khaki/50 p-1 leading-none">{iconToString(techIcon)}</span>
 							</div>
 						{/each}

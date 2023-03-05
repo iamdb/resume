@@ -56,8 +56,8 @@ export function loadAllIcons(cb?: () => void) {
   iconNames.push("mdi:home-circle")
   iconNames.push("mdi:hamburger")
 
-  loadIcons(iconNames, () => {
-    console.log('all icons loaded')
+  loadIcons(iconNames, (loaded, missing, pending) => {
+    console.log('loaded', loaded, 'missing', missing, 'pending', pending)
     cb && cb()
   })
 }

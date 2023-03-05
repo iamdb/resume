@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import { fly } from 'svelte/transition';
 	import { beforeNavigate, goto } from '$app/navigation';
 	import { navigating, page } from '$app/stores';
@@ -59,7 +60,7 @@
 			on:click={toggleNav}
 			on:keydown={toggleNav}
 			class="text-blue bg-lightkhaki fixed top-0 left-0 rounded-br-lg hover:bg-blue hover:text-lightkhaki transition-colors">
-			<iconify-icon width="100%" height="100%" class="w-16 h-16 block p-2" icon="mdi:hamburger" />
+			<Icon width="100%" height="100%" class="w-16 h-16 block p-2" icon="mdi:hamburger" />
 		</button>
 	{/if}
 {/if}
