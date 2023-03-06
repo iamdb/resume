@@ -76,7 +76,8 @@
 			Times are approximate due to gaps in data reporting. Margin for error is approximately -5%.
 		</div>
 		<Languages {activity} {languages} />
-		<div class="grid grid-flow-col-dense place-content-between place-items-baseline">
+		<div
+			class="grid grid-flow-row-dense gap-y-4 mt-4 md:mt-0 grid-cols-1 md:grid-cols-none md:grid-flow-col-dense place-content-between place-items-center md:place-items-baseline">
 			<span>
 				<Icon class="inline-block align-middle mr-1" icon="clarity:date-line" />
 				<span
@@ -84,9 +85,9 @@
 						activityStart.getMonth()
 					)} ${activityStart.getDate()}, ${activityStart.getFullYear()}`}</span>
 			</span>
-			<span class="text-blue">&bull;</span>
+			<span class="text-blue hidden md:inline">&bull;</span>
 			<span>Total: ~{Math.ceil(activity.totalHours)} hours</span>
-			<span class="text-blue">&bull;</span>
+			<span class="text-blue hidden md:inline">&bull;</span>
 			<span>
 				Average Daily: ~{Math.ceil(activity.dailyAverageHours)} hours
 			</span>
