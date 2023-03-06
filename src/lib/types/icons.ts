@@ -1,4 +1,4 @@
-import { getIcon, loadIcons, type IconifyIcon } from 'iconify-icon';
+import { getIcon, loadIcons, type IconifyIcon, type IconifyIconName } from 'iconify-icon';
 
 export const getLoadingIcon = (): Required<IconifyIcon> => {
   const iconInfo = getIcon('line-md:downloading-loop');
@@ -47,7 +47,7 @@ export enum Icon {
   Yaml = "file-icons:yaml-alt4",
 }
 
-export function loadAllIcons(cb?: () => void) {
+export function loadAllIcons(cb?: (loaded: IconifyIconName[], missing: IconifyIconName[], pending: IconifyIconName[]) => void) {
   const iconNames = Object.values(Icon) as string[]
   iconNames.push("carbon:location-filled")
   iconNames.push("clarity:date-line")
@@ -58,7 +58,7 @@ export function loadAllIcons(cb?: () => void) {
 
   loadIcons(iconNames, (loaded, missing, pending) => {
     console.log('loaded', loaded, 'missing', missing, 'pending', pending)
-    cb && cb()
+    cb && cb(loaded, missing, pending)
   })
 }
 

@@ -18,7 +18,9 @@
 
 	onMount(() => {
 		enableCache('local');
-		loadAllIcons(() => iconsLoaded.set(true));
+		loadAllIcons((_, missing, pending) =>
+			iconsLoaded.set(missing.length === 0 && pending.length === 0)
+		);
 	});
 </script>
 
