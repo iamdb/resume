@@ -44,7 +44,7 @@
 	<nav
 		id="navigation"
 		class:translate-x-full={$isNavOpen === NavState.Open || windowWidth > 1280}
-		class="fixed flex top-0 right-full flex-col cursor-default h-screen transition-transform w-36 justify-start">
+		class="fixed bg-khaki flex top-0 right-full flex-col cursor-default h-screen transition-transform w-36 justify-start">
 		<span
 			class="font-serif bg-darkgrey/90 py-8 border-2 border-blue/50 text-6xl text-center text-lightblue"
 			>db</span>
