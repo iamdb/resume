@@ -15,7 +15,7 @@
 	});
 </script>
 
-<div class="relative h-full overflow-hidden">
+<div class="relative w-full overflow-hidden">
 	<img
 		bind:this={img}
 		decoding="async"

@@ -17,7 +17,7 @@
 <div
 	class="concert-photo w-full max-w-screen-lg relative transition-opacity duration-300 flex flex-col overflow-hidden">
 	<div class="bg-darkgrey relative" style="padding-bottom: 66.7%;">
-		<div class="absolute top-0 left-0 w-max h-max">
+		<div class="absolute top-0 left-0 w-full h-full">
 			<Image alt={altString} {src} />
 		</div>
 	</div>

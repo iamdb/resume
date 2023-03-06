@@ -44,8 +44,10 @@
 	<nav
 		id="navigation"
 		class:translate-x-full={$isNavOpen === NavState.Open || windowWidth > 1280}
-		class="fixed flex top-0 right-full flex-col border-blue/50 pt-8 cursor-default border-r-4 h-screen transition-transform w-36 bg-lightkhaki justify-start">
-		<span class="font-serif mb-4 text-6xl text-center text-darkgrey/80">db</span>
+		class="fixed flex top-0 right-full flex-col cursor-default h-screen transition-transform w-36 justify-start">
+		<span
+			class="font-serif bg-darkgrey/90 py-8 border-2 border-blue/50 text-6xl text-center text-lightblue"
+			>db</span>
 		<NavLink icon="mdi:home-circle" on:click={() => navigate('/')}>home</NavLink>
 		{#if $page.url.pathname == '/resume'}
 			<NavLink icon="mdi:download-circle" on:click={() => navigate('/resume.pdf')}>pdf</NavLink>
