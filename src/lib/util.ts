@@ -5,7 +5,7 @@ export function formatDate(date: Date) {
   return `${intToMonth(newDate.getUTCMonth())} ${newDate.getUTCFullYear()}`;
 };
 
-function intToMonth(int: number): string {
+export function intToMonth(int: number): string {
   switch (int) {
     case 0:
       return 'January';

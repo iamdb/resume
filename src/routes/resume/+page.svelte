@@ -3,11 +3,12 @@
 	import WorkHistory from '$lib/components/work-history.svelte';
 	import Languages from '$lib/components/languages.svelte';
 	import PageHead from '$lib/components/page-head.svelte';
-	import { iconToString, stringToIcon } from '$lib/types/icons';
+	import { stringToIcon } from '$lib/types/icons';
 	import { LanguageScale, type CodingActivityNormalized, type Language } from '$lib/types/wakatime';
 	import type { WorkExperience } from '$lib/types/resume';
 	import { formatDate } from '$lib/util';
 	import PageTitle from '$lib/components/page-title.svelte';
+	import { intToMonth } from '$lib/util';
 
 	export let data: {
 		languagesAlltime: Language[];
@@ -24,12 +25,13 @@
 
 	$: languages = languageScale === LanguageScale.LastYear ? languagesLastYear : languagesAlltime;
 	$: activity = languageScale === LanguageScale.LastYear ? activityLastYear : activityAlltime;
+	$: activityStart = new Date(activity.startDate);
 </script>
 
 <PageHead title="Resume" />
 
-<div class="flex flex-col gap-y-24 mb-48 max-w-screen-lg mx-auto">
-	<header>
+<div class="resume mb-48 max-w-screen-lg mx-auto">
+	<section>
 		<div class="flex flex-col items-stretch">
 			<PageTitle>David Benjamin</PageTitle>
 			<div
@@ -58,7 +60,7 @@
 				reliable, performant and maintainable software.
 			</p>
 		</div>
-	</header>
+	</section>
 
 	<section>
 		<h2 class="mb-8 underline underline-offset-2 font-serif font-normal">Career Highlights</h2>
@@ -74,17 +76,20 @@
 			Times are approximate due to gaps in data reporting. Margin for error is approximately -5%.
 		</div>
 		<Languages {activity} {languages} />
-		<div
-			class="flex flex-col md:flex-row mt-4 md:mt-0 items-center md:items-baseline justify-between">
-			<div class="flex flex-col md:flex-row items-center gap-x-4">
-				<span>since {new Date(activity.startDate).toDateString()}</span>
-				<span>&bull;</span>
-				<span>~{Math.ceil(activity.totalHours)} total hours</span>
-				<span>&bull;</span>
-				<span>
-					~{Math.ceil(activity.dailyAverageHours)} hours a day
-				</span>
-			</div>
+		<div class="grid grid-flow-col-dense place-content-between place-items-baseline">
+			<span>
+				<Icon class="inline-block align-middle mr-1" icon="clarity:date-line" />
+				<span
+					>{`${intToMonth(
+						activityStart.getMonth()
+					)} ${activityStart.getDate()}, ${activityStart.getFullYear()}`}</span>
+			</span>
+			<span class="text-blue">&bull;</span>
+			<span>Total: ~{Math.ceil(activity.totalHours)} hours</span>
+			<span class="text-blue">&bull;</span>
+			<span>
+				Average Daily: ~{Math.ceil(activity.dailyAverageHours)} hours
+			</span>
 			<div class="flex mt-4 flex-row items-center gap-x-2">
 				<button
 					class:btn-active={languageScale === LanguageScale.AllTime}
@@ -129,10 +134,13 @@
 	</section>
 </div>
 
-<style>
+<style lang="postcss">
 	.note-text:before {
 		content: 'Note: ';
 		font-weight: bold;
 		margin-left: -2.6em;
+	}
+	.resume section {
+		@apply mb-24 last:mb-0;
 	}
 </style>
