@@ -10,7 +10,7 @@
 
 <svelte:element
 	this={type}
-	class="aspect-square shadow inset-auto border-2 border-t-0 border-blue/50 flex flex-col gap-y-2 bg-darkgrey/30 text-darkgrey/80 items-center justify-center lg:text-lg hover:bg-darkgrey/75 hover:text-white-200 no-underline transition-colors leading-none font-medium cursor-pointer"
+	class="aspect-square shadow inset-auto border-b-2 border-r-2 border-lightkhaki/50 flex flex-col gap-y-2 bg-lightblue/95 text-darkgrey/75 items-center justify-center lg:text-lg hover:bg-lightblue hover:text-white-200 no-underline transition-colors leading-none font-medium cursor-pointer"
 	on:click
 	on:keydown
 	on:keyup

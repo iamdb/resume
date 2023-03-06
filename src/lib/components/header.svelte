@@ -7,9 +7,12 @@
 	import { NavState } from '$lib/types/app';
 	import type { Snapshot } from '@sveltejs/kit';
 	import NavLink from './nav-link.svelte';
-	import { elasticOut, quadOut } from 'svelte/easing';
+	import { quadOut } from 'svelte/easing';
 
-	let handle: HTMLElement | undefined, windowWidth: number, scrollY: number;
+	let handle: HTMLElement | undefined;
+
+	$: windowWidth = 0;
+	$: scrollY = 0;
 
 	const toggleNav = () => {
 		if ($isNavOpen === NavState.Open) {
@@ -44,28 +47,30 @@
 	<nav
 		id="navigation"
 		class:translate-x-full={$isNavOpen === NavState.Open || windowWidth > 1280}
-		class="fixed bg-khaki flex top-0 right-full flex-col cursor-default h-screen transition-transform w-36 justify-start">
+		class="fixed flex top-0 right-full flex-col cursor-default transition-transform w-36 justify-start">
 		<span
-			class="font-serif bg-darkgrey/90 py-8 border-2 border-blue/50 text-6xl text-center text-lightblue"
+			class="font-serif bg-darkgrey/95 py-8 border-b-2 border-r-2 border-lightkhaki/75 text-6xl text-center text-lightblue"
 			>db</span>
 		<NavLink icon="mdi:home-circle" on:click={() => navigate('/')}>home</NavLink>
 		{#if $page.url.pathname == '/resume'}
 			<NavLink icon="mdi:download-circle" on:click={() => navigate('/resume.pdf')}>pdf</NavLink>
 		{/if}
 		{#if $page.url.pathname == '/photos'}
-			{#if !$forceSingleColumnPhotos}
-				<span in:scale={{ duration: 150, easing: quadOut }}>
-					<NavLink icon="tabler:columns-1" on:click={() => forceSingleColumnPhotos.set(true)}
-						>one column</NavLink>
-				</span>
-			{:else}
-				<span in:scale={{ duration: 150, easing: quadOut }}>
-					<NavLink icon="tabler:columns-2" on:click={() => forceSingleColumnPhotos.set(false)}
-						>two column</NavLink>
-				</span>
+			{#if windowWidth > 1024}
+				{#if !$forceSingleColumnPhotos}
+					<span in:scale={{ duration: 150, easing: quadOut }}>
+						<NavLink icon="tabler:columns-1" on:click={() => forceSingleColumnPhotos.set(true)}
+							>one column</NavLink>
+					</span>
+				{:else}
+					<span in:scale={{ duration: 150, easing: quadOut }}>
+						<NavLink icon="tabler:columns-2" on:click={() => forceSingleColumnPhotos.set(false)}
+							>two column</NavLink>
+					</span>
+				{/if}
 			{/if}
 
-			{#if windowWidth >= 1024 && scrollY > 100}
+			{#if scrollY > 100}
 				<span transition:scale={{ duration: 150, easing: quadOut }}>
 					<NavLink
 						icon="mdi:arrow-up-circle"
