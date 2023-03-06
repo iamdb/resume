@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { Show } from './+page';
+	import { forceSingleColumnPhotos } from '$lib/stores';
 	import ConcertPhoto from '$lib/components/concert-photo.svelte';
 	import PageHead from '$lib/components/page-head.svelte';
 	import PageTitle from '$lib/components/page-title.svelte';
@@ -56,7 +57,11 @@
 	</div>
 </div>
 
-<div bind:this={photoContainer} class="relative grid grid-cols-1 lg:grid-cols-2 gap-14 mt-12">
+<div
+	bind:this={photoContainer}
+	class:lg:grid-cols-2={!$forceSingleColumnPhotos}
+	class:xl:px-24={$forceSingleColumnPhotos}
+	class="relative grid grid-cols-1 place-items-center gap-14 mt-12">
 	{#each data.shows as show}
 		{#if show.photos}
 			{@const photos = show.photos}

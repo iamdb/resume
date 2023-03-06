@@ -1,14 +1,15 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import { fly } from 'svelte/transition';
+	import { fly, scale } from 'svelte/transition';
 	import { beforeNavigate, goto } from '$app/navigation';
 	import { navigating, page } from '$app/stores';
-	import { isNavOpen } from '$lib/stores';
+	import { forceSingleColumnPhotos, isNavOpen } from '$lib/stores';
 	import { NavState } from '$lib/types/app';
 	import type { Snapshot } from '@sveltejs/kit';
 	import NavLink from './nav-link.svelte';
+	import { elasticOut, quadOut } from 'svelte/easing';
 
-	let handle: HTMLElement | undefined, windowWidth: number;
+	let handle: HTMLElement | undefined, windowWidth: number, scrollY: number;
 
 	const toggleNav = () => {
 		if ($isNavOpen === NavState.Open) {
@@ -37,16 +38,38 @@
 	};
 </script>
 
-<svelte:window bind:innerWidth={windowWidth} />
+<svelte:window bind:innerWidth={windowWidth} bind:scrollY />
 
 {#if $page.url.pathname !== '/'}
 	<nav
 		id="navigation"
 		class:translate-x-full={$isNavOpen === NavState.Open || windowWidth > 1280}
-		class="fixed flex top-0 right-full flex-col border-r-2 border-lightkhaki h-screen transition-transform gap-y-8 w-36 px-1 pt-8 bg-lightkhaki justify-start">
+		class="fixed flex top-0 right-full flex-col border-blue/50 pt-8 cursor-default border-r-4 h-screen transition-transform w-36 bg-lightkhaki justify-start">
+		<span class="font-serif mb-4 text-6xl text-center text-darkgrey/80">db</span>
 		<NavLink icon="mdi:home-circle" on:click={() => navigate('/')}>home</NavLink>
 		{#if $page.url.pathname == '/resume'}
 			<NavLink icon="mdi:download-circle" on:click={() => navigate('/resume.pdf')}>pdf</NavLink>
+		{/if}
+		{#if $page.url.pathname == '/photos'}
+			{#if !$forceSingleColumnPhotos}
+				<span in:scale={{ duration: 150, easing: quadOut }}>
+					<NavLink icon="tabler:columns-1" on:click={() => forceSingleColumnPhotos.set(true)}
+						>one column</NavLink>
+				</span>
+			{:else}
+				<span in:scale={{ duration: 150, easing: quadOut }}>
+					<NavLink icon="tabler:columns-2" on:click={() => forceSingleColumnPhotos.set(false)}
+						>two column</NavLink>
+				</span>
+			{/if}
+
+			{#if windowWidth >= 1024 && scrollY > 100}
+				<span transition:scale={{ duration: 150, easing: quadOut }}>
+					<NavLink
+						icon="mdi:arrow-up-circle"
+						on:click={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>back to top</NavLink>
+				</span>
+			{/if}
 		{/if}
 		{#if windowWidth <= 1280}
 			<NavLink icon="mdi:close-circle" on:click={toggleNav} on:keydown={toggleNav}>close</NavLink>
@@ -59,7 +82,7 @@
 			transition:fly={{ x: -handle.offsetWidth }}
 			on:click={toggleNav}
 			on:keydown={toggleNav}
-			class="text-blue bg-lightkhaki fixed top-0 left-0 rounded-br-lg hover:bg-blue hover:text-lightkhaki transition-colors">
+			class="text-blue border-r-2 border-b-2 border-blue/50 bg-lightkhaki fixed top-0 left-0 rounded-br-lg hover:bg-blue hover:text-lightkhaki transition-colors">
 			<Icon width="100%" height="100%" class="w-16 h-16 block p-2" icon="mdi:hamburger" />
 		</button>
 	{/if}

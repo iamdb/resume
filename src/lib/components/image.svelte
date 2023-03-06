@@ -15,14 +15,14 @@
 	});
 </script>
 
-<div style:padding-top="66%" class="relative h-full overflow-hidden">
+<div class="relative h-full overflow-hidden">
 	<img
 		bind:this={img}
 		decoding="async"
 		loading="lazy"
 		class:opacity-0={!loaded}
 		class:opacity-100={loaded}
-		class="absolute top-0 left-0 object-cover transition-opacity block w-full h-full"
+		class="object-cover transition-opacity block w-full h-full"
 		{alt}
 		{src} />
 </div>

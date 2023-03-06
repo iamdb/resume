@@ -14,9 +14,10 @@
 	$: altString = `A photo of ${meta.name} at ${meta.location} on ${meta.date}`;
 </script>
 
-<div class="concert-photo relative transition-opacity duration-300 flex flex-col overflow-hidden">
-	<div class="bg-darkgrey relative" style="padding-bottom: 66%;">
-		<div class="absolute top-0 left-0 w-full h-full">
+<div
+	class="concert-photo w-full max-w-screen-lg relative transition-opacity duration-300 flex flex-col overflow-hidden">
+	<div class="bg-darkgrey relative" style="padding-bottom: 66.7%;">
+		<div class="absolute top-0 left-0 w-max h-max">
 			<Image alt={altString} {src} />
 		</div>
 	</div>
