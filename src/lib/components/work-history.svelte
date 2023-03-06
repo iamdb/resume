@@ -13,7 +13,7 @@
 				<span class="font-normal text-xs align-baseline">(temporary contract)</span>
 			{/if}
 		</h4>
-		<span class="flex flex-row gap-x-2 items-center text-sm md:text-lg">
+		<span class="flex flex-row gap-x-2 mt-2 lg:mt-0 items-center md:text-lg">
 			<span class="rounded-lg px-1 text-darkgrey/90">{startDate}</span>
 			<span class="text-darkgrey/90">to</span>
 			<span class="px-1 text-darkgrey/90">

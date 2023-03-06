@@ -18,7 +18,7 @@ experience:
     startDate: 2022-02-01
     endDate: 2022-08-01
     stack:
-      - Typescript
+      - TypeScript
       - Node.js
       - Kubernetes
       - WebRTC
@@ -37,7 +37,7 @@ experience:
     endDate: 2021-11-01
     stack:
       - React
-      - Typescript
+      - TypeScript
       - Node.js
       - GraphQL
       - Next.js
@@ -60,8 +60,8 @@ experience:
     endDate: 2019-11-01
     stack:
       - Go
-      - Javascript
-      - Typescript
+      - JavaScript
+      - TypeScript
       - Node.js
       - GraphQL
       - React
@@ -81,7 +81,7 @@ experience:
     stack:
       - React
       - Next.js
-      - Javascript
+      - JavaScript
       - HTML
       - CSS
       - Node.js
@@ -95,7 +95,7 @@ experience:
     startDate: 2012-03-01
     endDate: 2013-03-01
     stack:
-      - Javascript
+      - JavaScript
       - jQuery
       - HTML
       - CSS

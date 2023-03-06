@@ -37,14 +37,19 @@
 				<h4>Software Engineer</h4>
 				<div class="flex flex-row items-center justify-end text-lg gap-x-2">
 					<a class="inline font-bold" href="mailto:hireme@iamdb.co">hireme@iamdb.co</a>
-					<a href="https://github.com/iamdb" target="_blank" rel="noreferrer noopener">
-						<Icon icon="simple-icons:github" />
+					<a
+						class="hover:bg-lightkhaki p-1 transition-colors rounded"
+						href="https://github.com/iamdb"
+						target="_blank"
+						rel="noreferrer noopener">
+						<Icon class="text-xl" icon="simple-icons:github" />
 					</a>
 					<a
+						class="hover:bg-lightkhaki p-1 transition-colors rounded"
 						href="https://www.linkedin.com/in/davidabenjamin"
 						target="_blank"
 						rel="noreferrer noopener">
-						<Icon icon="simple-icons:linkedin" />
+						<Icon class="text-xl" icon="simple-icons:linkedin" />
 					</a>
 				</div>
 			</div>
@@ -64,14 +69,15 @@
 	</section>
 
 	<section>
-		<h2 class="mb-8 underline underline-offset-2 font-serif font-normal">Languages / Scripting</h2>
-		<span class="text-xs ml-4"
-			><strong>Note:</strong> Times are approximate due to gaps in data reporting. Margin for error is
-			approximately -5%.</span>
+		<h2 class="mb-8 underline underline-offset-2 font-serif font-normal">Languages, etc.</h2>
+		<div class="note-text pl-4 text-xs mx-4 mb-1">
+			Times are approximate due to gaps in data reporting. Margin for error is approximately -5%.
+		</div>
 		<Languages {activity} {languages} />
-		<div class="flex flex-col md:flex-row mt-0 items-baseline justify-between">
-			<div class="flex flex-row items-center gap-x-4">
-				<span>Since {new Date(activity.startDate).toDateString()}</span>
+		<div
+			class="flex flex-col md:flex-row mt-4 md:mt-0 items-center md:items-baseline justify-between">
+			<div class="flex flex-col md:flex-row items-center gap-x-4">
+				<span>since {new Date(activity.startDate).toDateString()}</span>
 				<span>&bull;</span>
 				<span>~{Math.ceil(activity.totalHours)} total hours</span>
 				<span>&bull;</span>
@@ -113,7 +119,7 @@
 							<div
 								class="flex flex-row flex-grow-0 justify-center items-center last-of-type:mb-0 mr-2 md:justify-start">
 								<Icon class="text-2xl text-blue align-middle mr-2" icon={stringToIcon(techIcon)} />
-								<span class="bg-khaki/50 p-1 leading-none">{iconToString(techIcon)}</span>
+								<span class="bg-khaki/50 p-1 leading-none">{techIcon}</span>
 							</div>
 						{/each}
 					</div>
@@ -122,3 +128,11 @@
 		</div>
 	</section>
 </div>
+
+<style>
+	.note-text:before {
+		content: 'Note: ';
+		font-weight: bold;
+		margin-left: -2.6em;
+	}
+</style>
