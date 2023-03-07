@@ -24,15 +24,15 @@
 		style:min-width={`${clientHeight}px`}
 		style:width={`${$currentProgress}%`}
 		bind:clientHeight
-		class="rounded-full inline-block bg-blue text-right">
+		class="rounded-full inline-block bg-lightblue text-right">
 		<span
 			class:invisible={progress <= 75}
-			class="transition-opacity duration-75 text-lightkhaki pr-3 align-top font-bold whitespace-nowrap"
+			class="transition-opacity duration-75 text-darkgrey/80 pr-3 align-top font-bold whitespace-nowrap"
 			>{total}{`${total === 1 ? ' hour' : ' hours'}`}</span>
 	</span>
 	<span
 		class:hidden={progress >= 75}
-		class="transition-opacity text-blue duration-75 px-3 font-bold whitespace-nowrap">
+		class="transition-opacity text-darkgrey/80 duration-75 px-3 font-bold whitespace-nowrap">
 		{total}{`${total === 1 ? ' hour' : ' hours'}`}
 	</span>
 </div>

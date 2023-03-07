@@ -2,7 +2,7 @@
 	import '@fontsource/abril-fatface';
 	import '@fontsource/barlow/500.css';
 	import '@fontsource/barlow/700.css';
-	import Header from '$lib/components/header.svelte';
+	import Navigation from '$lib/components/navigation.svelte';
 	import { page } from '$app/stores';
 	import { isNavOpen } from '$lib/stores';
 	import '../app.postcss';
@@ -59,4 +59,4 @@
 	</footer>
 </div>
 
-<Header />
+<Navigation />

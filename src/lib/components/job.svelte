@@ -8,7 +8,9 @@
 <div class="overflow-hidden">
 	<div class="relative flex flex-col lg:flex-row justify-between items-baseline mb-4">
 		<p class="m-0 text-lg md:text-xl xl:text-2xl">
-			<span class="uppercase bg-blue text-lightkhaki leading-tight px-2">{companyName}</span>
+			<span
+				class="uppercase bg-lightblue/80 text-darkgrey/80 font-bold border-2 border-blue/50 leading-tight px-2"
+				>{companyName}</span>
 			{#if temporary}
 				<span class="font-normal text-xs align-baseline">(temporary contract)</span>
 			{/if}

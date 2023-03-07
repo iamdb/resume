@@ -1,0 +1,59 @@
+<script lang="ts">
+	import Languages from '$lib/components/languages.svelte';
+	import IconDate from 'virtual:icons/clarity/date-line';
+	import { intToMonth } from '$lib/util';
+	import { LanguageScale, type CodingActivityNormalized, type Language } from '$lib/types/wakatime';
+
+	export let languagesAlltime: Language[],
+		activityAlltime: CodingActivityNormalized,
+		languagesLastYear: Language[],
+		activityLastYear: CodingActivityNormalized;
+
+	let languageScale = LanguageScale.LastYear;
+
+	$: languages = languageScale === LanguageScale.LastYear ? languagesLastYear : languagesAlltime;
+	$: activity = languageScale === LanguageScale.LastYear ? activityLastYear : activityAlltime;
+	$: activityStart = new Date(activity.startDate);
+</script>
+
+<section class="mb-32">
+	<h2 class="mb-8 underline underline-offset-2 font-serif font-normal">Languages, etc.</h2>
+	<div class="note-text pl-4 text-xs mx-4 mb-1">
+		Times are approximate due to gaps in data reporting. Margin for error is approximately -5%.
+	</div>
+	<Languages {activity} {languages} />
+	<div
+		class="grid grid-flow-row-dense gap-y-4 mt-4 md:mt-0 grid-cols-1 md:grid-cols-none md:grid-flow-col-dense place-content-between place-items-center md:place-items-baseline">
+		<span>
+			<IconDate class="inline-block align-middle mr-1" />
+			<span
+				>{`${intToMonth(
+					activityStart.getMonth()
+				)} ${activityStart.getDate()}, ${activityStart.getFullYear()}`}</span>
+		</span>
+		<span class="text-blue hidden md:inline">&bull;</span>
+		<span>Total: ~{Math.ceil(activity.totalHours)} hours</span>
+		<span class="text-blue hidden md:inline">&bull;</span>
+		<span>
+			Average Daily: ~{Math.ceil(activity.dailyAverageHours)} hours
+		</span>
+		<div class="flex mt-4 flex-row items-center gap-x-2">
+			<button
+				class:btn-active={languageScale === LanguageScale.AllTime}
+				on:click={() => (languageScale = LanguageScale.AllTime)}
+				class="btn">all time</button>
+			<button
+				class:btn-active={languageScale === LanguageScale.LastYear}
+				on:click={() => (languageScale = LanguageScale.LastYear)}
+				class="btn">last year</button>
+		</div>
+	</div>
+</section>
+
+<style lang="postcss">
+	.note-text:before {
+		content: 'Note: ';
+		font-weight: bold;
+		margin-left: -2.6em;
+	}
+</style>

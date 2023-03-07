@@ -1,6 +1,6 @@
 import type { Icon } from './icons'
 
-export interface WorkExperience {
+export interface Job {
   name: string;
   startDate: Date;
   endDate: Date;
