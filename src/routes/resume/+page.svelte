@@ -5,6 +5,7 @@
 	import type { Job, Project } from '$lib/types/resume';
 	import Languages from './languages.svelte';
 	import WorkExperience from './work-experience.svelte';
+	import NotableProjects from './notable-projects.svelte';
 
 	export let data: {
 		languagesAlltime: Language[];
@@ -30,28 +31,7 @@
 <div class="resume mb-48 max-w-screen-lg mx-auto">
 	<Header />
 	<hr class="mt-16 mb-32 border-dotted" />
-	<section>
-		<h2 class="mb-8 underline underline-offset-2 font-serif font-normal">Notable Projects</h2>
-		<div class="">
-			<ul class="grid grid-cols-2 gap-8">
-				{#each notableProjects as project}
-					<li
-						class="border-4 border-lightblue relative border-opacity-50 px-12 py-8 bg-lightkhaki rounded-lg">
-						{@html project.text}
-						<span
-							class="text-xs absolute bottom-0 right-0 bg-lightblue/60 px-1 align-middle border-l border-t
-                     rounded-tl rounded-br border-lightblue">
-							{#if project.lead}
-								lead
-							{:else}
-								contributor
-							{/if}
-						</span>
-					</li>
-				{/each}
-			</ul>
-		</div>
-	</section>
+	<NotableProjects {notableProjects} />
 	<hr class="my-32 border-dotted" />
 	<Languages {languagesAlltime} {activityAlltime} {languagesLastYear} {activityLastYear} />
 	<hr class="my-32 border-dotted" />
