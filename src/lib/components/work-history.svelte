@@ -7,12 +7,12 @@
 
 <div class="overflow-hidden">
 	<div class="relative flex flex-col lg:flex-row justify-between items-baseline mb-4">
-		<h4 class="font-medium">
+		<p class="m-0 text-lg md:text-xl xl:text-2xl">
 			<span class="uppercase bg-blue text-lightkhaki leading-tight px-2">{companyName}</span>
 			{#if temporary}
 				<span class="font-normal text-xs align-baseline">(temporary contract)</span>
 			{/if}
-		</h4>
+		</p>
 		<span class="flex flex-row gap-x-2 mt-2 lg:mt-0 items-center md:text-lg">
 			<span class="rounded-lg px-1 text-darkgrey/90">{startDate}</span>
 			<span class="text-darkgrey/90">to</span>

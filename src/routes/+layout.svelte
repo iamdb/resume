@@ -36,25 +36,28 @@
 		<p class="text-sm leading-none text-grey-500 text-center">&copy; 2023 David Benjamin</p>
 		<div class="text-lg flex flex-row gap-x-4">
 			<a
+				aria-label="A link to my Github profile."
 				class="hover:bg-lightkhaki p-1 transition-colors rounded"
 				href="https://github.com/iamdb"
 				target="_blank"
 				rel="noreferrer noopener">
-				<Icon icon="simple-icons:github" />
+				<Icon alt="Github logo" icon="simple-icons:github" />
 			</a>
 			<a
+				aria-label="A link to my Mastodon profile."
 				class="hover:bg-lightkhaki p-1 transition-colors rounded"
 				target="_blank"
 				rel="me noopener noreferrer"
 				href="https://hachyderm.io/@db">
-				<Icon icon="simple-icons:mastodon" />
+				<Icon alt="Mastodon logo" icon="simple-icons:mastodon" />
 			</a>
 			<a
+				aria-label="A link to my LinkedIn profile."
 				class="hover:bg-lightkhaki p-1 transition-colors rounded"
 				href="https://www.linkedin.com/in/davidabenjamin"
 				target="_blank"
 				rel="noreferrer noopener">
-				<Icon icon="simple-icons:linkedin" />
+				<Icon alt="LinkedIn logo" icon="simple-icons:linkedin" />
 			</a>
 		</div>
 	</footer>

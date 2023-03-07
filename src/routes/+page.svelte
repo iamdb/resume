@@ -16,10 +16,10 @@
 	<PageTitle>Hi.</PageTitle>
 	<div class="mt-8">
 		<p class="text-2xl">
-			My name is <a href="/about" class="font-bold inline">David Benjamin</a>.
+			My name is <a href="/about" class="inline">David Benjamin</a>.
 		</p>
 		<p class="text-2xl">
-			I am a software engineer with <a class="font-bold inline" href="/resume">over a decade</a> of experience
+			I am a software engineer with <a class="inline" href="/resume">over a decade</a> of experience
 			building dependable software.
 		</p>
 	</div>
@@ -34,7 +34,7 @@
 	</div>
 
 	<p class="text-2xl">
-		In addition to software development, I was a prolific <a class="font-bold inline" href="/photos"
+		In addition to software development, I was a prolific <a class="inline" href="/photos"
 			>live concert photographer</a>
 		from <strong>2011</strong> until <strong>2018</strong> in Los Angeles.
 	</p>

@@ -36,7 +36,7 @@
 			<PageTitle>David Benjamin</PageTitle>
 			<div
 				class="flex flex-col md:flex-row items-center justify-around lg:justify-start lg:gap-x-72">
-				<h4>Software Engineer</h4>
+				<p class="m-0 text-2xl font-bold">Software Engineer</p>
 				<div class="flex flex-row items-center justify-end text-lg gap-x-2">
 					<a class="inline font-bold" href="mailto:hireme@iamdb.co">hireme@iamdb.co</a>
 					<a
