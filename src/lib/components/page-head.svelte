@@ -12,6 +12,10 @@
 		<meta property="og:title" content="David Benjamin" />
 	{/if}
 
+	<meta
+		name="description"
+		content="I am a software engineer with over a decade of experience building dependable software." />
+
 	<meta property="og:url" content={$page?.url.toString()} />
 
 	<!-- Open Graph / Facebook -->
