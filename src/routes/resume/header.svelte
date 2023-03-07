@@ -4,7 +4,7 @@
 	import IconLinkedIn from 'virtual:icons/simple-icons/linkedin';
 </script>
 
-<section class="mb-12">
+<section>
 	<div class="flex flex-col items-stretch">
 		<PageTitle>David Benjamin</PageTitle>
 		<div class="flex flex-col md:flex-row items-center justify-around lg:justify-start lg:gap-x-72">
@@ -29,17 +29,10 @@
 				</a>
 			</div>
 		</div>
-		<p class="mt-12 mb-0 text-lg md:text-xl bg-lightkhaki py-4 px-6 rounded-lg">
+		<p
+			class="mt-16 border-4 border-lightblue border-opacity-50 mb-0 text-lg md:text-xl bg-lightkhaki py-4 px-6 rounded-lg">
 			I am an experienced software engineer seeking a full-time position. I take pride in writing
 			reliable, performant and maintainable software.
 		</p>
 	</div>
 </section>
-<section class="mb-32">
-	<h2 class="mb-8 underline underline-offset-2 font-serif font-normal">Career Highlights</h2>
-	<ul class="text-lg md:text-xl list-disc list-inside bg-lightkhaki px-6 py-4 rounded-lg">
-		<li>10+ years experience writing web applications</li>
-		<li>5+ years of experience with Linux as both a desktop and server OS.</li>
-	</ul>
-</section>
-

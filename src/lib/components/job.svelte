@@ -27,7 +27,8 @@
 			</span>
 		</span>
 	</div>
-	<div class="rounded-xl grid md:grid-cols-[2fr,1fr] bg-lightkhaki p-8 md:py-4">
+	<div
+		class="rounded-xl border-4 border-lightblue border-opacity-50 grid md:grid-cols-[2fr,1fr] bg-lightkhaki p-8 md:py-4">
 		<div class="border-b md:border-b-0 md:border-r border-khaki pb-8 md:pb-0 md:pr-8">
 			<h5 class="mb-4 underline">Accomplishments</h5>
 			<slot name="accomplishments" />

@@ -1,3 +1,30 @@
+projects:
+  - text: OpenCV-based League of Legends data extractor
+    lead: true
+  - text: Playboy.com conversion to Next.js
+    lead: false
+  - text: The Last of Us original game site
+    lead: true
+  - text: Real-time Twitch.tv League of Legends extension
+    lead: true
+  - text: The Wizard of Oz 50th Anniversary site
+    lead: true
+  - text: Movie site for the first Hunger Games film
+    lead: true
+  - text: Jumanji Run - A web-based game for the reboot of the Jumanji franchise
+    lead: true
+  - text: Glowbot - A text-to-speech robot modeled after the one in the Netflix show, Glow
+    lead: true
+  - text: Arrested Development's You're Gonna Get Some Walk-ons contest for Netflix
+    lead: true
+  - text: Hidden star finding game for the movie Prometheus
+    lead: false
+  - text: Dodge Dart Registry - A site to relaunch the Dodge Dart and allow customers to crowsource financing.
+    lead: false
+  - text: A highly customized Disney Studios International Tumblr theme for all regions
+    lead: true
+  # - text: A multi-terminal interactive quiz with results display for a conference booth
+  #   lead: true
 experience:
   - name: Contract / Self-employed
     startDate: 2009-05-01

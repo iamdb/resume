@@ -1,5 +1,5 @@
 // @ts-expect-error For some reason the yaml is not being seen as a module.
-import { experience } from '$lib/content/work-experience.yaml'
+import { experience, projects } from '$lib/content/work-experience.yaml'
 import { error } from '@sveltejs/kit'
 import { Urls, type CodingActivityAllTime, type CodingActivityLastYear, type CodingActivityNormalized, type Language } from '$lib/types/wakatime'
 import type { Job } from '$lib/types/resume';
@@ -8,15 +8,16 @@ export const prerender = false
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
-  experience.forEach((e: Job) => e.stack.sort());
+   experience.forEach((e: Job) => e.stack.sort());
 
-  return {
-    languagesAlltime: fetchJson(Urls.LanguagesAllTime),
-    activityAlltime: fetchJson(Urls.ActivityAllTime),
-    activityLastYear: fetchJson(Urls.ActivityLastYear),
-    languagesLastYear: fetchJson(Urls.LanguagesLastYear),
-    workExperience: experience
-  }
+   return {
+      languagesAlltime: fetchJson(Urls.LanguagesAllTime),
+      activityAlltime: fetchJson(Urls.ActivityAllTime),
+      activityLastYear: fetchJson(Urls.ActivityLastYear),
+      languagesLastYear: fetchJson(Urls.LanguagesLastYear),
+      workExperience: experience,
+      notableProjects: projects,
+   }
 }
 
 async function fetchJson(url: Urls): Promise<Language[] | CodingActivityNormalized | undefined> {

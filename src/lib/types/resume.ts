@@ -8,3 +8,8 @@ export interface Job {
   accomplishments: string[];
   contract: boolean;
 }
+
+export interface Project {
+   text: string;
+   lead: false
+}

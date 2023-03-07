@@ -53,7 +53,7 @@
 <div
 	style:min-height={`${maxHeight}px`}
 	bind:offsetHeight={listHeight}
-	class="border-8 border-lightblue border-opacity-50 p-4 md:py-4 md:px-6 rounded-xl bg-lightkhaki grid grid-cols-1 gap-y-8">
+	class="border-4 border-lightblue border-opacity-50 p-4 md:py-4 md:px-6 rounded-xl bg-lightkhaki grid grid-cols-1 gap-y-8">
 	{#each languages as lang (lang.name)}
 		<div
 			in:receive={{ key: lang.name }}
