@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { iconToString, stringToIcon } from '$lib/types/icons';
 	import Icon from '@iconify/svelte';
-
 	import Progress from './progress.svelte';
 
 	export let name: string;

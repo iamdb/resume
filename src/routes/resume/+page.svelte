@@ -9,6 +9,8 @@
 	import { formatDate } from '$lib/util';
 	import PageTitle from '$lib/components/page-title.svelte';
 	import { intToMonth } from '$lib/util';
+	import IconGithub from 'virtual:icons/simple-icons/github';
+	import IconLinkedIn from 'virtual:icons/simple-icons/linkedin';
 
 	export let data: {
 		languagesAlltime: Language[];
@@ -44,14 +46,14 @@
 						href="https://github.com/iamdb"
 						target="_blank"
 						rel="noreferrer noopener">
-						<Icon class="text-xl" icon="simple-icons:github" />
+						<IconGithub />
 					</a>
 					<a
 						class="hover:bg-lightkhaki p-1 transition-colors rounded"
 						href="https://www.linkedin.com/in/davidabenjamin"
 						target="_blank"
 						rel="noreferrer noopener">
-						<Icon class="text-xl" icon="simple-icons:linkedin" />
+						<IconLinkedIn />
 					</a>
 				</div>
 			</div>

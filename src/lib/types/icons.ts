@@ -1,6 +1,6 @@
-import { getIcon, loadIcons, type IconifyIcon, type IconifyIconName } from 'iconify-icon';
+import { getIcon, loadIcons, type IconifyIcon, type IconifyIconName } from '@iconify/svelte';
 
-export const getLoadingIcon = (): Required<IconifyIcon> => {
+export const getLoadingIcon = (): Required<IconifyIcon> | null => {
   const iconInfo = getIcon('line-md:downloading-loop');
 
   return iconInfo
