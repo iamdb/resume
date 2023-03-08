@@ -5,9 +5,9 @@
 
 <PageHead title="About Me" />
 
-<div class="md-text max-w-screen-lg mx-auto">
+<div class="mx-auto max-w-screen-lg md-text">
 	<PageTitle>About Me</PageTitle>
-	<div class="mt-12 bg-lightkhaki py-4 px-6 rounded-lg md-text">
+	<div class="py-4 px-6 mt-12 rounded-lg bg-lightkhaki md-text">
 		<slot />
 	</div>
 </div>

@@ -18,12 +18,12 @@
 		<p class="text-2xl">
 			My name is <a href="/about" class="inline">David Benjamin</a>.
 		</p>
-		<p class="text-2xl">
+		<p class="text-1xl">
 			I am a software engineer with <a class="inline" href="/resume">over a decade</a> of experience
 			building dependable software.
 		</p>
 	</div>
-	<div class="grid sm:grid-cols-3 gap-8 my-8">
+	<div class="grid gap-8 my-8 sm:grid-cols-3">
 		{#each data.pinnedItems as repo}
 			<GithubRepo
 				name={repo.name}

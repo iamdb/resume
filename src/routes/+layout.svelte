@@ -28,12 +28,12 @@
 	class:pr-40={windowWidth > 1280 && $page.url.pathname === '/'}
 	class="px-4 pt-20 xl:pl-40">
 	<slot />
-	<footer class="flex flex-col mt-24 items-center justify-center pb-12">
-		<p class="text-sm leading-none text-grey-500 text-center">&copy; 2023 David Benjamin</p>
+	<footer class="flex flex-col justify-center items-center pb-12 mt-24">
+		<p class="text-sm leading-none text-center text-grey-500">&copy; 2023 David Benjamin</p>
 		<div class="flex flex-row gap-x-4">
 			<a
 				aria-label="A link to my Github profile."
-				class="hover:bg-lightkhaki p-1 transition-colors rounded"
+				class="p-1 rounded transition-colors hover:bg-lightkhaki"
 				href="https://github.com/iamdb"
 				target="_blank"
 				rel="noreferrer noopener">
@@ -41,7 +41,7 @@
 			</a>
 			<a
 				aria-label="A link to my Mastodon profile."
-				class="hover:bg-lightkhaki p-1 transition-colors rounded"
+				class="p-1 rounded transition-colors hover:bg-lightkhaki"
 				target="_blank"
 				rel="me noopener noreferrer"
 				href="https://hachyderm.io/@db">
@@ -49,7 +49,7 @@
 			</a>
 			<a
 				aria-label="A link to my LinkedIn profile."
-				class="hover:bg-lightkhaki p-1 transition-colors rounded"
+				class="p-1 rounded transition-colors hover:bg-lightkhaki"
 				href="https://www.linkedin.com/in/davidabenjamin"
 				target="_blank"
 				rel="noreferrer noopener">

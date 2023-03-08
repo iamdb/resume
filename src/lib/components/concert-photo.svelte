@@ -16,21 +16,21 @@
 </script>
 
 <div
-	class="concert-photo w-full max-w-screen-lg relative transition-opacity duration-300 flex flex-col overflow-hidden">
-	<div class="bg-darkgrey relative" style="padding-bottom: 66.7%;">
+	class="flex overflow-hidden relative flex-col w-full max-w-screen-lg transition-opacity duration-300 concert-photo">
+	<div class="relative bg-darkgrey" style="padding-bottom: 66.7%;">
 		<div class="absolute top-0 left-0 w-full h-full">
 			<Image alt={altString} {src} />
 		</div>
 	</div>
-	<div class="mt-1 flex flex-wrap gap-y-1 leading-tight flex-row items-center justify-between">
-		<span class="font-bold text-md flex-grow flex-shrink-0">{meta.name}</span>
-		<div class="flex text-sm flex-row gap-x-1">
-			<span class="flex flex-row items-center justify-start gap-x-1">
+	<div class="flex flex-row flex-wrap gap-y-1 justify-between items-center mt-1 leading-tight">
+		<span class="flex-grow flex-shrink-0 font-bold text-md">{meta.name}</span>
+		<div class="flex flex-row gap-x-1 text-sm">
+			<span class="flex flex-row gap-x-1 justify-start items-center">
 				<IconLocation />
 				{meta.location}
 			</span>
 			<span>&bull;</span>
-			<span class="flex flex-row items-center justify-start gap-x-1">
+			<span class="flex flex-row gap-x-1 justify-start items-center">
 				<IconDate />
 				{meta.date}
 			</span>

@@ -19,20 +19,20 @@
 	});
 </script>
 
-<div class="rounded-full h-6 bg-khaki/50 relative overflow-hidden">
+<div class="overflow-hidden relative h-6 rounded-full bg-khaki/50">
 	<span
 		style:min-width={`${clientHeight}px`}
 		style:width={`${$currentProgress}%`}
 		bind:clientHeight
-		class="rounded-full inline-block bg-lightblue text-right">
+		class="inline-block text-right rounded-full bg-lightblue">
 		<span
 			class:invisible={progress <= 75}
-			class="transition-opacity duration-75 text-darkgrey/80 pr-3 align-top font-bold whitespace-nowrap"
+			class="pr-3 font-bold align-top whitespace-nowrap transition-opacity duration-75 text-darkgrey/80"
 			>{total}{`${total === 1 ? ' hour' : ' hours'}`}</span>
 	</span>
 	<span
 		class:hidden={progress >= 75}
-		class="transition-opacity text-darkgrey/80 duration-75 px-3 font-bold whitespace-nowrap">
+		class="px-3 font-bold whitespace-nowrap transition-opacity duration-75 text-darkgrey/80">
 		{total}{`${total === 1 ? ' hour' : ' hours'}`}
 	</span>
 </div>

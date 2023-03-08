@@ -13,9 +13,9 @@
 </script>
 
 <div class={`grid grid-cols-[auto,1fr] items-center gap-x-4`}>
-	<div class="flex flex-row items-center justify-end" style:width={`${columnWidth}px`}>
-		<Icon class="text-2xl text-lightblue mr-2" {icon} />
-		<span class="bg-khaki/50 p-1 leading-none">{formattedName}</span>
+	<div class="flex flex-row justify-end items-center" style:width={`${columnWidth}px`}>
+		<Icon class="mr-2 text-2xl text-lightblue" {icon} />
+		<span class="p-1 leading-none bg-khaki/50">{formattedName}</span>
 	</div>
 	<Progress {total} {progress} />
 </div>

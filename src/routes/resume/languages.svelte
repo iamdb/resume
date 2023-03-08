@@ -17,27 +17,27 @@
 </script>
 
 <section class="mb-32">
-	<h2 class="mb-8 underline underline-offset-2 font-serif font-normal">Languages, etc.</h2>
-	<div class="note-text pl-4 text-xs mx-4 mb-1">
+	<h2 class="mb-8 font-serif font-normal underline underline-offset-2">Languages, etc.</h2>
+	<div class="pl-4 mx-4 mb-1 text-xs note-text">
 		Times are approximate due to gaps in data reporting. Margin for error is approximately -5%.
 	</div>
 	<Languages {activity} {languages} />
 	<div
-		class="grid grid-flow-row-dense gap-y-4 mt-4 md:mt-0 grid-cols-1 md:grid-cols-none md:grid-flow-col-dense place-content-between place-items-center md:place-items-baseline">
+		class="grid grid-cols-1 grid-flow-row-dense gap-y-4 place-content-between place-items-center mt-4 md:grid-cols-none md:grid-flow-col-dense md:mt-0 md:place-items-baseline">
 		<span>
-			<IconDate class="inline-block align-middle mr-1" />
+			<IconDate class="inline-block mr-1 align-middle" />
 			<span
 				>{`${intToMonth(
 					activityStart.getMonth()
 				)} ${activityStart.getDate()}, ${activityStart.getFullYear()}`}</span>
 		</span>
-		<span class="text-blue hidden md:inline">&bull;</span>
+		<span class="hidden md:inline text-blue">&bull;</span>
 		<span>Total: ~{Math.ceil(activity.totalHours)} hours</span>
-		<span class="text-blue hidden md:inline">&bull;</span>
+		<span class="hidden md:inline text-blue">&bull;</span>
 		<span>
 			Average Daily: ~{Math.ceil(activity.dailyAverageHours)} hours
 		</span>
-		<div class="flex mt-4 flex-row items-center gap-x-2">
+		<div class="flex flex-row gap-x-2 items-center mt-4">
 			<button
 				class:btn-active={languageScale === LanguageScale.AllTime}
 				on:click={() => (languageScale = LanguageScale.AllTime)}

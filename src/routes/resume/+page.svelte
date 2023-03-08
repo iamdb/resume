@@ -28,7 +28,7 @@
 
 <PageHead title="Resume" />
 
-<div class="resume mb-48 max-w-screen-lg mx-auto">
+<div class="mx-auto mb-48 max-w-screen-lg resume">
 	<Header />
 	<hr class="mt-16 mb-32 border-dotted" />
 	<NotableProjects {notableProjects} />

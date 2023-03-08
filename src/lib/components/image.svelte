@@ -15,14 +15,14 @@
 	});
 </script>
 
-<div class="relative w-full overflow-hidden">
+<div class="overflow-hidden relative w-full">
 	<img
 		bind:this={img}
 		decoding="async"
 		loading="lazy"
 		class:opacity-0={!loaded}
 		class:opacity-100={loaded}
-		class="object-cover transition-opacity block w-full h-full"
+		class="block object-cover w-full h-full transition-opacity"
 		{alt}
 		{src} />
 </div>

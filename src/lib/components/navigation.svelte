@@ -47,9 +47,9 @@
 	<nav
 		id="navigation"
 		class:translate-x-full={$isNavOpen === NavState.Open || windowWidth > 1280}
-		class="fixed flex top-0 right-full flex-col cursor-default transition-transform w-36 justify-start">
+		class="flex fixed top-0 right-full flex-col justify-start w-36 transition-transform cursor-default">
 		<span
-			class="font-serif bg-darkgrey/95 py-8 border-b-2 border-r-2 border-lightkhaki/75 text-6xl text-center text-lightblue"
+			class="py-8 font-serif text-6xl text-center border-r-2 border-b-2 bg-darkgrey/95 border-lightkhaki/75 text-lightblue"
 			>db</span>
 		<NavLink icon="mdi:home-circle" on:click={() => navigate('/')}>home</NavLink>
 		{#if $page.url.pathname == '/resume'}
@@ -89,8 +89,8 @@
 			transition:fly={{ x: -handle.offsetWidth }}
 			on:click={toggleNav}
 			on:keydown={toggleNav}
-			class="text-blue border-r-2 border-b-2 border-blue/50 bg-lightkhaki fixed top-0 left-0 rounded-br-lg hover:bg-blue hover:text-lightkhaki transition-colors">
-			<Icon width="100%" height="100%" class="w-16 h-16 block p-2" icon="mdi:hamburger" />
+			class="fixed top-0 left-0 rounded-br-lg border-r-2 border-b-2 transition-colors text-blue border-blue/50 bg-lightkhaki hover:bg-blue hover:text-lightkhaki">
+			<Icon width="100%" height="100%" class="block p-2 w-16 h-16" icon="mdi:hamburger" />
 		</button>
 	{/if}
 {/if}

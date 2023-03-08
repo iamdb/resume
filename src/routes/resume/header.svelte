@@ -7,13 +7,13 @@
 <section>
 	<div class="flex flex-col items-stretch">
 		<PageTitle>David Benjamin</PageTitle>
-		<div class="flex flex-col md:flex-row items-center justify-around lg:justify-start lg:gap-x-72">
+		<div class="flex flex-col justify-around items-center md:flex-row lg:gap-x-72 lg:justify-start">
 			<p class="m-0 text-2xl font-bold">Software Engineer</p>
-			<div class="flex flex-row items-center justify-end text-lg gap-x-2">
+			<div class="flex flex-row gap-x-2 justify-end items-center text-lg">
 				<a class="inline font-bold" href="mailto:hireme@iamdb.co">hireme@iamdb.co</a>
 				<a
 					aria-label="Link to David Benjamin's Github profile"
-					class="hover:bg-lightkhaki p-1 transition-colors rounded"
+					class="p-1 rounded transition-colors hover:bg-lightkhaki"
 					href="https://github.com/iamdb"
 					target="_blank"
 					rel="noreferrer noopener">
@@ -21,7 +21,7 @@
 				</a>
 				<a
 					aria-label="Link to David Benjamin's LinkedIn profile"
-					class="hover:bg-lightkhaki p-1 transition-colors rounded"
+					class="p-1 rounded transition-colors hover:bg-lightkhaki"
 					href="https://www.linkedin.com/in/davidabenjamin"
 					target="_blank"
 					rel="noreferrer noopener">
@@ -30,7 +30,7 @@
 			</div>
 		</div>
 		<p
-			class="mt-16 border-4 border-lightblue border-opacity-50 mb-0 text-lg md:text-xl bg-lightkhaki py-4 px-6 rounded-lg">
+			class="py-4 px-6 mt-16 mb-0 text-lg rounded-lg border-4 border-opacity-50 md:text-xl border-lightblue bg-lightkhaki">
 			I am an experienced software engineer seeking a full-time position. I take pride in writing
 			reliable, performant and maintainable software.
 		</p>

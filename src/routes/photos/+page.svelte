@@ -52,7 +52,7 @@
 
 <div class="mx-auto max-w-screen-lg">
 	<PageTitle>{data.title}</PageTitle>
-	<div class="mt-12 bg-lightkhaki py-4 px-6 rounded-lg md-text">
+	<div class="py-4 px-6 mt-12 rounded-lg bg-lightkhaki md-text">
 		{@html data.intro}
 	</div>
 </div>
@@ -61,7 +61,7 @@
 	bind:this={photoContainer}
 	class:lg:grid-cols-2={!$forceSingleColumnPhotos}
 	class:xl:px-24={$forceSingleColumnPhotos}
-	class="relative grid grid-cols-1 place-items-center gap-14 mt-12">
+	class="grid relative grid-cols-1 gap-14 place-items-center mt-12">
 	{#each data.shows as show}
 		{#if show.photos}
 			{@const photos = show.photos}

@@ -9,10 +9,10 @@
 </script>
 
 <section>
-	<h2 class="mb-24 underline underline-offset-2 font-serif font-normal text-center">
+	<h2 class="mb-24 font-serif font-normal text-center underline underline-offset-2">
 		Work Experience
 	</h2>
-	<div class="flex flex-col overflow-hidden gap-y-16">
+	<div class="flex overflow-hidden flex-col gap-y-16">
 		{#each workExperience as job}
 			<Job
 				companyName={job.name}
@@ -27,11 +27,11 @@
 				<div slot="stack" class="grid grid-cols-2 gap-y-4">
 					{#each job.stack as techIcon}
 						<div
-							class="flex flex-row flex-grow-0 justify-center items-center last-of-type:mb-0 mr-2 md:justify-start">
+							class="flex flex-row flex-grow-0 justify-center items-center mr-2 md:justify-start last-of-type:mb-0">
 							<Icon
-								class="text-2xl text-lightblue align-middle mr-2"
+								class="mr-2 text-2xl align-middle text-lightblue"
 								icon={stringToIcon(techIcon)} />
-							<span class="bg-khaki/50 p-1 leading-none">{techIcon}</span>
+							<span class="p-1 leading-none bg-khaki/50">{techIcon}</span>
 						</div>
 					{/each}
 				</div>
