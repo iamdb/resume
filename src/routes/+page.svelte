@@ -18,7 +18,7 @@
 		<p class="text-2xl">
 			My name is <a href="/about" class="inline">David Benjamin</a>.
 		</p>
-		<p class="text-1xl">
+		<p class="text-2xl">
 			I am a software engineer with <a class="inline" href="/resume">over a decade</a> of experience
 			building dependable software.
 		</p>
