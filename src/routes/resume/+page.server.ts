@@ -1,5 +1,5 @@
 // @ts-expect-error For some reason the yaml is not being seen as a module.
-import { experience, projects } from '$lib/content/work-experience.yaml'
+import { experience, projects } from '$lib/content/resume.yaml'
 import { error } from '@sveltejs/kit'
 import { Urls, type CodingActivityAllTime, type CodingActivityLastYear, type CodingActivityNormalized, type Language } from '$lib/types/wakatime'
 import type { Job } from '$lib/types/resume';
@@ -78,4 +78,3 @@ function normalizeLastYearCodingActivity(activity: CodingActivityLastYear): Codi
 function filterLangs(langs: Language[]): Language[] {
   return langs.filter((v) => v.name !== 'Other' && v.name !== 'JSON' && v.name !== 'JSX' && v.name !== 'SCSS' && v.name !== 'conf' && v.name !== 'INI').slice(0, 10)
 }
-

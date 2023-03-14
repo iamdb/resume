@@ -9,7 +9,7 @@ import { icons as mdiIcons } from '@iconify-json/mdi';
 import { getIconData, iconToSVG, replaceIDs } from '@iconify/utils';
 import type { ExtendedIconifyIcon } from '@iconify/types';
 
-const file = fs.readFileSync(resolve("src", "lib", "content", "work-experience.yaml"));
+const file = fs.readFileSync(resolve("src", "lib", "content", "resume.yaml"));
 const { icons } = yaml.parse(file.toString());
 const iconPath = resolve("src", "lib", "icons");
 

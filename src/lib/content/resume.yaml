@@ -131,15 +131,21 @@ experience:
       - The Hunger Games movie web site
       - Arrested Development "You're Going to get Some Walk Ons" contest site
       - Dodge Dart relaunch crowdfunding site 
-  - name: TotalBeauty.com 
-    title: Front-end Developer
-    startDate: 2011-02-01
-    endDate: 2012-03-01
-    stack:
-      - HTML
-      - CSS
-    accomplishments:
-      - Wrote HTML and CSS for main site
+  # - name: TotalBeauty.com 
+  #   title: Front-end Developer
+  #   startDate: 2011-02-01
+  #   endDate: 2012-03-01
+  #   stack:
+  #     - HTML
+  #     - CSS
+  #   accomplishments:
+  #     - Wrote HTML and CSS for main site
+education:
+  - name: Miami International University of Art & Design
+    degree: Bachelor of Arts
+    field: Film and Video Production
+    startDate: 1997-05-01
+    endDate: 2000-05-01
 icons:
   AWS: skill-icons:aws-dark
   Bash: skill-icons:bash-dark
