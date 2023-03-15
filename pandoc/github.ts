@@ -1,10 +1,10 @@
-import fs from 'fs'
-import { resolve } from 'path'
-import type { UserRepos } from '../src/routes/+page.server'
-import { Octokit } from '@octokit/core'
-import yaml from 'yaml'
+import fs from 'fs';
+import { resolve } from 'path';
+import type { UserRepos } from '../src/routes/+page.server';
+import { Octokit } from '@octokit/core';
+import yaml from 'yaml';
 
-const octokit = new Octokit({ auth: process.env.VITE_GITHUB_TOKEN })
+const octokit = new Octokit({ auth: process.env.VITE_GITHUB_TOKEN });
 
 const repos: UserRepos = await octokit.graphql(`{
   user(login: "iamdb") {
@@ -24,6 +24,9 @@ const repos: UserRepos = await octokit.graphql(`{
       }
     }
   }
-}`)
+}`);
 
-fs.writeFileSync(resolve("pandoc", "github-repos.yaml"), yaml.stringify({ repos: repos.user.pinnedItems.nodes }));
+fs.writeFileSync(
+	resolve('pandoc', 'github-repos.yaml'),
+	yaml.stringify({ repos: repos.user.pinnedItems.nodes })
+);

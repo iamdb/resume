@@ -1,10 +1,10 @@
-import { Octokit } from '@octokit/core'
+import { Octokit } from '@octokit/core';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
-  const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN })
+	const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN });
 
-  const repos: UserRepos = await octokit.graphql(`{
+	const repos: UserRepos = await octokit.graphql(`{
     user(login: "iamdb") {
       pinnedItems(first: 6, types: REPOSITORY) {
         nodes {
@@ -22,31 +22,31 @@ export async function load() {
         }
       }
     }
-  }`)
+  }`);
 
-  return {
-    pinnedItems: repos.user.pinnedItems.nodes
-  }
+	return {
+		pinnedItems: repos.user.pinnedItems.nodes
+	};
 }
 
 export interface Repo {
-  name: string;
-  url: string;
-  description: string;
-  languages: {
-    nodes: Language[]
-  }
+	name: string;
+	url: string;
+	description: string;
+	languages: {
+		nodes: Language[];
+	};
 }
 
 export interface Language {
-  name: string;
-  color: string;
+	name: string;
+	color: string;
 }
 
 export interface UserRepos {
-  user: {
-    pinnedItems: {
-      nodes: Repo[]
-    }
-  }
+	user: {
+		pinnedItems: {
+			nodes: Repo[];
+		};
+	};
 }

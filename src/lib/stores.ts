@@ -1,6 +1,6 @@
-import { writable } from 'svelte/store'
-import { NavState } from './types/app'
+import { writable } from 'svelte/store';
+import { NavState } from './types/app';
 
-export const isNavOpen = writable(NavState.Closed)
+export const isNavOpen = writable(NavState.Closed);
 
-export const forceSingleColumnPhotos = writable(false)
+export const forceSingleColumnPhotos = writable(false);

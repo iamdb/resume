@@ -1,10 +1,10 @@
 export enum LinkType {
-  Anchor = 'a',
-  Button = 'button'
+	Anchor = 'a',
+	Button = 'button'
 }
 
 export enum NavState {
-  Open,
-  Closed,
-  ClosedNoHandle
+	Open,
+	Closed,
+	ClosedNoHandle
 }
