@@ -34,3 +34,13 @@ export function intToMonth(int: number): string {
 
 	return '';
 }
+
+import slugify from 'slugify';
+
+export function slug(num: number, title: string): string {
+	return `${String(num).padStart(3, '0')}_${slugify(title, {
+		replacement: '_',
+		lower: true,
+		strict: true
+	})}`;
+}

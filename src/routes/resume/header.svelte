@@ -30,9 +30,9 @@
 			</div>
 		</div>
 		<p
-			class="py-4 px-6 mt-16 mb-0 text-lg rounded-lg border-4 border-opacity-50 md:text-xl border-lightblue bg-lightkhaki">
-			I am an experienced software engineer seeking a full-time position. I take pride in writing
-			reliable, performant and maintainable software.
+			class="py-4 px-6 mt-16 mb-0 text-lg rounded-lg border-4 md:text-xl border-perry bg-lightkhaki">
+			I am an experienced software engineer who loves building applications for humans and computers
+			alike. I can make any small-to-large project a reality or lead a team to make it happen.
 		</p>
 	</div>
 </section>

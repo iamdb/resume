@@ -1,4 +1,3 @@
-<h1
-	class="font-serif font-normal leading-none text-center underline lg:text-left page-title underline-offset-2">
+<h1 class="page-title">
 	<slot />
 </h1>

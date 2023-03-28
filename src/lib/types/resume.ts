@@ -10,6 +10,8 @@ export interface Job {
 }
 
 export interface Project {
-	text: string;
+	title: string;
+	description: string;
 	lead: false;
+	url: string;
 }

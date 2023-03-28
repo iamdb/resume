@@ -1,10 +1,11 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import type { Show } from './+page';
 	import { forceSingleColumnPhotos } from '$lib/stores';
 	import ConcertPhoto from '$lib/components/concert-photo.svelte';
 	import PageHead from '$lib/components/page-head.svelte';
 	import PageTitle from '$lib/components/page-title.svelte';
+	import Navigation from '$lib/components/navigation.svelte';
+	import NavLink from '$lib/components/nav-link.svelte';
 
 	export let data: {
 		shows: Show[];
@@ -12,53 +13,46 @@
 		title: string;
 	};
 
-	let visiblePhotos = new Set();
-
-	const loadImage = (entries: IntersectionObserverEntry[]) => {
-		entries.forEach((entry) => {
-			if (entry.isIntersecting) {
-				visiblePhotos.add(entry.target.getAttribute('data-photo-src'));
-				visiblePhotos = visiblePhotos;
-			} else {
-				visiblePhotos.delete(entry.target.getAttribute('data-photo-src'));
-				visiblePhotos = visiblePhotos;
-			}
-		});
-	};
-
-	let options = {
-		threshold: 0.05
-	};
-
-	let photoContainer: HTMLDivElement | undefined;
-
-	onMount(() => {
-		const observer = new IntersectionObserver(loadImage, options);
-		const photos = photoContainer?.querySelectorAll('.concert-photo');
-
-		photos?.forEach((p) => {
-			observer.observe(p);
-		});
-
-		return () => {
-			photos?.forEach((p) => {
-				observer.unobserve(p);
-			});
-		};
-	});
+	$: scrollY = 0;
+	$: windowWidth = 0;
 </script>
 
-<PageHead title={data.title} />
+<svelte:window bind:scrollY bind:innerWidth={windowWidth} />
 
-<div class="mx-auto max-w-screen-lg">
+<PageHead title={data.title} />
+<Navigation let:drawer>
+	<div class="flex flex-row gap-x-4">
+		{#if windowWidth > 1024}
+			{#if !$forceSingleColumnPhotos}
+				<NavLink {drawer} icon="tabler:columns-1" on:click={() => forceSingleColumnPhotos.set(true)}
+					>one column</NavLink>
+			{:else}
+				<NavLink
+					{drawer}
+					icon="tabler:columns-2"
+					on:click={() => forceSingleColumnPhotos.set(false)}>two column</NavLink>
+			{/if}
+		{/if}
+
+		{#if scrollY > 100}
+			<NavLink
+				{drawer}
+				icon="mdi:arrow-up-circle"
+				on:click={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>back to top</NavLink>
+		{/if}
+	</div>
+</Navigation>
+
+<div class="mx-auto mt-12 max-w-screen-lg">
 	<PageTitle>{data.title}</PageTitle>
-	<div class="py-4 px-6 mt-12 rounded-lg bg-lightkhaki md-text">
-		{@html data.intro}
+	<div class="mt-12 mdx">
+		<div class="content">
+			{@html data.intro}
+		</div>
 	</div>
 </div>
 
 <div
-	bind:this={photoContainer}
 	class:lg:grid-cols-2={!$forceSingleColumnPhotos}
 	class:xl:px-24={$forceSingleColumnPhotos}
 	class="grid relative grid-cols-1 gap-14 place-items-center mt-12">

@@ -9,7 +9,7 @@
 </script>
 
 <section>
-	<h2 class="mb-24 font-serif font-normal text-center underline underline-offset-2">
+	<h2 class="mb-12 font-serif font-normal text-center underline lg:mb-24 underline-offset-2">
 		Work Experience
 	</h2>
 	<div class="flex overflow-hidden flex-col gap-y-16">
@@ -21,17 +21,17 @@
 				temporary={job.contract}>
 				<ul slot="accomplishments" class="list-disc list-inside">
 					{#each job.accomplishments as immagoodboy}
-						<li class="mb-4 leading-snug">{@html immagoodboy}</li>
+						<li class="mb-4 ml-0 leading-snug">{@html immagoodboy}</li>
 					{/each}
 				</ul>
 				<div slot="stack" class="grid grid-cols-2 gap-y-4">
 					{#each job.stack as techIcon}
 						<div
-							class="flex flex-row flex-grow-0 justify-center items-center mr-2 md:justify-start last-of-type:mb-0">
+							class="flex flex-row flex-grow-0 justify-start items-center mr-2 last-of-type:mb-0">
 							<Icon
-								class="mr-2 text-2xl align-middle text-lightblue"
+								class="p-1 mr-2 text-3xl align-middle rounded-full border opacity-80 border-lightgrey bg-lightkhaki text-lightgrey"
 								icon={stringToIcon(techIcon)} />
-							<span class="p-1 leading-none bg-khaki/50">{techIcon}</span>
+							<span class="p-1 leading-none bg-powder">{techIcon}</span>
 						</div>
 					{/each}
 				</div>

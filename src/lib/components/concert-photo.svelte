@@ -23,15 +23,15 @@
 		</div>
 	</div>
 	<div class="flex flex-row flex-wrap gap-y-1 justify-between items-center mt-1 leading-tight">
-		<span class="flex-grow flex-shrink-0 font-bold text-md">{meta.name}</span>
-		<div class="flex flex-row gap-x-1 text-sm">
+		<span class="flex-grow flex-shrink-0 text-base font-bold">{meta.name}</span>
+		<div class="flex flex-row gap-x-2 text-sm">
 			<span class="flex flex-row gap-x-1 justify-start items-center">
-				<IconLocation />
+				<IconLocation class="w-3 md:w-4" />
 				{meta.location}
 			</span>
 			<span>&bull;</span>
 			<span class="flex flex-row gap-x-1 justify-start items-center">
-				<IconDate />
+				<IconDate class="w-3 md:w-4" />
 				{meta.date}
 			</span>
 		</div>

@@ -30,4 +30,6 @@
 		property="twitter:description"
 		content="I am a software engineer with over a decade of experience building dependable software." />
 	<meta property="twitter:image" content="https://www.iamdb.co/photos/ca_sunset_cropped.jpg" />
+
+	<slot />
 </svelte:head>

@@ -1,6 +1,7 @@
 // @ts-expect-error For some reason the yaml is not being seen as a module.
 import { shows, intro, title } from '$lib/content/concert-photos.yaml';
 import MarkdownIt from 'markdown-it';
+import type { PageLoad } from './$types';
 
 export interface Show {
 	artist: string;
@@ -9,8 +10,7 @@ export interface Show {
 	photos: string[];
 }
 
-/** @type {import('./$types').PageLoad} */
-export async function load() {
+export const load = (async () => {
 	const allShows: Show[] = shows.map((show: Show) => {
 		show.date = new Date(show.date);
 
@@ -43,4 +43,4 @@ export async function load() {
 		shows: allShows,
 		intro: md.render(intro)
 	};
-}
+}) satisfies PageLoad;

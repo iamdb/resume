@@ -20,41 +20,112 @@
   }
 
   p {
-    @apply leading-relaxed mb-6 text-lg 
+    @apply leading-relaxed mb-6 text-lg
   }
 
-  .md-text p:last-of-type {
-    @apply mb-0
+  ul > li {
+    @apply list-disc lg:ml-6 text-lg
   }
 
-  a.inline:link, .md-text a:link, a.inline:visited, .md-text a:visited, a.inline:active, .md-text a:active {
-    @apply underline text-darkgrey/90 bg-lightkhaki hover:text-blue underline-offset-2 font-medium hover:decoration-blue transition-all hover:underline-offset-4 decoration-dotted
+
+  a.inline:link, .mdx a:link, a.inline:visited, .mdx a:visited, a.inline:active, .mdx a:active {
+    @apply underline text-lightgrey bg-powder hover:bg-perry underline-offset-2 transition-all hover:underline-offset-4 decoration-dotted
+  }
+
+  code, pre {
+    @apply font-mono overflow-x-scroll;
   }
 }
 
 @layer utilities {
   .btn {
-    @apply text-blue bg-lightkhaki/50 pb-[0.25rem] pt-[0.20rem] px-1 border-2 border-lightkhaki leading-none rounded transition-all align-middle
+    @apply bg-lightkhaki text-lightgrey/50 pb-[0.25rem] pt-[0.20rem] leading-none px-1 rounded transition-all align-middle border-2 border-powder align-middle
   }
 
   .btn-active {
-    @apply bg-lightkhaki text-blue rounded transition-all border-2 border-lightblue align-middle
+      @apply text-lightgrey bg-perry border-2 border-powder rounded transition-all 
   }
 
-  .vignette {
-    position: relative;
+  .page-title {
+    @apply font-serif font-normal leading-none text-center underline lg:text-left underline-offset-2
   }
 
-  .vignette:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0; left: 0; bottom: 0; right: 0;
-    box-shadow: inset 0px 0px 3rem rgba(0,0,0,0.75);
+  .mdx {
+    @apply px-6 py-4 lg:py-10 lg:px-12 rounded-lg bg-lightkhaki overflow-x-scroll
   }
 
-  .blog-content h2 {
-    @apply mb-12
+  .mdx h1 {
+    @apply page-title
+  }
+
+  .mdx h2 {
+    @apply mb-6 font-serif font-normal pb-6 border-perry border-dotted border-b-4
+  }
+
+  .mdx .content > ul {
+    @apply rounded-lg m-0 bg-powder border-2 border-perry text-lightgrey py-4 pr-4 border-l-[2em];
+  }
+
+  .mdx .content > ul > li {
+    @apply pl-[0.75em] ml-[-0.2em] mb-8;
+  }
+
+  .mdx .content > ul > li:last-of-type {
+    @apply mb-0;
+  }
+
+  .mdx .content > ul > li > ul {
+    @apply border-t border-darkgrey/10 mt-2 pt-2;
+  }
+
+  .mdx .content > ul > li > ul li {
+    @apply ml-8 pl-2;
+    list-style-type: circle;
+  }
+
+  .mdx .content > table {
+    @apply rounded-lg overflow-hidden bg-powder border-2 border-perry;
+    border-collapse: separate;
+  }
+
+  .mdx .content > table thead {
+    display: none;
+  }
+
+  .mdx pre.snazzy-light {
+    @apply bg-powder !important;
+  }
+
+  .mdx p > code {
+    @apply bg-powder;
+  }
+
+  .mdx li > code, .mdx li > a:link, .mdx li > a:visited {
+    @apply bg-lightkhaki/75
+  }
+
+  .mdx .content > pre {
+    @apply p-4 rounded-lg bg-powder border-2 border-perry
+  }
+
+  .mdx .content > * {
+    @apply mb-8
+  }
+
+  .mdx .content > *:last-child {
+    @apply mb-0
+  }
+
+  .mdx td {
+    vertical-align: top;
+    @apply p-4
+  }
+
+  .mdx blockquote {
+    @apply p-4 border-l-[2.5em] rounded-lg bg-powder border-2 border-perry
+  }
+
+  .mdx blockquote > p {
+    @apply m-0;
   }
 }

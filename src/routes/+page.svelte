@@ -12,7 +12,7 @@
 
 <PageHead />
 
-<div class="container mx-auto max-w-screen-lg">
+<div class="container pt-12 mx-auto max-w-screen-lg">
 	<PageTitle>Hi.</PageTitle>
 	<div class="mt-8">
 		<p class="text-2xl">
@@ -23,19 +23,24 @@
 			building dependable software.
 		</p>
 	</div>
-	<div class="grid gap-8 my-8 sm:grid-cols-3">
-		{#each data.pinnedItems as repo}
-			<GithubRepo
-				name={repo.name}
-				url={repo.url}
-				description={repo.description}
-				icons={repo.languages.nodes.map((lang) => stringToIcon(lang.name))} />
-		{/each}
-	</div>
-
+	<p class="text-2xl">
+		I have started <a class="inline" href="/brain-droppings">writing</a> about my personal projects.
+	</p>
 	<p class="text-2xl">
 		In addition to software development, I was a prolific <a class="inline" href="/photos"
 			>live concert photographer</a>
 		from <strong>2011</strong> until <strong>2018</strong> in Los Angeles.
 	</p>
+	{#if data.pinnedItems.length > 0}
+		<h4 class="mt-24 mb-8 underline">Recent Projects</h4>
+		<div class="grid gap-8 sm:grid-cols-2">
+			{#each data.pinnedItems as repo}
+				<GithubRepo
+					name={repo.name}
+					url={repo.url}
+					description={repo.description}
+					icons={repo.languages.nodes.map((lang) => stringToIcon(lang.name))} />
+			{/each}
+		</div>
+	{/if}
 </div>

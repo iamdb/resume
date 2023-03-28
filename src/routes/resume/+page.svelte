@@ -6,6 +6,11 @@
 	import Languages from './languages.svelte';
 	import WorkExperience from './work-experience.svelte';
 	import NotableProjects from './notable-projects.svelte';
+	import Navigation from '$lib/components/navigation.svelte';
+	import NavLink from '$lib/components/nav-link.svelte';
+	import { goto } from '$app/navigation';
+	import Separator from './separator.svelte';
+	import EndCap from '$lib/components/end-cap.svelte';
 
 	export let data: {
 		languagesAlltime: Language[];
@@ -27,13 +32,17 @@
 </script>
 
 <PageHead title="Resume" />
+<Navigation let:drawer>
+	<NavLink {drawer} icon="mdi:download-circle" on:click={() => goto('/resume.pdf')}>pdf</NavLink>
+</Navigation>
 
-<div class="mx-auto mb-48 max-w-screen-lg resume">
+<div class="mx-auto mt-12 mb-48 max-w-screen-lg resume">
 	<Header />
-	<hr class="mt-16 mb-32 border-dotted" />
+	<Separator />
 	<NotableProjects {notableProjects} />
-	<hr class="my-32 border-dotted" />
+	<Separator />
 	<Languages {languagesAlltime} {activityAlltime} {languagesLastYear} {activityLastYear} />
-	<hr class="my-32 border-dotted" />
+	<Separator />
 	<WorkExperience {workExperience} />
+	<EndCap />
 </div>

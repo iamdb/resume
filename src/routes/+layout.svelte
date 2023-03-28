@@ -2,32 +2,17 @@
 	import '@fontsource/abril-fatface';
 	import '@fontsource/barlow/500.css';
 	import '@fontsource/barlow/700.css';
-	import Navigation from '$lib/components/navigation.svelte';
-	import { page } from '$app/stores';
-	import { isNavOpen } from '$lib/stores';
+	import '@fontsource/fira-mono/400.css';
 	import '../app.postcss';
-	import { NavState } from '$lib/types/app';
-	import type { Snapshot } from '@sveltejs/kit';
 	import IconGithub from 'virtual:icons/simple-icons/github';
 	import IconMastodon from 'virtual:icons/simple-icons/mastodon';
 	import IconLinkedIn from 'virtual:icons/simple-icons/linkedin';
-
-	let windowWidth: number;
-
-	export const isNavOpenSnapshot: Snapshot = {
-		capture: () => $isNavOpen,
-		restore: (value) => isNavOpen.set(value)
-	};
 </script>
 
-<svelte:window bind:innerWidth={windowWidth} />
-
-<div
-	on:click={() => isNavOpen.set(NavState.Closed)}
-	on:keydown={() => isNavOpen.set(NavState.Closed)}
-	class:pr-40={windowWidth > 1280 && $page.url.pathname === '/'}
-	class="px-4 pt-20 xl:pl-40">
-	<slot />
+<div class="flex flex-col justify-between px-4 min-h-screen lg:pt-0">
+	<div>
+		<slot />
+	</div>
 	<footer class="flex flex-col justify-center items-center pb-12 mt-24">
 		<p class="text-sm leading-none text-center text-grey-500">&copy; 2023 David Benjamin</p>
 		<div class="flex flex-row gap-x-4">
@@ -58,5 +43,3 @@
 		</div>
 	</footer>
 </div>
-
-<Navigation />

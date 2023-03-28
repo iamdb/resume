@@ -24,7 +24,7 @@
 		style:min-width={`${clientHeight}px`}
 		style:width={`${$currentProgress}%`}
 		bind:clientHeight
-		class="inline-block text-right rounded-full bg-lightblue">
+		class="inline-block text-right rounded-full bg-perry">
 		<span
 			class:invisible={progress <= 75}
 			class="pr-3 font-bold align-top whitespace-nowrap transition-opacity duration-75 text-darkgrey/80"

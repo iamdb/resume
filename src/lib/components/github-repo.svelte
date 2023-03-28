@@ -10,7 +10,7 @@
 
 <a
 	href={url}
-	class="flex flex-col py-4 px-6 h-full no-underline rounded-xl transition-all group text-darkgrey/90 justify-top bg-lightkhaki underline-offset-2 hover:bg-lightkhaki/80"
+	class="flex flex-col py-4 px-6 h-full no-underline rounded-xl transition-all bg-lightkhaki group text-darkgrey/90 justify-top underline-offset-2 hover:bg-powder"
 	target="_blank"
 	rel="noreferrer">
 	<h2
@@ -22,7 +22,7 @@
 		<span class="text-xs leading-none"> LANGUAGES </span>
 		<span
 			class:justify-between={icons.length >= 3}
-			class="flex flex-row flex-wrap gap-x-1 p-2 rounded-lg bg-blue">
+			class="flex flex-row flex-wrap gap-x-1 p-2 rounded-lg bg-lightgrey">
 			{#each icons.slice(0, 4) as icon}
 				<Icon class="text-4xl text-lightkhaki" {icon} />
 			{/each}

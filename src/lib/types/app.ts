@@ -5,6 +5,5 @@ export enum LinkType {
 
 export enum NavState {
 	Open,
-	Closed,
-	ClosedNoHandle
+	Closed
 }

@@ -1,10 +1,10 @@
-import { Octokit } from '@octokit/core';
+import type { PageServerLoad } from './$types';
+import { error } from '@sveltejs/kit';
 
-/** @type {import('./$types').PageServerLoad} */
-export async function load() {
-	const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN });
+export const prerender = true;
 
-	const repos: UserRepos = await octokit.graphql(`{
+export const load = (async ({ fetch }) => {
+	const query = `{
     user(login: "iamdb") {
       pinnedItems(first: 6, types: REPOSITORY) {
         nodes {
@@ -22,12 +22,34 @@ export async function load() {
         }
       }
     }
-  }`);
+  }`.replaceAll('\n', '');
 
-	return {
-		pinnedItems: repos.user.pinnedItems.nodes
-	};
-}
+	try {
+		const res = await fetch('https://api.github.com/graphql', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `bearer ${import.meta.env.VITE_GITHUB_TOKEN}`
+			},
+			body: JSON.stringify({
+				query
+			})
+		});
+
+		if (res.ok) {
+			const json = await res.json();
+			console.log(json);
+
+			return {
+				pinnedItems: json.data?.user?.pinnedItems.nodes || []
+			};
+		} else {
+			throw error(res.status, res.statusText);
+		}
+	} catch (err) {
+		throw error(500, `Failed to get pinned items. ${(err as Error).message}`);
+	}
+}) satisfies PageServerLoad;
 
 export interface Repo {
 	name: string;

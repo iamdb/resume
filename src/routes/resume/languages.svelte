@@ -14,12 +14,22 @@
 	$: languages = languageScale === LanguageScale.LastYear ? languagesLastYear : languagesAlltime;
 	$: activity = languageScale === LanguageScale.LastYear ? activityLastYear : activityAlltime;
 	$: activityStart = new Date(activity.startDate);
+
+	const startDate = new Date(activityAlltime.startDate);
 </script>
 
-<section class="mb-32">
-	<h2 class="mb-8 font-serif font-normal underline underline-offset-2">Languages, etc.</h2>
+<section>
+	<h2 class="mb-2 font-serif font-normal underline underline-offset-2">Languages, etc.</h2>
+	<p class="mb-12">
+		Over the last 5+ years I have not been shy about learning new languages. I have spent a lot of
+		time with Rust for my personal projects, but I am also quite proficient in JavaScript,
+		TypeScript and Go.
+	</p>
 	<div class="pl-4 mx-4 mb-1 text-xs note-text">
-		Times are approximate due to gaps in data reporting. Margin for error is approximately -5%.
+		This does not include any of my coding prior to {`${intToMonth(
+			startDate.getMonth()
+		)} ${startDate.getDate()}, ${startDate.getFullYear()}`} and other periods of no data capture and
+		is intended to solely display proficiency.
 	</div>
 	<Languages {activity} {languages} />
 	<div
@@ -31,9 +41,9 @@
 					activityStart.getMonth()
 				)} ${activityStart.getDate()}, ${activityStart.getFullYear()}`}</span>
 		</span>
-		<span class="hidden md:inline text-blue">&bull;</span>
+		<span class="hidden md:inline text-lightgrey">&bull;</span>
 		<span>Total: ~{Math.ceil(activity.totalHours)} hours</span>
-		<span class="hidden md:inline text-blue">&bull;</span>
+		<span class="hidden md:inline text-lightgrey">&bull;</span>
 		<span>
 			Average Daily: ~{Math.ceil(activity.dailyAverageHours)} hours
 		</span>

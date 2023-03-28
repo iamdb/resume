@@ -9,24 +9,25 @@ import {
 	type Language
 } from '$lib/types/wakatime';
 import type { Job } from '$lib/types/resume';
+import type { PageServerLoad } from './$types';
 
-export const prerender = false;
-
-/** @type {import('./$types').PageServerLoad} */
-export async function load() {
+export const load = (async ({ fetch }) => {
 	experience.forEach((e: Job) => e.stack.sort());
 
 	return {
-		languagesAlltime: fetchJson(Urls.LanguagesAllTime),
-		activityAlltime: fetchJson(Urls.ActivityAllTime),
-		activityLastYear: fetchJson(Urls.ActivityLastYear),
-		languagesLastYear: fetchJson(Urls.LanguagesLastYear),
+		languagesAlltime: fetchJson(Urls.LanguagesAllTime, fetch),
+		activityAlltime: fetchJson(Urls.ActivityAllTime, fetch),
+		activityLastYear: fetchJson(Urls.ActivityLastYear, fetch),
+		languagesLastYear: fetchJson(Urls.LanguagesLastYear, fetch),
 		workExperience: experience,
 		notableProjects: projects
 	};
-}
+}) satisfies PageServerLoad;
 
-async function fetchJson(url: Urls): Promise<Language[] | CodingActivityNormalized | undefined> {
+async function fetchJson(
+	url: Urls,
+	fetch: (input: RequestInfo | URL, init?: RequestInit | undefined) => Promise<Response>
+): Promise<Language[] | CodingActivityNormalized | undefined> {
 	try {
 		const res = await fetch(url);
 
@@ -70,7 +71,7 @@ function normalizeAllTimeCodingActivity(activity: CodingActivityAllTime): Coding
 function normalizeLastYearCodingActivity(
 	activity: CodingActivityLastYear
 ): CodingActivityNormalized {
-	const totalHours: number = activity?.days.map((d) => d.total).reduce((a, b) => a + b) / 60 / 60;
+	const totalHours: number = activity?.days.reduce((a, b) => a + b.total, 0) / 60 / 60;
 	const startDate = new Date(activity?.days[0].date);
 	const dailyAverageHours = totalHours / activity?.days.length;
 
@@ -90,6 +91,7 @@ function filterLangs(langs: Language[]): Language[] {
 				v.name !== 'JSX' &&
 				v.name !== 'SCSS' &&
 				v.name !== 'conf' &&
+				v.name !== 'TeX' &&
 				v.name !== 'INI'
 		)
 		.slice(0, 10);
