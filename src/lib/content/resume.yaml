@@ -63,6 +63,21 @@ experience:
       - Node.js
       - AWS
       - Github
+  - name: Lockwell
+    title: 
+    contract: true
+    startDate: 2023-03-01
+    endDate: 2023-08-01
+    stack:
+      - Rust
+      - TypeScript
+      - Node.js
+      - Github
+    accomplishments:
+      - Built libraries that enabled core functionality within the application
+      - Built bindings for external C libraries for use in Windows and MacOS in TypeScript and Rust, respectively
+      - Integrated bindings into an Electron app
+      - Built a MacOS privileged helper service in Rust
   - name: Little Cinema Digital
     title: Senior Video Engineer
     contract: true
