@@ -39,6 +39,7 @@
 		transition:fly={{ x: -handleOffset, y: 0 }}
 		on:click={toggleNav}
 		on:keydown={toggleNav}
+		aria-label="Open menu"
 		class="fixed top-0 left-0 z-10 rounded-br-lg border-r-2 border-b-2 transition-colors text-lightgrey border-perry bg-powder hover:bg-lightgrey hover:border-darkgrey hover:text-lightkhaki">
 		<Icon width="100%" height="100%" class="block p-2 w-16 h-16" icon="mdi:hamburger" />
 	</button>

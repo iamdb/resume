@@ -8,7 +8,6 @@
 	import NotableProjects from './notable-projects.svelte';
 	import Navigation from '$lib/components/navigation.svelte';
 	import NavLink from '$lib/components/nav-link.svelte';
-	import { goto } from '$app/navigation';
 	import Separator from './separator.svelte';
 	import EndCap from '$lib/components/end-cap.svelte';
 
@@ -33,7 +32,7 @@
 
 <PageHead title="Resume" />
 <Navigation let:drawer>
-	<NavLink {drawer} icon="mdi:download-circle" on:click={() => goto('/resume.pdf')}>pdf</NavLink>
+	<NavLink {drawer} icon="mdi:download-circle" href="/resume.pdf">pdf</NavLink>
 </Navigation>
 
 <div class="mx-auto mt-12 mb-48 max-w-screen-lg resume">

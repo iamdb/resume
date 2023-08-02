@@ -1,5 +1,5 @@
-const Color = require('color');
-const defaultTheme = require('tailwindcss/defaultTheme');
+import Color from 'color';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 const colors = {
 	darkgrey: new Color('#1c1916'),
@@ -10,7 +10,8 @@ const colors = {
 	powder: new Color('#f2f6fb')
 };
 
-const config = {
+/** @type {import('tailwindcss').Config} */
+export default {
 	content: ['./src/**/*.{html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
@@ -31,5 +32,3 @@ const config = {
 	},
 	plugins: []
 };
-
-module.exports = config;

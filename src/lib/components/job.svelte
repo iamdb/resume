@@ -27,8 +27,7 @@
 			</span>
 		</span>
 	</div>
-	<div
-		class="rounded-xl border-4 border-perry grid md:grid-cols-[1fr,auto] bg-lightkhaki p-8 md:py-4">
+	<div class="rounded-xl border-4 border-perry grid md:grid-cols-[1fr,auto] bg-powder p-8 md:py-4">
 		<div class="pb-8 border-b md:pr-8 md:pb-0 md:border-b-0 md:border-r border-khaki">
 			<h5 class="mb-4 underline">Accomplishments</h5>
 			<slot name="accomplishments" />

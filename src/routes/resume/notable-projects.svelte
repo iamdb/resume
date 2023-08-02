@@ -14,7 +14,7 @@
 				.localeCompare(b.title.replaceAll('The ', ''), undefined);
 		}) as project}
 			<li
-				class="flex relative flex-col justify-center items-center py-8 px-12 m-0 text-base list-none text-center rounded-lg border-4 border-perry bg-lightkhaki">
+				class="flex relative flex-col justify-center items-center py-8 px-12 m-0 text-base list-none text-center rounded-lg border-4 border-perry bg-powder">
 				<span class="px-8 font-bold tracking-wide">{project.title}</span>
 				<span class="text-sm">{project.description}</span>
 				<span
