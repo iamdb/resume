@@ -1,20 +1,13 @@
 <script lang="ts">
-	import GithubRepo from '$lib/components/github-repo.svelte';
-	import { stringToIcon } from '$lib/types/icons';
-	import type { Repo } from './+page.server';
 	import PageHead from '$lib/components/page-head.svelte';
 	import PageTitle from '$lib/components/page-title.svelte';
-
-	export let data: {
-		pinnedItems: Repo[];
-	};
 </script>
 
 <PageHead />
 
-<div class="container pt-12 mx-auto max-w-screen-lg">
+<div class="container mx-auto max-w-screen-lg">
 	<PageTitle>Hi.</PageTitle>
-	<div class="mt-8">
+	<div class="mt-12">
 		<p class="text-2xl">
 			My name is <a href="/about" class="inline">David Benjamin</a>.
 		</p>
@@ -24,23 +17,12 @@
 		</p>
 	</div>
 	<p class="text-2xl">
-		I have started <a class="inline" href="/brain-droppings">writing</a> about my personal projects.
+		In addition to engineering, I was a prolific <a class="inline" href="/photos"
+			>live concert photographer</a>
+		from <strong>2011</strong> until <strong>2018</strong> in Los Angeles, covering hundreds of shows
+		over that time.
 	</p>
 	<p class="text-2xl">
-		In addition to software development, I was a prolific <a class="inline" href="/photos"
-			>live concert photographer</a>
-		from <strong>2011</strong> until <strong>2018</strong> in Los Angeles.
+		I also sometimes <a class="inline" href="/brain-droppings">write</a> about my personal projects.
 	</p>
-	{#if data.pinnedItems.length > 0}
-		<h4 class="mt-24 mb-8 underline">Recent Projects</h4>
-		<div class="grid gap-8 sm:grid-cols-2">
-			{#each data.pinnedItems as repo}
-				<GithubRepo
-					name={repo.name}
-					url={repo.url}
-					description={repo.description}
-					icons={repo.languages.nodes.map((lang) => stringToIcon(lang.name))} />
-			{/each}
-		</div>
-	{/if}
 </div>

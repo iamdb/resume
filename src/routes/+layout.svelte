@@ -7,9 +7,38 @@
 	import IconGithub from 'virtual:icons/simple-icons/github';
 	import IconMastodon from 'virtual:icons/simple-icons/mastodon';
 	import IconLinkedIn from 'virtual:icons/simple-icons/linkedin';
+	import { page } from '$app/stores';
 </script>
 
-<div class="flex flex-col justify-between px-4 min-h-screen lg:pt-0">
+<div class="flex flex-col justify-between min-h-screen lg:pt-0">
+	<nav class="flex mb-12 flex-row justify-between items-center">
+		<a
+			class="uppercase mr-2 flex-grow-0 self-stretch transition-colors px-3 bg-perry text-darkgrey text-center flex items-center
+        justify-center text-lg font-bold"
+			href="/">
+			<span class="bg-khaki leading-none p-2 border-2 border-powder">DB</span>
+		</a>
+		<a
+			class:border-perry={$page.url.pathname.startsWith('/about')}
+			class:bg-powder={$page.url.pathname.startsWith('/about')}
+			class="uppercase border-2 border-khaki hover:bg-powder flex items-center justify-center transition-colors flex-grow text-center px-6 py-3 text-lg font-bold"
+			href="/about">About</a>
+		<a
+			class:border-perry={$page.url.pathname.startsWith('/resume')}
+			class:bg-powder={$page.url.pathname.startsWith('/resume')}
+			class="uppercase border-2 border-khaki hover:bg-powder flex items-center justify-center transition-colors flex-grow text-center px-6 py-3 text-lg font-bold"
+			href="/resume">Resume</a>
+		<a
+			class:border-perry={$page.url.pathname.startsWith('/photos')}
+			class:bg-powder={$page.url.pathname.startsWith('/photos')}
+			class="uppercase border-2 border-khaki hover:bg-powder flex items-center justify-center transition-colors flex-grow text-center px-6 py-3 text-lg font-bold"
+			href="/photos">Photography</a>
+		<a
+			class:border-perry={$page.url.pathname.startsWith('/brain-droppings')}
+			class:bg-powder={$page.url.pathname.startsWith('/brain-droppings')}
+			class="uppercase border-2 border-khaki hover:bg-powder flex items-center justify-center transition-colors text-center flex-grow px-6 py-3 text-lg font-bold"
+			href="/brain-droppings">Writing</a>
+	</nav>
 	<div>
 		<slot />
 	</div>

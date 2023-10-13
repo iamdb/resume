@@ -33,7 +33,7 @@
 			<slot name="accomplishments" />
 		</div>
 		<div class="pt-8 md:pt-0 md:pl-8">
-			<h5 class="mb-4 text-left underline md:text-left lg:text-center">Stack</h5>
+			<h5 class="mb-4 text-left underline">Stack</h5>
 			<slot name="stack" />
 		</div>
 	</div>

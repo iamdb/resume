@@ -47,13 +47,15 @@ projects:
   - title: Playboy.com
     description: Conversion to Next.js, headless Shopify and additional features
     lead: false
-  # - text: A multi-terminal interactive quiz with results display for a conference booth
-  #   lead: true
 experience:
   - name: Contract / Self-employed
+    title: Senior Full Stack Engineer
+    contract: false
     startDate: 2009-05-01
+    endDate: 2009-05-01
     accomplishments:
-      - Original web version of Jumanji Run game for the movie release
+      - Built and deployed dozens of web sites and applications for clients of all sizes
+      - Developed the original web version of Jumanji Run game for the movie release
       - A distributed kiosk quiz experience for BlackHat conference
       - A talking robot gif generator for the Netflix show Glow
       - Wizard of Oz 50th Anniversary site
@@ -62,9 +64,9 @@ experience:
       - JavaScript
       - Node.js
       - AWS
-      - Github
+      - Git
   - name: Lockwell
-    title: 
+    title: Senior Software Engineer
     contract: true
     startDate: 2023-03-01
     endDate: 2023-08-01
@@ -72,7 +74,9 @@ experience:
       - Rust
       - TypeScript
       - Node.js
-      - Github
+      - Git
+      - Linux
+      - Electron
     accomplishments:
       - Built libraries that enabled core functionality within the application
       - Built bindings for external C libraries for use in Windows and MacOS in TypeScript and Rust, respectively
@@ -87,41 +91,37 @@ experience:
       - TypeScript
       - Node.js
       - Kubernetes
-      - WebRTC
       - AWS
-      - Github
+      - Git
     accomplishments:
       - Researched and wrote RFC for a WebRTC deployment with multiple options and the pros and cons of each.
       - Designed a WebRTC infrastructure based around LiveKit
       - Gave presentation on WebRTC technology to engineering team
       - Constructed UI components within their current application to support the WebRTC infrastructure
-      - Wrote AWS CDK to deploy the <a href="https://www.livekit.io" target="_blank" rel="noreferrer noopener">LiveKit</a> infrastructure along with their current stack
+      - Wrote AWS CDK to deploy the LiveKit infrastructure along with their current stack
       - Transferred knowledge to team when contract ended
   - name: Supergroup
-    title: Senior Fullstack Developer
+    title: Senior Fullstack Engineer
+    contract: false
     startDate: 2019-11-01
     endDate: 2021-11-01
     stack:
       - React
       - TypeScript
       - Node.js
-      - GraphQL
-      - Next.js
-      - Hasura
+      - Docker
       - AWS
-      - Github
-      - Shopify
-      - Contentful
-      - Netlify
+      - Git
     accomplishments:
       - Delivered quality code for client projects
       - Built new and maintained current features for Playboy.com
       - Transferred knowledge to new team at Playboy.com via working sessions
-      - Built <a href="https://www.reesesbookclub.com" target="_blank" rel="noreferrer noopener">reesesbookclub.com</a>
+      - Built reesesbookclub.com
       - Built tool to search subreddits for keywords and sentiment
       - Redesigned company stack to be easier to deploy and more developer friendly
   - name: EsportsOne
-    title: Senior Fullstack Developer
+    title: Senior Fullstack Engineer
+    contract: false
     startDate: 2018-04-01
     endDate: 2019-11-01
     stack:
@@ -129,40 +129,35 @@ experience:
       - JavaScript
       - TypeScript
       - Node.js
-      - GraphQL
       - React
-      - Next.js
-      - MobX
-      - LibAV
       - AWS
-      - Github
+      - Git
     accomplishments:
       - Rebuilt original computer vision processor, basically converting it from C# and needing to be manually operated through Remote Desktop to a Go codebase with higher performance and much lower resource requirements.
       - Built a UI dashboard to display real-time information from a League of Legends computer vision processor
       - Built a Twitch.tv extension, both ui and backend, to display real-time data about the League of Legends match currently being played on stream
-  - name: Union + Webster / The Craftsman Agency
+  - name: The Craftsman Agency
     title: Technical Lead
+    contract: false
     startDate: 2013-07-01
     endDate: 2016-03-01
     stack:
       - React
-      - Next.js
       - JavaScript
       - HTML
       - CSS
       - Node.js
-      - DigitalOcean
     accomplishments:
       - Lead all tech efforts within organization
       - Collaborated with account managers to refine their ideas into buildable products
       - Wrote code for, deployed and maintained nearly all development projects
   - name: Ignition Interactive
-    title: Senior Interactive Developer
+    title: Senior Interactive Engineer
+    contract: false
     startDate: 2012-03-01
     endDate: 2013-03-01
     stack:
       - JavaScript
-      - jQuery
       - HTML
       - CSS
     accomplishments:
@@ -170,56 +165,20 @@ experience:
       - The Hunger Games movie web site
       - Arrested Development "You're Going to get Some Walk Ons" contest site
       - Dodge Dart relaunch crowdfunding site
-  # - name: TotalBeauty.com
-  #   title: Front-end Developer
-  #   startDate: 2011-02-01
-  #   endDate: 2012-03-01
-  #   stack:
-  #     - HTML
-  #     - CSS
-  #   accomplishments:
-  #     - Wrote HTML and CSS for main site
+  - name: TotalBeauty.com
+    title: Front-end Engineer
+    contract: false
+    startDate: 2011-02-01
+    endDate: 2012-03-01
+    stack:
+      - HTML
+      - CSS
+    accomplishments:
+      - Responsible for all front-end code
+      - Built new features from product requirements
 education:
   - name: Miami International University of Art & Design
-    degree: Bachelor of Arts
+    degree: Bachelor of Fine Arts
     field: Film and Video Production
     startDate: 1997-05-01
     endDate: 2000-05-01
-icons:
-  AWS: skill-icons:aws-dark
-  Bash: skill-icons:bash-dark
-  Contentful: simple-icons:contentful
-  CSS: skill-icons:css
-  Docker: skill-icons:docker
-  Error: bx:error-circle
-  FFmpeg: simple-icons:ffmpeg
-  Github: skill-icons:github-dark
-  Go: skill-icons:golang
-  Graphql: skill-icons:graphql-dark
-  Hasura: simple-icons:hasura
-  Html: skill-icons:html
-  JavaScript: skill-icons:javascript
-  Jira: simple-icons:jira
-  JSON: simple-icons:json
-  jQuery: skill-icons:jquery
-  Kubernetes: skill-icons:kubernetes
-  Linux: skill-icons:linux-dark
-  Lua: skill-icons:lua-dark
-  Markdown: skill-icons:markdown-dark
-  MobX: simple-icons:mobx
-  Neovim: skill-icons:neovim-dark
-  Netlify: skill-icons:netlify-dark
-  NextJS: skill-icons:nextjs-dark
-  Nodejs: skill-icons:nodejs-dark
-  OpenCV: simple-icons:opencv
-  Python: skill-icons:python-dark
-  React: skill-icons:react-dark
-  Rust: skill-icons:rust
-  Shopify: simple-icons:shopify
-  Svelte: skill-icons:svelte
-  Terraform: simple-icons:terraform
-  Toml: simple-icons:toml
-  TypeScript: skill-icons:typescript
-  WebRTC: simple-icons:webrtc
-  YAML: file-icons:yaml-alt4
-  External: mdi:open-in-new
