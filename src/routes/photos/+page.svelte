@@ -31,7 +31,7 @@
 <div
 	class:lg:grid-cols-2={!$forceSingleColumnPhotos}
 	class:xl:px-24={$forceSingleColumnPhotos}
-	class="grid px-14 relative grid-cols-1 gap-14 place-items-center mt-12">
+	class="grid lg:px-14 relative grid-cols-1 gap-14 place-items-center mt-12">
 	{#each data.shows as show}
 		{#if show.photos}
 			{@const photos = show.photos}

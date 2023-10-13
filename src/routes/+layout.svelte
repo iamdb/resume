@@ -11,7 +11,7 @@
 </script>
 
 <div class="flex flex-col justify-between min-h-screen lg:pt-0">
-	<nav class="flex mb-12 flex-row justify-between items-center">
+	<nav class="mb-12 flex-row hidden lg:flex justify-between items-center">
 		<a
 			class="uppercase mr-2 flex-grow-0 self-stretch transition-colors px-3 bg-perry text-darkgrey text-center flex items-center
         justify-center text-lg font-bold"
@@ -39,7 +39,7 @@
 			class="uppercase border-2 border-khaki hover:bg-powder flex items-center justify-center transition-colors text-center flex-grow px-6 py-3 text-lg font-bold"
 			href="/brain-droppings">Writing</a>
 	</nav>
-	<div>
+	<div class="p-4">
 		<slot />
 	</div>
 	<footer class="flex flex-col justify-center items-center pb-12 mt-24">
