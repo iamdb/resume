@@ -101,7 +101,7 @@ experience:
       - Wrote AWS CDK to deploy the LiveKit infrastructure along with their current stack
       - Transferred knowledge to team when contract ended
   - name: Supergroup
-    title: Senior Fullstack Engineer
+    title: Senior Full Stack Engineer
     contract: false
     startDate: 2019-11-01
     endDate: 2021-11-01
@@ -120,7 +120,7 @@ experience:
       - Built tool to search subreddits for keywords and sentiment
       - Redesigned company stack to be easier to deploy and more developer friendly
   - name: EsportsOne
-    title: Senior Fullstack Engineer
+    title: Senior Full Stack Engineer
     contract: false
     startDate: 2018-04-01
     endDate: 2019-11-01
