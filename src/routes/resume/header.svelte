@@ -35,7 +35,7 @@
 			alike. I can make any small-to-large project a reality or lead a team to make it happen.
 		</p>
 	</div>
-	<div class="absolute top-0 right-0">
+	<div class="absolute -top-8 -right-2">
 		<a
 			class="font-bold leading-none uppercase text-lg pl-4 hover:bg-perry transition-colors pr-3 py-2 bg-powder border-2 rounded-md border-perry"
 			href="/DavidBenjamin_resume.pdf">

@@ -36,7 +36,7 @@
 <svelte:window bind:innerWidth={windowWidth} on:resize={onWindowResize} />
 
 <nav
-	class="flex-col max-h-16 md:flex-row flex sticky top-0 z-10 md:justify-between md:items-center">
+	class="flex-col bg-khaki max-h-16 md:flex-row flex sticky top-0 z-10 md:justify-between md:items-center">
 	<svelte:element
 		this={isDesktop ? 'a' : 'button'}
 		href={isDesktop ? '/' : null}

@@ -1,21 +1,24 @@
 <script lang="ts">
 	export let companyName: string;
+	export let jobTitle: string;
 	export let startDate: string;
 	export let endDate: string | undefined;
 	export let temporary = false;
 </script>
 
 <div class="overflow-hidden">
-	<div class="flex relative flex-col justify-between items-baseline mb-4 lg:flex-row">
-		<p class="m-0 text-lg md:text-xl xl:text-2xl">
+	<div class="flex relative flex-col justify-between items-center lg:items-start mb-4 lg:flex-row">
+		<p
+			class="m-0 text-lg md:text-xl xl:text-2xl flex flex-col lg:flex-row lg:gap-x-8 justify-between w-full lg:w-auto items-center">
 			<span
 				class="px-2 font-bold leading-tight uppercase border-2 bg-powder text-lightgrey border-perry"
 				>{companyName}</span>
+			<span class="text-[0.85em]">{jobTitle}</span>
 			{#if temporary}
-				<span class="text-xs font-normal align-baseline">(temporary contract)</span>
+				<span class="text-xs font-normal align-baseline">temporary contract</span>
 			{/if}
 		</p>
-		<span class="flex flex-row gap-x-2 items-center mt-2 md:text-lg lg:mt-0">
+		<span class="flex flex-row gap-x-2 items-center mt-2 text-sm md:text-lg lg:mt-0">
 			<span class="px-1 rounded-lg text-lightgrey">{startDate}</span>
 			<span class="text-lightgrey">to</span>
 			<span class="px-1 text-lightgrey">

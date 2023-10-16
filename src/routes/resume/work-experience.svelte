@@ -16,6 +16,7 @@
 		{#each workExperience as job}
 			<Job
 				companyName={job.name}
+				jobTitle={job.title}
 				startDate={formatDate(job.startDate)}
 				endDate={job.endDate && formatDate(job.endDate)}
 				temporary={job.contract}>
