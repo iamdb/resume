@@ -17,7 +17,7 @@
 
 <PageHead title="Resume" />
 
-<div class="mx-auto mt-12 mb-48 max-w-screen-lg resume">
+<div class="mx-auto mb-48 max-w-screen-lg resume">
 	<Header />
 	<Separator />
 	<NotableProjects {notableProjects} />

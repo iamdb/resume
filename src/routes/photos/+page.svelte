@@ -19,7 +19,7 @@
 
 <PageHead title={data.title} />
 
-<div class="mx-auto mt-12 max-w-screen-lg">
+<div class="mx-auto max-w-screen-lg">
 	<PageTitle>{data.title}</PageTitle>
 	<div class="mt-12 mdx">
 		<div class="content">
