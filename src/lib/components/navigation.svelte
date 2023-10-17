@@ -39,6 +39,8 @@
 	class="flex-col bg-khaki max-h-16 md:flex-row flex sticky top-0 z-10 md:justify-between md:items-center">
 	<svelte:element
 		this={isDesktop ? 'a' : 'button'}
+		role="button"
+		tabindex="0"
 		href={isDesktop ? '/' : null}
 		on:click={toggleMenu}
 		class="uppercase relative h-16 aspect-square p-1 z-10 md:mr-2 md:self-stretch transition-colors bg-lightkhaki md:bg-perry text-darkgrey text-center flex items-center justify-center text-2xl font-bold">
