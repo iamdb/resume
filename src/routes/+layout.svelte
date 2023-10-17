@@ -10,9 +10,9 @@
 	import Navigation from '$lib/components/navigation.svelte';
 </script>
 
-<div class="flex flex-col justify-between min-h-screen lg:pt-0">
-	<Navigation />
-	<div class="px-4 py-12">
+<Navigation />
+<div class="flex flex-col justify-between flex-grow lg:pt-0">
+	<div class="px-4 py-12 flex flex-col justify-center flex-grow">
 		<slot />
 	</div>
 	<footer class="flex flex-col justify-center items-center pb-12 mt-24">

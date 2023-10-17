@@ -41,7 +41,7 @@
 		this={isDesktop ? 'a' : 'button'}
 		href={isDesktop ? '/' : null}
 		on:click={toggleMenu}
-		class="uppercase relative aspect-square p-1 z-10 md:mr-2 md:self-stretch transition-colors bg-lightkhaki md:bg-perry text-darkgrey text-center flex items-center justify-center text-2xl font-bold">
+		class="uppercase relative h-16 aspect-square p-1 z-10 md:mr-2 md:self-stretch transition-colors bg-lightkhaki md:bg-perry text-darkgrey text-center flex items-center justify-center text-2xl font-bold">
 		<span
 			class="bg-khaki leading-none h-full px-3 md:w-full md:h-full border-2 border-darkgrey md:border-powder flex items-center justify-center"
 			>DB</span>
